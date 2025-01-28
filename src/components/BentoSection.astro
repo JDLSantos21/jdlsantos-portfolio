@@ -1,0 +1,168 @@
+---
+import {
+  GraduationCap,
+  User,
+  Code,
+  Briefcase,
+  Phone,
+  Mail,
+  Linkedin,
+  Github,
+} from "lucide-react";
+import { SkillsCarousel } from "./SkillsCarousel";
+import { projects } from "@/mocks/projects";
+---
+
+<div
+  class="lg:h-screen grid grid-cols-1 md:grid-cols-3 gap-4 p-10 max-w-6xl mx-auto"
+>
+  <!-- Sobre Mí -->
+  <a href="/about" class="block col-span-2">
+    <div
+      class="bg-white h-full p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
+    >
+      <div
+        class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-[100px] transition-all duration-300 group-hover:scale-110"
+      >
+      </div>
+      <div class="flex items-start justify-between mb-6 relative z-10">
+        <h2
+          class="text-3xl about-me-title font-bold text-blue-600 flex items-center"
+        >
+          <User className="w-8 h-8 mr-3 text-blue-600" />
+          Sobre Mí
+        </h2>
+        <img
+          src="/assets/profile.webp"
+          alt="Foto de perfil"
+          class="profile-photo w-20 h-20 rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <p class="text-lg leading-relaxed text-gray-600 mb-6 relative z-10">
+        Soy un desarrollador web apasionado por crear experiencias digitales
+        únicas y funcionales. Con experiencia en React, Node.js y diseño UX/UI,
+        me esfuerzo por combinar creatividad y tecnología en cada proyecto.
+      </p>
+      <div class="flex justify-end relative z-10">
+        <span class="text-sm text-primary font-medium group-hover:underline">
+          Conoce más sobre mí
+        </span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Proyectos -->
+  <div
+  transition:name="projects-container"
+    class="bg-white p-8 rounded-2xl max-md:col-span-2 shadow-lg transition-all duration-300 hover:shadow-xl md:row-span-2 relative overflow-hidden group"
+  >
+    <div
+      class="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-green-100 to-transparent rounded-tr-[100px] transition-all duration-300 group-hover:scale-110"
+    >
+    </div>
+    <h2
+    transition:name="projects-title"
+      class="text-3xl font-bold text-green-600 mb-6 flex items-center relative z-10"
+    >
+      <Briefcase className="w-8 h-8 mr-3 text-green-600" /> Proyectos
+    </h2>
+    <div class="grid grid-cols-1 gap-6 relative z-10">
+      {
+        projects.slice(0, 3).map((project) => (
+          <a
+            href={`/projects/${project.slug}`}	
+            class="flex items-center text-lg text-gray-600 hover:text-green-600 transition-colors"
+          >
+            <div transition:name={`${project.slug}-container`}>
+              <span class="font-medium" transition:name={`${project.slug}-title`}>{project.title}</span>
+              <p class="text-gray-600" transition:name={`project-description-${project.id}`}>{project.shortDescription}</p>
+              {project.skills.map((tag) => (
+                <span class="text-sm text-gray-400 bg-gray-100 px-2 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))
+      }
+      <a href="/projects" class="text-center text-sm text-primary font-medium group-hover:underline">Ver más proyectos</a>
+    </div>
+  </div>
+
+  {/* Skills */}
+  <div
+    class="bg-white p-8 flex flex-col items-center rounded-2xl max-md:col-span-2 shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
+  >
+    <div
+      class="absolute bottom-0 right-0 w-2/3 h-1/4 bg-gradient-to-tl from-purple-100 to-transparent rounded-tl-[100px] transition-all duration-300 group-hover:scale-110"
+    >
+    </div>
+
+    {/* Título con self-start para alinearlo al inicio */}
+    <h2
+      class="text-3xl font-bold text-purple-600 mb-4 flex items-center relative z-10 self-start"
+    >
+      <Code className="w-8 h-8 mr-3 text-purple-600" /> Skills
+    </h2>
+
+    {/* Carrusel centrado */}
+    <SkillsCarousel client:load />
+  </div>
+
+  {/* Educación */}
+  <div
+    class="bg-white p-8 rounded-2xl max-md:col-span-2 shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
+  >
+    <div
+      class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-yellow-100 to-transparent rounded-bl-[100px] transition-all duration-300 group-hover:scale-110"
+    >
+    </div>
+    <h2
+      class="text-3xl font-bold text-yellow-600 mb-4 flex items-center relative z-10"
+    >
+      <GraduationCap className="w-8 h-8 mr-3 text-yellow-600" /> Educación
+    </h2>
+    <p class="text-lg leading-relaxed text-gray-600 relative z-10">
+      Ingeniería en Sistemas Computacionales - Universidad XYZ
+    </p>
+  </div>
+
+  {/* Contacto */}
+  <div
+    class="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl col-span-2 md:col-span-3 relative overflow-hidden group"
+  >
+    <div
+      class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-red-100 to-transparent rounded-tr-[100px] transition-all duration-300 group-hover:scale-110"
+    >
+    </div>
+    <h2
+      class="text-3xl font-bold text-red-600 mb-6 flex items-center relative z-10"
+    >
+      <Phone className="w-8 h-8 mr-3 text-red-600" /> Contacto
+    </h2>
+    <div class="flex flex-wrap gap-6 relative z-10">
+      <a
+        href="mailto:tu@email.com"
+        class="flex items-center text-lg text-gray-600 hover:text-red-600 transition-colors"
+      >
+        <Mail className="w-6 h-6 mr-2" /> tu@email.com
+      </a>
+      <a
+        href="https://github.com/tuusuario"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center text-lg text-gray-600 hover:text-red-600 transition-colors"
+      >
+        <Github className="w-6 h-6 mr-2" /> GitHub
+      </a>
+      <a
+        href="https://linkedin.com/in/tuusuario"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center text-lg text-gray-600 hover:text-red-600 transition-colors"
+      >
+        <Linkedin className="w-6 h-6 mr-2" /> LinkedIn
+      </a>
+    </div>
+  </div>
+</div>

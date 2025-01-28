@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { projects } from "@/mocks/projects";
+---
+
+<Layout title="Projects - JDLSantos">
+  <main>
+   
+    <div
+  transition:name="projects-container"
+      class="flex flex-col items-center justify-center max-w-7xl mx-auto mt-10"
+    >
+      <h1 class="self-start ml-9 text-3xl font-bold text-green-600 mb-6 flex items-center relative z-10" transition:name="title">Projects</h1>
+      <div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          projects.map((project) => {
+            return (
+              <a href={`/projects/${project.slug}`}>
+              <div transition:name={`${project.slug}-container`} class={`my-4 bg-gradient-to-b from-green-100 via-sky-100 to-white p-4 rounded-md border-2 shadow-md hover:shadow-lg duration-300 flex flex-col`}>
+                <img
+                  height="200"
+                  src={`/assets/projects/${project.slug}.webp`}
+                  alt={project.title}
+                  class="rounded-sm object-contain mb-1 self-center w-full"
+                  transition:name={`${project.slug}-image`}
+                />
+                <h2 class="text-2xl font-bold mb-2" transition:name={`${project.slug}-title`}>{project.title}</h2>
+                <p class="mb-4" transition:name={`project-description-${project.id}`}>{project.shortDescription}</p>
+                <div class="flex flex-wrap gap-2">
+                  {project.skills.map((tag) => (
+                    <span class="text-sm text-gray-400 bg-gray-100 px-2 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
