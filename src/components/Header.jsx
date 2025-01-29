@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Menu, XIcon } from "lucide-react";
+import { Menu, XIcon, Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
+import { getTheme, setTheme } from "@/lib/utils";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
+  const [theme, setThemeState] = useState(getTheme());
 
   const headerVariants = {
     hidden: { y: -100, opacity: 0 },
@@ -12,6 +14,8 @@ const Header = () => {
   };
 
   useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+
     const handleScroll = () => {
       setScroll(window.scrollY > 0);
     };
@@ -28,6 +32,12 @@ const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    setThemeState(newTheme);
+  };
 
   const navLinks = [
     { href: "/", text: "Inicio" },
@@ -50,9 +60,9 @@ const Header = () => {
     >
       {/* Desktop Navigation */}
       <nav
-        className={`hidden lg:flex mx-auto transition-all duration-300 ${
+        className={`hidden lg:flex mx-auto transition-all duration-300  ${
           scroll
-            ? "w-[500px] p-4 mt-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl"
+            ? "w-[500px] p-4 mt-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl"
             : "w-3/4 justify-between rounded-none p-6"
         }`}
       >
@@ -68,22 +78,42 @@ const Header = () => {
               alt="Profile"
               aria-hidden="true"
             />
-            <h2 className="text-xl font-semibold text-gray-800">JDLSantos</h2>
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              JDLSantos
+            </h2>
           </div>
         </a>
 
-        <ul className={`flex justify-evenly ${scroll ? "w-full" : "w-1/2"}`}>
+        <ul
+          className={`flex justify-evenly items-center ${
+            scroll ? "w-full" : "w-1/2"
+          }`}
+        >
           {navLinks.map((link) => (
             <li key={link.text}>
               <a
                 href={link.href}
-                className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                className="text-gray-700 dark:text-white hover:text-gray-900 transition-colors font-medium"
               >
                 {link.text}
               </a>
             </li>
           ))}
         </ul>
+        <div
+          className={`${scroll ? "hidden" : ""} flex items-center space-x-4`}
+        >
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-200"
+          >
+            {theme === "light" ? (
+              <Moon className="text-gray-800" />
+            ) : (
+              <Sun className="text-yellow-400" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -120,6 +150,18 @@ const Header = () => {
             alt="Profile"
             aria-hidden="true"
           />
+          <div className={`flex mx-auto items-center space-x-4`}>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-gray-200"
+            >
+              {theme === "light" ? (
+                <Moon className="text-gray-800" />
+              ) : (
+                <Sun className="text-yellow-400" />
+              )}
+            </button>
+          </div>
         </div>
 
         <nav className="p-6 bg-white">
