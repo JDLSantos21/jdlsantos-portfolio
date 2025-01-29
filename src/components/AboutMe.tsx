@@ -18,12 +18,14 @@ const funFacts = [
 ];
 
 const FloatingEmojis = () => {
-  const emojis = ['😊', '🚀', '💻', '🌈', '🎉', '🔥', '💎', '✨'];
+  const emojis = ["😊", "🚀", "💻", "🌈", "🎉", "🔥", "💎", "✨"];
 
   // Genera animaciones de movimiento para los emojis
   const generateRandomPosition = () => {
-    const x = Math.random() * (window.innerWidth * 1.2) - (window.innerWidth * 0.6);
-    const y = Math.random() * (window.innerHeight * 1.2) - (window.innerHeight * 0.6);
+    const x =
+      Math.random() * (window.innerWidth * 1.2) - window.innerWidth * 0.6;
+    const y =
+      Math.random() * (window.innerHeight * 1.2) - window.innerHeight * 0.6;
     return { x, y };
   };
 
@@ -80,9 +82,8 @@ const AboutMe: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center p-4">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-      </div>
+    <div className="flex items-center justify-center p-4">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none"></div>
 
       <Toaster />
       <motion.div
@@ -93,9 +94,7 @@ const AboutMe: React.FC = () => {
         <Card className="w-full max-w-3xl bg-white/90 backdrop-blur-sm shadow-lg">
           <CardContent className="p-6">
             <div className="flex flex-col space-y-6">
-              <motion.h2
-                className="text-2xl about-me-title font-bold text-blue-600 flex items-center justify-center sm:justify-start"
-              >
+              <motion.h2 className="text-2xl about-me-title font-bold text-blue-600 flex items-center justify-center sm:justify-start">
                 <User className="w-6 h-6 mr-2" />
                 Sobre Mí
               </motion.h2>
