@@ -14,6 +14,7 @@
 
 @layer base {
   :root {
+    --color-scheme: light dark;
     --background: 0 0% 100%;
     /* Bento */
     --bento-card-bg: #fff;

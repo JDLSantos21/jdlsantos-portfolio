@@ -25,13 +25,14 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Agua & Hielo Lily",
-    slug: "agualily-web-2",
-    shortDescription: "Plataforma de distribución de agua y hielo purificados",
+    title: "Agua Lily App - Escritorio",
+    slug: "agualily-app",
+    shortDescription:
+      "Agua Lily App - Aplicación de escritorio creada con tauri y react",
     description:
-      "Agua Lily es una plataforma digital dedicada a la distribución de agua y hielo purificados, garantizando la frescura y pureza de sus productos mediante sistemas avanzados de tratamiento como la ósmosis inversa. El objetivo de la web es conectar a los clientes con servicios de agua de alta calidad, facilitando tanto pedidos en línea como la consulta de detalles de entrega y servicio.",
-    image: "/assets/projects/project.webp",
-    skills: ["HTML", "CSS", "JavaScript"],
+      "Agua Lily App es una aplicacion de escritorio que gestiona el registro de varias acciones como control de combustible, pedidos, clientes y equipos. La aplicación permite a los usuarios llevar un control detallado de sus operaciones, facilitando la gestión de datos y la toma de decisiones.",
+    image: "/assets/projects/agualily-app.webp",
+    skills: ["React", "Express", "Tauri", "MySQL", "Tailwind"],
     url: "#",
   },
   {

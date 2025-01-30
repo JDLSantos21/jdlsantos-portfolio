@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Menu, XIcon, Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
-import { getTheme, setTheme } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
-  const [theme, setThemeState] = useState(getTheme());
 
   const headerVariants = {
     hidden: { y: -100, opacity: 0 },
@@ -14,8 +13,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-
     const handleScroll = () => {
       setScroll(window.scrollY > 0);
     };
@@ -32,12 +29,6 @@ const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    setThemeState(newTheme);
-  };
 
   const navLinks = [
     { href: "/", text: "Inicio" },
@@ -100,20 +91,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <div
-          className={`${scroll ? "hidden" : ""} flex items-center space-x-4`}
-        >
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-200"
-          >
-            {theme === "light" ? (
-              <Moon className="text-gray-800" />
-            ) : (
-              <Sun className="text-yellow-400" />
-            )}
-          </button>
-        </div>
+        <ThemeToggle />
       </nav>
 
       {/* Mobile Menu Button */}
@@ -121,14 +99,14 @@ const Header = () => {
         aria-label="Abrir menú"
         aria-expanded={menuOpen}
         className={`mobile-menu-button lg:hidden fixed top-5 right-5 z-[999] text-gray-800 p-2 rounded-full transition-transform ${
-          menuOpen ? "rotate-90" : "rotate-0"
+          menuOpen ? "rotate-90 mt-3" : "rotate-0"
         }`}
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? (
           <XIcon className="text-red-500 w-6 h-6" />
         ) : (
-          <Menu className="text-blue-500 w-7 h-7" />
+          <Menu className="text-blue-500 dark:text-gray-200 w-7 h-7" />
         )}
       </button>
 
@@ -143,34 +121,26 @@ const Header = () => {
         transition={{ duration: 0.3 }}
         className="mobile-menu sticky lg:hidden"
       >
-        <div className="flex justify-between items-center p-6 bg-white border-b-2 border-gray-100">
-          <img
-            className="h-8 w-auto rounded-full"
-            src="/assets/profile.webp"
-            alt="Profile"
-            aria-hidden="true"
-          />
-          <div className={`flex mx-auto items-center space-x-4`}>
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-200"
-            >
-              {theme === "light" ? (
-                <Moon className="text-gray-800" />
-              ) : (
-                <Sun className="text-yellow-400" />
-              )}
-            </button>
+        <div className="flex justify-between items-center p-6 bg-white dark:bg-gray-800 border-b-2 border-gray-100 dark:border-gray-700">
+          <div className="p-1 rounded-full bg-transparent dark:bg-gray-700">
+            <img
+              className="h-8 w-auto rounded-full"
+              src="/assets/profile.webp"
+              alt="Profile"
+              aria-hidden="true"
+            />
           </div>
+
+          <ThemeToggle />
         </div>
 
-        <nav className="p-6 bg-white">
+        <nav className="p-6 bg-white dark:bg-gray-800 ">
           <ul className="space-y-4">
             {navLinks.map((link) => (
               <li key={link.text}>
                 <a
                   href={link.href}
-                  className="block py-2 text-xl text-gray-800 hover:text-gray-600 transition-colors"
+                  className="block py-2 text-xl text-gray-800 dark:text-gray-200 hover:text-gray-600 transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.text}

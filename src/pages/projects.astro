@@ -5,40 +5,101 @@ import { projects } from "@/mocks/projects";
 
 <Layout title="Projects - JDLSantos">
   <main>
-   
-    <div
-  transition:name="projects-container"
-      class="flex flex-col items-center justify-center max-w-7xl mx-auto mt-12"
-    >
-      <h1 class="self-start ml-9 text-3xl font-bold text-green-600 mb-6 flex items-center relative z-10" transition:name="title">Projects</h1>
-      <div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <h1 class="text-3xl font-bold text-green-600 mb-8 ml-4 md:ml-0">
+        Projects
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          projects.map((project) => {
-            return (
-              <a href={`/projects/${project.slug}`}>
-              <div transition:name={`${project.slug}-container`} class={`my-4 bg-gradient-to-b from-green-100 via-sky-100 to-white p-4 rounded-md border-2 shadow-md hover:shadow-lg duration-300 flex flex-col`}>
-                <img
-                  height="200"
-                  src={`/assets/projects/${project.slug}.webp`}
-                  alt={project.title}
-                  class="rounded-sm object-contain mb-1 self-center w-full"
-                  transition:name={`${project.slug}-image`}
-                />
-                <h2 class="text-2xl font-bold mb-2" transition:name={`${project.slug}-title`}>{project.title}</h2>
-                <p class="mb-4" transition:name={`project-description-${project.id}`}>{project.shortDescription}</p>
-                <div class="flex flex-wrap gap-2">
-                  {project.skills.map((tag) => (
-                    <span class="text-sm text-gray-400 bg-gray-100 px-2 py-1 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
+          projects.map((project) => (
+            <a
+              href={`/projects/${project.slug}`}
+              class="block group h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-lg"
+              aria-label={`View ${project.title} project`}
+            >
+              <div
+                transition:name={`${project?.slug}-container`}
+                class="h-full flex flex-col border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden bg-white"
+              >
+                {/* Contenedor de imagen con relación de aspecto 16:9 */}
+                <div class="w-full aspect-video bg-gray-50 p-4 flex items-center relative">
+                  <img
+                    src={`/assets/projects/${project.slug}.webp`}
+                    alt={project.title}
+                    class="w-full h-full object-contain mx-auto transition-transform duration-300 group-hover:scale-105"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    transition:name={`${project.slug}-image`}
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                {/* Contenido de la tarjeta */}
+                <div class="flex-1 p-5 flex flex-col">
+                  <h2
+                    transition:name={`${project.slug}-title`}
+                    class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 group-hover:text-green-600 transition-colors duration-200"
+                  >
+                    {project.title}
+                  </h2>
+                  <p
+                    transition:name={`project-description-${project.id}`}
+                    class="text-gray-600 mb-4 line-clamp-3 flex-1"
+                  >
+                    {project.shortDescription}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    {project.skills.map((tag) => (
+                      <span
+                        class="text-sm px-2.5 py-1 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 transition-colors duration-200"
+                        aria-label={`Skill: ${tag}`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </a>
-            );
-          })
+          ))
         }
       </div>
     </div>
   </main>
 </Layout>
+
+<style>
+  /* Mejoras de animación */
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+  }
+
+  /* Mejoras de accesibilidad */
+  [aria-label] {
+    position: relative;
+  }
+
+  [aria-label]::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  [aria-label]:hover::after {
+    opacity: 1;
+  }
+</style>
