@@ -20,10 +20,10 @@ export default function ThemeToggle() {
       onClick={handleToggle}
       className={`p-2 rounded-full max-lg:mx-auto ${
         isDark ? "rotate-90" : ""
-      } bg-gray-600 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-all`}
+      } bg-gradient-to-tl from-black  to-blue-900  transition-all`}
     >
       {isDark ? (
-        <Sun className="text-yellow-400" />
+        <Sun className="text-yellow-400 drop-shadow" />
       ) : (
         <Moon className="text-transparent" fill="yellow" />
       )}

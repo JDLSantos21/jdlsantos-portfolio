@@ -20,10 +20,11 @@ import { projects } from "@/mocks/projects";
             >
               <div
                 transition:name={`${project?.slug}-container`}
-                class="h-full flex flex-col border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden bg-white"
+                transition:animate="fade"
+                class="h-full flex flex-col rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden dark:bg-black/30"
               >
                 {/* Contenedor de imagen con relación de aspecto 16:9 */}
-                <div class="w-full aspect-video bg-gray-50 p-4 flex items-center relative">
+                <div class="w-full aspect-video  p-4 flex items-center relative">
                   <img
                     src={`/assets/projects/${project.slug}.webp`}
                     alt={project.title}
@@ -38,23 +39,23 @@ import { projects } from "@/mocks/projects";
                 </div>
 
                 {/* Contenido de la tarjeta */}
-                <div class="flex-1 p-5 flex flex-col">
+                <div class="flex-1 p-5 flex flex-col dark:bg-slate-800">
                   <h2
                     transition:name={`${project.slug}-title`}
-                    class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 group-hover:text-green-600 transition-colors duration-200"
+                    class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 dark:text-gray-200 group-hover:text-green-600 transition-colors duration-200"
                   >
                     {project.title}
                   </h2>
                   <p
                     transition:name={`project-description-${project.id}`}
-                    class="text-gray-600 mb-4 line-clamp-3 flex-1"
+                    class="text-gray-600 dark:text-gray-100 mb-4 line-clamp-3 flex-1"
                   >
                     {project.shortDescription}
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {project.skills.map((tag) => (
                       <span
-                        class="text-sm px-2.5 py-1 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 transition-colors duration-200"
+                        class="text-sm px-2.5 py-1 rounded-full text-gray-600 dark:text-gray-200 dark:bg-green-500 hover:bg-gray-200 transition-colors duration-200"
                         aria-label={`Skill: ${tag}`}
                       >
                         {tag}

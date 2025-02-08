@@ -80,7 +80,10 @@ import { projects } from "@/mocks/projects";
             href={`/projects/${project.slug}`}
             class="flex items-center text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-white hover:scale-105 transition-all duration-600"
           >
-            <div transition:name={`${project.slug}-container`}>
+            <div
+              transition:name={`${project.slug}-container`}
+              transition:animate="initial"
+            >
               <span class="font-bold" transition:name={`${project.slug}-title`}>
                 {project.title}
               </span>

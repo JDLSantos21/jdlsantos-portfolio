@@ -7,11 +7,6 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
 
-  const headerVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.scrollY > 0);
@@ -38,11 +33,7 @@ const Header = () => {
   ];
 
   return (
-    <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={headerVariants}
-      transition={{ duration: 0.3 }}
+    <header
       className={`${
         scroll ? "lg:fixed relative lg:p-2" : "lg:absolute max-lg:relative"
       } top-0 left-0 right-0 w-full lg:z-[2000] max-lg:overflow-hidden
@@ -53,7 +44,7 @@ const Header = () => {
       <nav
         className={`hidden lg:flex mx-auto transition-all duration-300  ${
           scroll
-            ? "w-[500px] p-4 mt-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl"
+            ? "w-[500px] p-4 mt-2 bg-white/90 dark:bg-gray-800/90 dark:shadow-white/50 backdrop-blur-sm rounded-full shadow-sm hover:shadow-lg"
             : "w-3/4 justify-between rounded-none p-6"
         }`}
       >
@@ -141,7 +132,6 @@ const Header = () => {
                 <a
                   href={link.href}
                   className="block py-2 text-xl text-gray-800 dark:text-gray-200 hover:text-gray-600 transition-colors"
-                  onClick={() => setMenuOpen(false)}
                 >
                   {link.text}
                 </a>
@@ -150,7 +140,7 @@ const Header = () => {
           </ul>
         </nav>
       </motion.div>
-    </motion.header>
+    </header>
   );
 };
 
