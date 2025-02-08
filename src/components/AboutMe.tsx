@@ -91,7 +91,7 @@ const AboutMe: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className="w-full max-w-3xl bg-white/90 backdrop-blur-sm shadow-lg">
+        <Card className="w-full max-w-3xl bg-white/90 dark:bg-slate-800 backdrop-blur-sm shadow-lg">
           <CardContent className="p-6">
             <div className="flex flex-col space-y-6">
               <motion.h2 className="text-2xl about-me-title font-bold text-blue-600 flex items-center justify-center sm:justify-start">
@@ -112,7 +112,7 @@ const AboutMe: React.FC = () => {
                 </motion.div>
                 <div className="text-center sm:text-left">
                   <motion.h1
-                    className="text-3xl font-bold text-gray-900"
+                    className="text-3xl font-bold text-gray-900 dark:text-gray-300"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
@@ -120,7 +120,7 @@ const AboutMe: React.FC = () => {
                     Jose A. De Los Santos
                   </motion.h1>
                   <motion.p
-                    className="mt-2 text-gray-600 text-lg"
+                    className="mt-2 text-gray-600 dark:text-gray-200 text-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
@@ -128,7 +128,7 @@ const AboutMe: React.FC = () => {
                     23 años
                   </motion.p>
                   <motion.p
-                    className="mt-2 text-gray-600 text-lg"
+                    className="mt-2 text-gray-600 dark:text-gray-200 text-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -141,7 +141,7 @@ const AboutMe: React.FC = () => {
               </div>
 
               <motion.div
-                className="text-gray-700"
+                className="text-gray-700 dark:text-gray-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
@@ -163,16 +163,20 @@ const AboutMe: React.FC = () => {
               </motion.div>
 
               <motion.div
-                className="bg-blue-50 p-4 rounded-lg"
+                className="bg-blue-50 dark:bg-slate-600 p-4 rounded-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-gray-200">
                   Dato Curioso:
                 </h3>
                 <p>{funFacts[currentFact]}</p>
-                <Button onClick={nextFact} variant="outline" className="mt-2">
+                <Button
+                  onClick={nextFact}
+                  variant="outline"
+                  className="mt-2 dark:bg-gray-200 dark:text-black"
+                >
                   Siguiente dato
                 </Button>
               </motion.div>
@@ -188,29 +192,29 @@ const AboutMe: React.FC = () => {
                 </h3>
                 <div className="flex flex-wrap gap-4">
                   <Button
-                    variant="outline"
+                    variant="default"
                     className="flex items-center"
                     onClick={copyEmail}
                   >
                     <Mail className="mr-2 h-4 w-4" />
-                    jose@example.com
+                    JDLSantos21@hotmail.com
                     <Copy className="ml-2 h-4 w-4" />
                   </Button>
                   <Button
-                    variant="outline"
+                    variant="default"
                     className="flex items-center"
                     onClick={sendEmail}
                   >
                     <Send className="mr-2 h-4 w-4" />
                     Enviar email
                   </Button>
-                  <Button variant="outline" className="flex items-center">
+                  <Button variant="default" className="flex items-center">
                     <Github className="mr-2 h-4 w-4" />
-                    github.com/username
+                    Github.com/JDLSantos21
                   </Button>
-                  <Button variant="outline" className="flex items-center">
+                  <Button variant="default" className="flex items-center">
                     <Linkedin className="mr-2 h-4 w-4" />
-                    linkedin.com/in/username
+                    Linkedin.com/in/JDLSantos21
                   </Button>
                 </div>
               </motion.div>

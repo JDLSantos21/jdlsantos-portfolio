@@ -37,7 +37,6 @@ const Header = () => {
       className={`${
         scroll ? "lg:fixed relative lg:p-2" : "lg:absolute max-lg:relative"
       } top-0 left-0 right-0 w-full lg:z-[2000] max-lg:overflow-hidden
-        ${menuOpen ? "h-auto" : "h-20 right-0 "}  
       `}
     >
       {/* Desktop Navigation */}
@@ -110,14 +109,14 @@ const Header = () => {
           closed: { opacity: 0, x: "100%" },
         }}
         transition={{ duration: 0.3 }}
-        className="mobile-menu sticky lg:hidden"
+        className="mobile-menu lg:hidden fixed top-0 right-0 bg-white h-screen w-screen z-[998] dark:bg-gray-800 shadow-lg"
       >
-        <div className="flex justify-between items-center p-6 bg-white dark:bg-gray-800 border-b-2 border-gray-100 dark:border-gray-700">
+        <div className="flex justify-between items-center p-6 border-b-2 border-gray-100 dark:border-gray-700">
           <div className="p-1 rounded-full bg-transparent dark:bg-gray-700">
             <img
               className="h-8 w-auto rounded-full"
               src="/assets/profile.webp"
-              alt="Profile"
+              alt="Profile photo"
               aria-hidden="true"
             />
           </div>
@@ -125,7 +124,7 @@ const Header = () => {
           <ThemeToggle />
         </div>
 
-        <nav className="p-6 bg-white dark:bg-gray-800 ">
+        <nav className="p-6">
           <ul className="space-y-4">
             {navLinks.map((link) => (
               <li key={link.text}>
