@@ -25,6 +25,7 @@ import { projects } from "@/mocks/projects";
               >
                 {/* Contenedor de imagen con relación de aspecto 16:9 */}
                 <div class="w-full aspect-video  p-4 flex items-center relative">
+                  <div class="skeleton absolute inset-0" />
                   <img
                     src={`/assets/projects/${project.slug}.webp`}
                     alt={project.title}
@@ -34,6 +35,7 @@ import { projects } from "@/mocks/projects";
                     loading="lazy"
                     decoding="async"
                     transition:name={`${project.slug}-image`}
+                    onload="this.previousElementSibling.classList.add('hidden')"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -73,6 +75,27 @@ import { projects } from "@/mocks/projects";
 </Layout>
 
 <style>
+  .skeleton {
+    background: #c2bcbc;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
   /* Mejoras de animación */
   .group:hover .group-hover\:scale-105 {
     transform: scale(1.05);
