@@ -2,10 +2,12 @@
 // src/components/SkeletonCard.astro
 ---
 
-<div class="animate-pulse h-full border rounded-lg overflow-hidden">
-  <div class="w-full aspect-video bg-gray-200"></div>
+<div
+  class="skeleton-card absolute h-full w-full border rounded-lg overflow-hidden z-20 bg-slate-300"
+>
+  <div class="w-full aspect-video bg-gray-200 animate-pulse"></div>
 
-  <div class="p-4 space-y-3">
+  <div class="p-4 space-y-3 animate-pulse">
     <div class="h-6 bg-gray-200 rounded w-3/4"></div>
     <div class="space-y-2">
       <div class="h-4 bg-gray-200 rounded"></div>

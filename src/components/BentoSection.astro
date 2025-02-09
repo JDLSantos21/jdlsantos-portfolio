@@ -67,7 +67,6 @@ import { projects } from "@/mocks/projects";
     >
     </div>
     <h2
-      transition:name="projects-title"
       class="text-xl lg:text-3xl font-bold text-green-600 dark:text-white-400 mb-6 flex items-center relative z-10"
     >
       <div class="bg-green-600 rounded-sm p-2 mr-3">
@@ -81,25 +80,21 @@ import { projects } from "@/mocks/projects";
           <a
             href={`/projects/${project.slug}`}
             class="flex items-center text-sm md:text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-gray-300 hover:scale-105 transition-transform duration-300"
+            transition:name={`${project.slug}-card`}
+            transition:animate="slide"
           >
-            <div
-              transition:name={`${project.slug}-container`}
-              transition:animate="initial"
-            >
-              <span class="font-bold" transition:name={`${project.slug}-title`}>
-                {project.title}
-              </span>
-              <p
-                class="text-[--bento-card-description-color] mb-2"
-                transition:name={`project-description-${project.id}`}
-              >
+            <div>
+              <span class="font-bold">{project.title}</span>
+              <p class="text-[--bento-card-description-color] mb-2">
                 {project.shortDescription}
               </p>
-              {project.skills.map((tag) => (
-                <span class="mr-2 text-sm text-gray-400 dark:text-white dark:bg-green-500 bg-gray-100 px-2 py-1 rounded-full">
-                  {tag}
-                </span>
-              ))}
+              <div class="flex flex-wrap gap-1">
+                {project.skills.map((tag) => (
+                  <div class="py-1 px-3 text-xs rounded-full bg-slate-200 dark:bg-slate-800 grid place-content-center">
+                    {tag}
+                  </div>
+                ))}
+              </div>
             </div>
           </a>
         ))
@@ -187,10 +182,10 @@ import { projects } from "@/mocks/projects";
       class="text-[--bento-card-description-color] flex flex-wrap gap-6 relative z-10"
     >
       <a
-        href="mailto:tu@email.com"
+        href="mailto:JDLSantos21@hotmail.com"
         class="flex items-center text-sm md:text-lg hover:text-red-600 transition-colors"
       >
-        <Mail className="w-6 h-6 mr-2" /> tu@email.com
+        <Mail className="w-6 h-6 mr-2" /> JDLSantos21@hotmail.com
       </a>
       <a
         href="https://github.com/jdlsantos21"

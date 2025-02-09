@@ -1,11 +1,15 @@
 ---
+import SkeletonCard from "@/components/SkeletonCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import { projects } from "@/mocks/projects";
 ---
 
 <Layout title="Projects - JDLSantos">
   <main>
-    <div class="max-w-7xl mx-auto px-4 py-12">
+    <div
+      class="max-w-7xl mx-auto px-4 py-12"
+      transition:name="projects-container"
+    >
       <h1 class="text-3xl font-bold text-green-600 mb-8 ml-4 md:ml-0">
         Projects
       </h1>
@@ -15,43 +19,39 @@ import { projects } from "@/mocks/projects";
           projects.map((project) => (
             <a
               href={`/projects/${project.slug}`}
-              class="block group h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-lg"
+              class="block  relative group h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-lg"
               aria-label={`View ${project.title} project`}
             >
+              <div id={`${project.slug}-skeleton`}>
+                <SkeletonCard />
+              </div>
+
               <div
-                transition:name={`${project?.slug}-container`}
-                transition:animate="fade"
-                class="h-full flex flex-col rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden dark:bg-black/30"
+                class="h-full flex flex-col rounded-lg bg-gray-300/20 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden dark:bg-black/30"
+                transition:name={`${project.slug}-card`}
               >
                 {/* Contenedor de imagen con relación de aspecto 16:9 */}
-                <div class="w-full aspect-video  p-4 flex items-center relative">
-                  <div class="skeleton absolute inset-0" />
+                <div class="w-full aspect-video p-4 flex items-center relative">
+                  {/* <div class="skeleton absolute inset-0" /> */}
                   <img
                     src={`/assets/projects/${project.slug}.webp`}
                     alt={project.title}
-                    class="w-full h-full object-contain mx-auto transition-transform duration-300 group-hover:scale-105"
+                    class="w-full h-full object-contain mx-auto transition-transform duration-300 group-hover:scale-105 card-image"
                     width="800"
                     height="450"
                     loading="lazy"
                     decoding="async"
-                    transition:name={`${project.slug}-image`}
-                    onload="this.previousElementSibling.classList.add('hidden')"
+                    onload={`document.getElementById("${project.slug}-skeleton").classList.add('hidden')`}
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 {/* Contenido de la tarjeta */}
                 <div class="flex-1 p-5 flex flex-col dark:bg-slate-800">
-                  <h2
-                    transition:name={`${project.slug}-title`}
-                    class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 dark:text-gray-200 group-hover:text-green-600 transition-colors duration-200"
-                  >
+                  <h2 class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 dark:text-gray-200 group-hover:text-green-600 transition-colors duration-200">
                     {project.title}
                   </h2>
-                  <p
-                    transition:name={`project-description-${project.id}`}
-                    class="text-gray-600 dark:text-gray-100 mb-4 line-clamp-3 flex-1"
-                  >
+                  <p class="text-gray-600 dark:text-gray-100 mb-4 line-clamp-3 flex-1">
                     {project.shortDescription}
                   </p>
                   <div class="flex flex-wrap gap-2">
@@ -75,6 +75,10 @@ import { projects } from "@/mocks/projects";
 </Layout>
 
 <style>
+  .card-image {
+    mask-image: linear-gradient(black 80%, transparent);
+  }
+
   .skeleton {
     background: #c2bcbc;
     animation: pulse 1.5s ease-in-out infinite;
