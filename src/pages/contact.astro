@@ -1,0 +1,63 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Contact - JDLSantos">
+  <div class="max-w-xl mx-auto mt-10">
+    <h1
+      class="text-3xl
+    font-bold
+    text-gray-800
+    dark:text-gray-200
+    mb-1"
+    >
+      Contacto
+    </h1>
+    <p class="text-gray-600 dark:text-gray-300 mb-8">
+      ¿Tienes alguna pregunta o quieres trabajar conmigo? ¡Escríbeme!
+    </p>
+
+    <form class="flex flex-col gap-4">
+      <label for="name" class="text-gray-800 dark:text-gray-200">
+        Nombre
+      </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        class="input"
+        placeholder="Tu nombre"
+      />
+
+      <label for="email" class="text-gray-800 dark:text-gray-200">
+        Correo
+      </label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        class="input"
+        placeholder="Tu correo"
+      />
+
+      <label for="message" class="text-gray-800 dark:text-gray-200">
+        Mensaje
+      </label>
+      <textarea
+        name="message"
+        id="message"
+        required
+        class="input"
+        placeholder="Escribe tu mensaje"></textarea>
+
+      <button
+        type="submit"
+        class="btn py-3 px-6 inline-flex items-center lg:text-md lg:px-7 text-white dark:bg-blue-700 dark:hover:bg-blue-600 drop-shadow dark:text-white shadow-md dark:shadow-blue-300/30 dark:hover:shadow-lg hover:bg-white/50 hover:text-white transition-all duration-300 rounded-full"
+      >
+        Enviar mensaje
+      </button>
+    </form>
+  </div>
+</Layout>

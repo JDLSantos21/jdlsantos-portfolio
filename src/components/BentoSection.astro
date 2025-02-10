@@ -10,6 +10,7 @@ import {
   Github,
   University,
   Calendar,
+  GalleryHorizontalEnd,
 } from "lucide-react";
 import { SkillsCarousel } from "./SkillsCarousel";
 import { projects } from "@/mocks/projects";
@@ -78,7 +79,7 @@ import { projects } from "@/mocks/projects";
         projects.slice(0, 3).map((project) => (
           <a
             href={`/projects/${project.slug}`}
-            class="flex items-center text-sm md:text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-gray-300 hover:scale-105 transition-transform duration-300"
+            class="flex items-center text-sm md:text-lg text-gray-600 dark:text-gray-300 hover:scale-105 transition-transform duration-300"
             transition:name={`${project.slug}-card`}
             transition:animate="slide"
           >
@@ -101,8 +102,10 @@ import { projects } from "@/mocks/projects";
     </div>
     <a
       href="/projects"
-      class="text-center mt-10 text-sm text-primary font-medium group-hover:underline"
-      >Ver todos los proyectos</a
+      class="flex items-center justify-center text-center mt-10 text-sm text-primary font-medium group-hover:underline"
+    >
+      <GalleryHorizontalEnd className="w-6 h-6 inline-block mr-1" />
+      Todos los proyectos</a
     >
   </div>
 
