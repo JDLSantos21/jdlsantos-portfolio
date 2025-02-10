@@ -10,9 +10,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { toast, Toaster } from "sonner";
 
 const funFacts = [
-  "Amo el café tanto como el código",
-  "He visitado 15 países",
-  "Toco la guitarra en mi tiempo libre",
+  "Amo las peliculas tanto como el código",
   "Mi lenguaje favorito es TypeScript",
   "Contribuyo a proyectos open source",
 ];
@@ -82,16 +80,14 @@ const AboutMe: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-4">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none"></div>
-
+    <>
       <Toaster />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className="w-full max-w-3xl bg-white/90 dark:bg-slate-800 backdrop-blur-xs shadow-lg">
+        <Card>
           <CardContent className="p-6">
             <div className="flex flex-col space-y-6">
               <motion.h2 className="text-2xl about-me-title font-bold text-blue-600 flex items-center justify-center sm:justify-start">
@@ -245,7 +241,7 @@ const AboutMe: React.FC = () => {
           </motion.div>
         )}
       </motion.div>
-    </div>
+    </>
   );
 };
 

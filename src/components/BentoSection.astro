@@ -19,6 +19,7 @@ import { projects } from "@/mocks/projects";
   <!-- Sobre Mí -->
   <a href="/about" class="block col-span-2 max-lg:col-span-3">
     <div
+      transition:name="about-me-container"
       class="bg-white dark:bg-(--bento-card-bg) h-full p-8 rounded-2xl transition-shadow duration-200 shadow-xs dark:shadow-blue-700 shadow-blue-100 hover:shadow-blue-400 hover:shadow-2xl relative overflow-hidden group"
     >
       <div
@@ -77,7 +78,7 @@ import { projects } from "@/mocks/projects";
         projects.slice(0, 3).map((project) => (
           <a
             href={`/projects/${project.slug}`}
-            class="flex items-center text-sm md:text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-gray-300 transition-transform duration-300"
+            class="flex items-center text-sm md:text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-gray-300 hover:scale-105 transition-transform duration-300"
             transition:name={`${project.slug}-card`}
             transition:animate="slide"
           >

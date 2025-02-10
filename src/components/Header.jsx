@@ -43,7 +43,7 @@ const Header = () => {
       <nav
         className={`hidden lg:flex mx-auto transition-all duration-300  ${
           scroll
-            ? "w-[500px] p-4 mt-2 bg-white/90 dark:bg-gray-800/90 hover:shadow-2xl shadow-black dark:shadow-white/50 backdrop-blur-xs rounded-full shadow-xs"
+            ? "w-[500px] p-4 mt-2 bg-white/90 dark:bg-gray-800/90 hover:shadow-2xl dark:shadow-white/20 backdrop-blur-xs rounded-full shadow-sm"
             : "w-3/4 justify-between rounded-none p-6"
         }`}
       >
