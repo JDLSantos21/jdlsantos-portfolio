@@ -15,9 +15,7 @@ import { SkillsCarousel } from "./SkillsCarousel";
 import { projects } from "@/mocks/projects";
 ---
 
-<div
-  class="lg:h-screen grid grid-cols-1 md:grid-cols-3 gap-4 p-10 max-w-6xl mx-auto"
->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-10 max-w-6xl mx-auto">
   <!-- Sobre Mí -->
   <a href="/about" class="block col-span-2 max-lg:col-span-3">
     <div
@@ -74,12 +72,12 @@ import { projects } from "@/mocks/projects";
       </div>
       <span class="dark:text-white text-green-600">Proyectos</span>
     </h2>
-    <div class="grid grid-cols-1 gap-6 relative z-10">
+    <div class="grid grid-cols-1 gap-6 relative z-10 h-auto">
       {
         projects.slice(0, 3).map((project) => (
           <a
             href={`/projects/${project.slug}`}
-            class="flex items-center text-sm md:text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-gray-300 hover:scale-105 transition-transform duration-300"
+            class="flex items-center text-sm md:text-lg text-gray-600 hover:text-green-600 dark:hover:text-green-500 dark:text-gray-300 transition-transform duration-300"
             transition:name={`${project.slug}-card`}
             transition:animate="slide"
           >
@@ -102,8 +100,8 @@ import { projects } from "@/mocks/projects";
     </div>
     <a
       href="/projects"
-      class="text-center max-lg:mt-10 text-sm text-primary font-medium group-hover:underline"
-      >Ver más proyectos</a
+      class="text-center mt-10 text-sm text-primary font-medium group-hover:underline"
+      >Ver todos los proyectos</a
     >
   </div>
 
