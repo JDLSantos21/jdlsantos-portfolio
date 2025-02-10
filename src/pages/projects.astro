@@ -19,7 +19,7 @@ import { projects } from "@/mocks/projects";
           projects.map((project) => (
             <a
               href={`/projects/${project.slug}`}
-              class="block  relative group h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-lg"
+              class="block  relative group h-full focus:outline-hidden focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-lg"
               aria-label={`View ${project.title} project`}
             >
               <div id={`${project.slug}-skeleton`}>
@@ -43,7 +43,7 @@ import { projects } from "@/mocks/projects";
                     decoding="async"
                     onload={`document.getElementById("${project.slug}-skeleton").classList.add('hidden')`}
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div class="absolute inset-0 bg-linear-to-t from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 {/* Contenido de la tarjeta */}
