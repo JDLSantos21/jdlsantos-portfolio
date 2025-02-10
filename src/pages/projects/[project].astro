@@ -48,6 +48,7 @@ const imagePath = `/assets/projects/${currentProject?.slug}.webp`;
             alt={currentProject?.title || "Imagen del proyecto"}
             class="rounded-lg shadow-lg w-full h-auto relative z-0"
             onload="this.previousElementSibling.classList.add('hidden')"
+            transition:name={`${currentProject?.slug}-image`}
           />
         </div>
       </div>
