@@ -21,10 +21,10 @@ import { projects } from "@/mocks/projects";
   <!-- Sobre Mí -->
   <a href="/about" class="block col-span-2 max-lg:col-span-3">
     <div
-      class="bg-white dark:bg-[--bento-card-bg] h-full p-8 rounded-2xl transition-shadow duration-200 shadow-sm dark:shadow-blue-700 shadow-blue-100 hover:shadow-blue-400 hover:shadow-2xl relative overflow-hidden group"
+      class="bg-white dark:bg-(--bento-card-bg) h-full p-8 rounded-2xl transition-shadow duration-200 shadow-xs dark:shadow-blue-700 shadow-blue-100 hover:shadow-blue-400 hover:shadow-2xl relative overflow-hidden group"
     >
       <div
-        class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-100 dark:from-blue-800 to-transparent rounded-bl-[100px] group-hover:scale-110"
+        class="absolute top-0 right-0 w-1/2 h-1/2 bg-linear-to-bl from-blue-100 dark:from-blue-800 to-transparent rounded-bl-[100px] group-hover:scale-110"
       >
       </div>
       <div class="flex items-start justify-between mb-6 relative z-10">
@@ -39,11 +39,11 @@ import { projects } from "@/mocks/projects";
         <img
           src="/assets/profile.webp"
           alt="Foto de perfil"
-          class="profile-photo w-20 h-20 rounded-full border-4 border-white dark:border-gray-300 shadow-sm transition-transform duration-300 group-hover:scale-105"
+          class="profile-photo w-20 h-20 rounded-full border-4 border-white dark:border-gray-300 shadow-xs transition-transform duration-300 group-hover:scale-105"
         />
       </div>
       <p
-        class="text-sm md:text-lg leading-relaxed text-[--bento-card-description-color] mb-6 relative z-10"
+        class="text-sm md:text-lg leading-relaxed text-(--bento-card-description-color) mb-6 relative z-10"
       >
         Soy un desarrollador web apasionado por crear experiencias digitales
         únicas y funcionales. Con experiencia en React, Node.js y diseño UX/UI,
@@ -60,10 +60,10 @@ import { projects } from "@/mocks/projects";
   <!-- Proyectos -->
   <div
     transition:name="projects-container"
-    class="bg-[--bento-card-bg] flex flex-col justify-between p-8 rounded-2xl max-lg:col-span-3 transition-shadow duration-200 shadow-sm dark:shadow-green-700 shadow-green-100 hover:shadow-green-400 hover:shadow-2xl md:row-span-2 relative overflow-hidden group"
+    class="bg-(--bento-card-bg) flex flex-col justify-between p-8 rounded-2xl max-lg:col-span-3 transition-shadow duration-200 shadow-xs dark:shadow-green-700 shadow-green-100 hover:shadow-green-400 hover:shadow-2xl md:row-span-2 relative overflow-hidden group"
   >
     <div
-      class="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-green-100 dark:from-green-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
+      class="absolute top-0 left-0 w-1/2 h-1/2 bg-linear-to-br from-green-100 dark:from-green-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
     >
     </div>
     <h2
@@ -85,7 +85,7 @@ import { projects } from "@/mocks/projects";
           >
             <div>
               <span class="font-bold">{project.title}</span>
-              <p class="text-[--bento-card-description-color] mb-2">
+              <p class="text-(--bento-card-description-color) mb-2">
                 {project.shortDescription}
               </p>
               <div class="flex flex-wrap gap-1">
@@ -109,10 +109,10 @@ import { projects } from "@/mocks/projects";
 
   {/* Skills */}
   <div
-    class="bg-[--bento-card-bg] shadow-sm transition-shadow duration-200 dark:shadow-purple-700 shadow-purple-100 hover:shadow-purple-400 hover:shadow-2xl p-8 flex flex-col items-center rounded-2xl max-md:col-span-3 max-lg:col-span-2 relative overflow-hidden group"
+    class="bg-(--bento-card-bg) shadow-xs transition-shadow duration-200 dark:shadow-purple-700 shadow-purple-100 hover:shadow-purple-400 hover:shadow-2xl p-8 flex flex-col items-center rounded-2xl max-md:col-span-3 max-lg:col-span-2 relative overflow-hidden group"
   >
     <div
-      class="absolute bottom-0 right-0 w-2/3 h-1/4 bg-gradient-to-tl from-purple-100 to-transparent rounded-tl-[100px] group-hover:scale-110"
+      class="absolute bottom-0 right-0 w-2/3 h-1/4 bg-linear-to-tl from-purple-100 to-transparent rounded-tl-[100px] group-hover:scale-110"
     >
     </div>
 
@@ -132,10 +132,10 @@ import { projects } from "@/mocks/projects";
 
   {/* Educación */}
   <div
-    class="bg-[--bento-card-bg] shadow-sm transition-shadow duration-200 dark:shadow-yellow-700 shadow-yellow-100 hover:shadow-yellow-400 hover:shadow-2xl p-8 rounded-2xl max-md:col-span-3 relative overflow-hidden group"
+    class="bg-(--bento-card-bg) shadow-xs transition-shadow duration-200 dark:shadow-yellow-700 shadow-yellow-100 hover:shadow-yellow-400 hover:shadow-2xl p-8 rounded-2xl max-md:col-span-3 relative overflow-hidden group"
   >
     <div
-      class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-yellow-100 dark:from-yellow-800 to-transparent rounded-bl-[100px] group-hover:scale-110"
+      class="absolute top-0 right-0 w-1/2 h-1/2 bg-linear-to-bl from-yellow-100 dark:from-yellow-800 to-transparent rounded-bl-[100px] group-hover:scale-110"
     >
     </div>
     <h2
@@ -147,7 +147,7 @@ import { projects } from "@/mocks/projects";
       Educación
     </h2>
     <p
-      class="text-sm md:text-lg leading-relaxed text-[--bento-card-description-color] relative z-10"
+      class="text-sm md:text-lg leading-relaxed text-(--bento-card-description-color) relative z-10"
     >
       <span class="font-semibold">Ingenieria de Software</span>
       <div class="flex gap-2">
@@ -164,10 +164,10 @@ import { projects } from "@/mocks/projects";
 
   {/* Contacto */}
   <div
-    class="bg-[--bento-card-bg] shadow-sm transition-shadow duration-200 dark:shadow-red-700 shadow-red-100 hover:shadow-red-400 hover:shadow-2xl p-8 rounded-2xl col-span-3 relative overflow-hidden group"
+    class="bg-(--bento-card-bg) shadow-xs transition-shadow duration-200 dark:shadow-red-700 shadow-red-100 hover:shadow-red-400 hover:shadow-2xl p-8 rounded-2xl col-span-3 relative overflow-hidden group"
   >
     <div
-      class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-red-100 dark:from-red-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
+      class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-linear-to-tr from-red-100 dark:from-red-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
     >
     </div>
     <h2
@@ -179,7 +179,7 @@ import { projects } from "@/mocks/projects";
       Contacto
     </h2>
     <div
-      class="text-[--bento-card-description-color] flex flex-wrap gap-6 relative z-10"
+      class="text-(--bento-card-description-color) flex flex-wrap gap-6 relative z-10"
     >
       <a
         href="mailto:JDLSantos21@hotmail.com"
