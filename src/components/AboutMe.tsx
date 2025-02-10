@@ -87,7 +87,7 @@ const AboutMe: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card>
+        <Card className="bg-transparent shadow-none">
           <CardContent className="p-6">
             <div className="flex flex-col space-y-6">
               <motion.h2 className="text-2xl about-me-title font-bold text-blue-600 flex items-center justify-center sm:justify-start">
@@ -184,7 +184,7 @@ const AboutMe: React.FC = () => {
                 transition={{ delay: 0.8 }}
               >
                 <h3 className="text-lg font-semibold text-blue-600">
-                  Contacto:
+                  Contacto
                 </h3>
                 <div className="flex flex-wrap gap-4">
                   <Button
