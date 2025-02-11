@@ -4,13 +4,20 @@ import Layout from "@/layouts/Layout.astro";
 import { projects } from "@/mocks/projects";
 ---
 
-<Layout title="Projects - JDLSantos">
-  <main>
+<Layout title="Proyectos - JDLSantos">
+  <main class="relative lg:h-[calc(100vh-80px)]">
+    <div class="image-bg-container">
+      <img
+        src="/assets/avatar/jump.webp"
+        alt="Projects background"
+        class="absolute w-64 h-64 right-0 top-0 max-2xl:-translate-y-15 md:-translate-x-75 2xl:translate-x-0 animate-zoom-in"
+      />
+    </div>
     <div
       class="max-w-7xl mx-auto px-4 py-12"
       transition:name="projects-container"
     >
-      <h1 class="text-3xl font-bold text-green-600 mb-8 ml-4 md:ml-0">
+      <h1 class="text-3xl font-bold text-blue-600 mb-8 ml-4 md:ml-0">
         Projects
       </h1>
 
@@ -49,7 +56,7 @@ import { projects } from "@/mocks/projects";
 
                 {/* Contenido de la tarjeta */}
                 <div class="flex-1 p-5 flex flex-col dark:bg-linear-to-b dark:from-gray-800 dark:to-gray-900">
-                  <h3 class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 dark:text-blue-300 group-hover:text-green-600 transition-colors duration-200">
+                  <h3 class="text-xl font-bold mb-2 line-clamp-2 text-gray-800 dark:text-blue-300 group-hover:text-blue-600 transition-colors duration-200">
                     {project.title}
                   </h3>
                   <p class="text-gray-600 dark:text-blue-100 mb-4 line-clamp-3 flex-1">

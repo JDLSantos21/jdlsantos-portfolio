@@ -29,7 +29,7 @@ import { projects } from "@/mocks/projects";
       </div>
       <div class="flex items-start justify-between mb-6 relative z-10">
         <h2
-          class="text-xl lg:text-3xl about-me-title font-bold text-blue-400 dark:text-white flex items-center"
+          class="text-xl lg:text-3xl about-me-title font-bold dark:text-blue-400 text-gray-700 flex items-center"
         >
           <div class="bg-blue-600 rounded-sm p-2 mr-3">
             <User className="w-8 h-8 text-white" />
@@ -60,19 +60,19 @@ import { projects } from "@/mocks/projects";
   <!-- Proyectos -->
   <div
     transition:name="projects-container"
-    class="bg-(--bento-card-bg) flex flex-col justify-between p-8 rounded-2xl max-lg:col-span-3 transition-shadow duration-200 shadow-xs dark:shadow-green-700 shadow-green-100 hover:shadow-green-400 hover:shadow-2xl md:row-span-2 relative overflow-hidden group"
+    class="bg-(--bento-card-bg) flex flex-col justify-between p-8 rounded-2xl max-lg:col-span-3 transition-shadow duration-200 shadow-xs dark:shadow-blue-700 shadow-blue-100 hover:shadow-blue-400 hover:shadow-2xl md:row-span-2 relative overflow-hidden group"
   >
     <div
-      class="absolute top-0 left-0 w-1/2 h-1/2 bg-linear-to-br from-green-100 dark:from-green-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
+      class="absolute top-0 left-0 w-1/2 h-1/2 bg-linear-to-br from-blue-100 dark:from-blue-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
     >
     </div>
     <h2
-      class="text-xl lg:text-3xl font-bold text-green-600 dark:text-white-400 mb-6 flex items-center relative z-10"
+      class="text-xl lg:text-3xl font-bold dark:text-blue-400 text-gray-700 mb-6 flex items-center relative z-10"
     >
-      <div class="bg-green-600 rounded-sm p-2 mr-3">
+      <div class="bg-blue-600 rounded-sm p-2 mr-3">
         <Briefcase className="w-8 h-8 text-white" />
       </div>
-      <span class="dark:text-white text-green-600">Proyectos</span>
+      <span>Proyectos</span>
     </h2>
     <div class="grid grid-cols-1 gap-6 relative z-10 h-auto">
       {
@@ -120,7 +120,7 @@ import { projects } from "@/mocks/projects";
 
     {/* Título con self-start para alinearlo al inicio */}
     <h2
-      class="text-xl lg:text-3xl font-bold mb-4 flex items-center relative z-10 self-start"
+      class="text-xl lg:text-3xl dark:text-purple-400 text-gray-700 font-bold mb-4 flex items-center relative z-10 self-start"
     >
       <div class="bg-purple-600 rounded-sm p-2 mr-3">
         <Code className="w-8 h-8 text-white" />
@@ -141,7 +141,7 @@ import { projects } from "@/mocks/projects";
     >
     </div>
     <h2
-      class="text-xl lg:text-3xl font-bold mb-4 flex items-center relative z-10"
+      class="text-xl lg:text-3xl text-gray-700 dark:text-yellow-400 font-bold mb-4 flex items-center relative z-10"
     >
       <div class="bg-yellow-600 rounded-sm p-2 mr-3">
         <GraduationCap className="w-8 h-8 text-white" />
@@ -152,11 +152,11 @@ import { projects } from "@/mocks/projects";
       class="text-sm md:text-lg leading-relaxed text-(--bento-card-description-color) relative z-10"
     >
       <span class="font-semibold">Ingenieria de Software</span>
-      <div class="flex gap-2">
+      <div class="flex gap-2 text-xs">
         <University className="w-5 h-5" />
         <span>Universidad APEC</span>
       </div>
-      <div class="flex gap-2">
+      <div class="flex gap-2 text-xs">
         <Calendar className="w-5 h-5" />
         <span>Ene. 2020</span> -
         <span>Dic. 2024</span>
@@ -173,7 +173,7 @@ import { projects } from "@/mocks/projects";
     >
     </div>
     <h2
-      class="text-xl lg:text-3xl font-bold text-red-600 dark:text-white mb-6 flex items-center relative z-10"
+      class="text-xl lg:text-3xl font-bold dark:text-red-400 text-gray-700 mb-6 flex items-center relative z-10"
     >
       <div class="bg-red-600 rounded-sm p-2 mr-3">
         <Phone className="w-8 h-8 text-white" />

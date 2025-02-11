@@ -99,7 +99,7 @@ const AboutMe: React.FC = () => {
                 <motion.div whileHover={{ scale: 1.05 }}>
                   <Avatar className="w-32 h-32 border-2 border-blue-200">
                     <AvatarImage
-                      src="/assets/profile.webp"
+                      src="/assets/avatar/greet.webp"
                       className="profile-photo"
                       alt="Profile photo"
                     />
@@ -188,7 +188,7 @@ const AboutMe: React.FC = () => {
                 </h3>
                 <div className="flex flex-wrap gap-4">
                   <Button
-                    variant="default"
+                    variant="outline"
                     className="flex items-center"
                     onClick={copyEmail}
                   >
@@ -197,18 +197,18 @@ const AboutMe: React.FC = () => {
                     <Copy className="ml-2 h-4 w-4" />
                   </Button>
                   <Button
-                    variant="default"
+                    variant="outline"
                     className="flex items-center"
                     onClick={sendEmail}
                   >
                     <Send className="mr-2 h-4 w-4" />
                     Enviar email
                   </Button>
-                  <Button variant="default" className="flex items-center">
+                  <Button variant="outline" className="flex items-center">
                     <Github className="mr-2 h-4 w-4" />
                     Github.com/JDLSantos21
                   </Button>
-                  <Button variant="default" className="flex items-center">
+                  <Button variant="outline" className="flex items-center">
                     <Linkedin className="mr-2 h-4 w-4" />
                     Linkedin.com/in/JDLSantos21
                   </Button>
