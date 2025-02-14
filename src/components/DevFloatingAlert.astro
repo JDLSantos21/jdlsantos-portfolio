@@ -32,6 +32,9 @@
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       localStorage.setItem("hideBanner", "true");
+      if (banner) {
+        banner.style.display = "flex";
+      }
     });
   }
 </script>
