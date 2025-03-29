@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant hover (&:hover);
@@ -8,13 +9,10 @@
   background: transparent;
 }
 
-
-
 @theme {
   --font-numans: Numans, sans-serif;
   --font-modak: Modak, system-ui;
   --font-Bowlby-one: Bowlby One, sans-serif;
-
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -54,7 +52,6 @@
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
 
-
   /* animations */
 
   --animate-zoom-in: zoomIn 0.5s ease-in-out;
@@ -66,7 +63,7 @@
     }
     100% {
       opacity: 1;
-      transform: scale(1) translateZ(0)  translateY(0);
+      transform: scale(1) translateZ(0) translateY(0);
     }
   }
 
@@ -114,7 +111,7 @@
     --bento-card-bg: #fff;
     --bento-card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     --bento-card-title-color: oklch(0.546 0.245 262.881); /* blue-600 */
-    --bento-card-description-color:oklch(0.446 0.03 256.802) ; /* blue-300 */
+    --bento-card-description-color: oklch(0.446 0.03 256.802); /* blue-300 */
     /* ***** */
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -139,15 +136,15 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
-    --tw-bg-opacity:1;
+    --tw-bg-opacity: 1;
     --background: 0 0% 3.9%;
-     /* Bento */
+    /* Bento */
     --bento-card-bg: oklch(0.208 0.042 265.755);
     --bento-card-title-color: oklch(0.707 0.165 254.624); /* blue-400 */
-    --bento-card-description-color:oklch(0.872 0.01 258.338) ; /* gray 600 */
+    --bento-card-description-color: oklch(0.872 0.01 258.338); /* gray 600 */
     /* ***** */
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -171,7 +168,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -182,5 +179,46 @@
   body {
     @apply bg-background text-foreground;
   }
-}
 
+  .markdown-defaults img {
+    @apply inline;
+  }
+  .markdown-defaults ul {
+    @apply list-disc pl-5;
+  }
+
+  .markdown-defaults ol {
+    @apply list-decimal pl-5;
+  }
+
+  .markdown-defaults li {
+    @apply mb-2;
+  }
+  .markdown-defaults a {
+    @apply text-primary underline-offset-4 transition-colors duration-200;
+  }
+  .markdown-defaults a:hover {
+    @apply text-primary-foreground;
+  }
+  .markdown-defaults h1 {
+    @apply text-3xl font-bold mb-2;
+  }
+  .markdown-defaults h2 {
+    @apply text-2xl font-bold mb-2;
+  }
+  .markdown-defaults h3 {
+    @apply text-xl font-bold mb-2;
+  }
+  .markdown-defaults h4 {
+    @apply text-lg font-bold mb-2;
+  }
+  .markdown-defaults h5 {
+    @apply text-base font-bold mb-2;
+  }
+  .markdown-defaults h6 {
+    @apply text-sm font-bold mb-2;
+  }
+  .markdown-defaults p {
+    @apply mb-2;
+  }
+}
