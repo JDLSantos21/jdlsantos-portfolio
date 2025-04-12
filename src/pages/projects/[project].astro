@@ -50,7 +50,6 @@ const imagePath = `/assets/projects/${project.slug}.webp`;
           />
         </div>
       </div>
-
       <!-- Sección de detalles -->
       <div class="lg:w-1/2 flex flex-col justify-center">
         <h1
@@ -67,7 +66,9 @@ const imagePath = `/assets/projects/${project.slug}.webp`;
           >
             Descripción
           </h2>
-          <div class="prose prose-sm dark:prose-invert text-gray-600 dark:text-gray-300 max-w-none">
+          <div
+            class="prose prose-sm dark:prose-invert text-gray-600 dark:text-gray-300 max-w-none"
+          >
           </div>
         </div>
         <div class="mb-4">
@@ -78,7 +79,7 @@ const imagePath = `/assets/projects/${project.slug}.webp`;
           </h2>
           <div class="flex flex-wrap gap-2">
             {
-              project.data.skills.map((tag:string) => (
+              project.data.skills.map((tag: string) => (
                 <span class="text-xs lg:text-sm text-gray-500 dark:text-gray-200 dark:bg-slate-800 bg-gray-100 px-3 py-1 rounded-full">
                   {tag}
                 </span>
@@ -101,7 +102,9 @@ const imagePath = `/assets/projects/${project.slug}.webp`;
         }
       </div>
     </div>
-    <div class="markdown-defaults prose md:prose-md lg:prose-lg dark:prose-invert text-gray-600 dark:text-gray-300 max-w-none mt-8">
+    <div
+      class="markdown-defaults prose md:prose-md lg:prose-lg dark:prose-invert text-gray-600 dark:text-gray-300 max-w-none mt-8"
+    >
       <Content />
     </div>
   </div>
@@ -117,6 +120,4 @@ const imagePath = `/assets/projects/${project.slug}.webp`;
   .hidden {
     display: none;
   }
-
- 
 </style>
