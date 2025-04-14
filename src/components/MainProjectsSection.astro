@@ -1,8 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-const projects = await getCollection("projects");
-
-const mainProjects = projects.slice(0, 3);
+import { projects } from "@/mocks/topProjects";
 ---
 
 <section class="relative h-screen mt-40 section">
@@ -20,69 +17,99 @@ const mainProjects = projects.slice(0, 3);
       Aquí tienes una selección de mis proyectos más destacados.
     </p>
   </header>
-  <div class="projects-content-container h-[80vh]">
-    {
-      mainProjects.map((project) => {
-        const { slug, data } = project;
-        const { title, description, skills, image } = data;
 
+  <ul class="carousel h-[75vh] mx-auto w-full md:w-[90%] lg:w-[75%]">
+    {
+      projects.map((project) => {
         return (
-          <div class="h-full project-content">
-            <div class="flex flex-col w-full p-10 md:flex-row ">
-              <div class="w-full h-full md:w-2/5">
+          <li class="min-w-full inline-block h-full p-5">
+            <div class="flex flex-col xl:flex-row p-10 lg:w-full xl:h-full">
+              <figure class="w-1/2 xl:min-w-xl mx-auto">
                 <img
-                  src={image}
-                  alt={title}
+                  src={`/images/projects/${project.slug}.webp`}
+                  alt={project.title}
                   class="object-cover max-w-full rounded-lg shadow-lg"
                 />
-              </div>
-              <div class="w-full px-10 mt-5 text-center md:w-auto">
-                <h3 class="text-2xl font-bold">{title}</h3>
-                <p>{description}</p>
+              </figure>
+              <div class="w-full px-10 mt-5 lg:text-left md:w-auto">
+                <h3 class="text-2xl font-bold">{project.title}</h3>
+                <p class="text-pretty">{project.description}</p>
               </div>
             </div>
-          </div>
+          </li>
         );
       })
     }
-  </div>
+  </ul>
 </section>
 
 <style>
-  .projects-content-container {
-    overflow-y: scroll;
-    scroll-snap-type: y proximity;
+  .carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    anchor-name: --carousel;
+    scroll-timeline-name: --carousel-timeline;
+    scroll-timeline-axis: inline;
+
+    &::scroll-button(*) {
+      position: absolute;
+      border-radius: 100%;
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e5e5;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position-anchor: --carousel;
+      font-family: "Material Symbols Outlined";
+      transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    &::scroll-button(*):hover {
+      background-color: #e0e7ff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    &::scroll-button(right) {
+      left: calc(anchor(right) + 1rem);
+      position-area: inline-end center;
+      content: "arrow_forward" / "Next";
+    }
+
+    &::scroll-button(left) {
+      position-area: inline-start center;
+      right: calc(anchor(left) + 1rem);
+      content: "arrow_back" / "Previous";
+    }
   }
 
-  .project-content {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+  .carousel li {
+    scroll-snap-align: center;
   }
 
-  .project-content:nth-child(odd) {
-    background-color: #f0f4f8;
-  }
-
-  .project-content:nth-child(even) {
-    background-color: #e0e7ff;
-  }
-
-  .projects-content-container {
+  .carousel li {
+    scroll-snap-align: center;
     animation: img-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 20% cover 30%;
+    animation-timeline: --carousel-timeline;
   }
 
-  .project-content {
-    animation: reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 30% cover 50%;
+  .carousel li:first-child {
+    animation-range:
+      entry 0% cover 0%,
+      entry 10% cover 20%;
   }
 
-  .project-content img {
-    animation: img-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 40% cover 60%;
+  .carousel li:nth-child(2) {
+    animation-range: entry 25% cover 50%;
+  }
+
+  .carousel li:last-child() {
+    animation-range: entry 75% cover 100%;
   }
 
   @keyframes img-reveal {

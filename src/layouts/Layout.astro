@@ -7,6 +7,7 @@ import Header from "@components/Header.jsx";
 import { ClientRouter } from "astro:transitions";
 import DevFloatingAlert from "@/components/DevFloatingAlert.astro";
 const { title } = Astro.props;
+
 // trae las cookies de astro
 // si el tema es oscuro o si no hay tema y el sistema operativo tiene tema oscuro
 ---
@@ -22,6 +23,10 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Numans&display=swap"
       rel="stylesheet"
     />
@@ -33,39 +38,42 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Modak&family=Numans&display=swap"
       rel="stylesheet"
     />
+  </head>;
 
-    <title>{title}</title>
-    <ClientRouter />
-  </head>
+  <title>{title}</title>
+  <ClientRouter />
+
   <body class="lg:pt-20 bg-[url(/bg.svg)] dark:bg-[rgb(2,6,23,1)] relative">
     <DevFloatingAlert />
     <Header client:load />
     <slot />
   </body>
+
+  <script is:inline>
+    const theme = localStorage.getItem("theme");
+    if (
+      theme === "dark" ||
+      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+
+  <style is:global>
+    code {
+      font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+    }
+  </style>
+
+
 </html>
-
-<script is:inline>
-  const theme = localStorage.getItem("theme");
-  if (
-    theme === "dark" ||
-    (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-</script>
-
-<style is:global>
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
