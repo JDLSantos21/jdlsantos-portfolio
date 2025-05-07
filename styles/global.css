@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Titan+One&display=swap");
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -15,6 +17,7 @@
   --font-modak: Modak, system-ui;
   --font-Bowlby-one: Bowlby One, sans-serif;
   --font-titan-one: Titan One, sans-serif;
+  --font-jua: Jua, sans-serif;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);

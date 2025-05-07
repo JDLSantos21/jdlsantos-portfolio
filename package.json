@@ -7,7 +7,12 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    
+    "// Port Management Scripts": "Scripts for managing active ports",
+    "port:close": "pwsh -File ./scripts/port-management.ps1",
+    "port:close:3000": "pwsh -File ./scripts/port-management.ps1 -Port 3000",
+    "port:close:4321": "pwsh -File ./scripts/port-management.ps1 -Port 4321"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

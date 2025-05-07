@@ -4,34 +4,36 @@ import { projects } from "@/mocks/topProjects";
 
 <section class="relative h-screen mt-40 section">
   <header
-    class="h-[20vh] bg-white w-full flex flex-col items-center justify-end"
+    class="h-[20vh] px-10 bg-white w-full flex flex-col items-center justify-end"
   >
     <h2
-      class="text-3xl font-bold text-transparent uppercase md:text-6xl font-titan-one bg-clip-text bg-linear-to-b from-sky-500 dark:from-white via-blue-600 dark:via-gray-400 to-sky-400 dark:to-white drop-shadow-lg drop-shadow-blue-800/60"
+      class="text-2xl font-bold text-transparent uppercase md:text-5xl font-Bowlby-one bg-clip-text bg-linear-to-b from-gray-800 dark:from-white via-gray-400 dark:via-gray-400 to-slate-900 dark:to-white text-center"
     >
-      Proyectos Destacados
+      Proyectos <br /> Destacados
     </h2>
     <p
-      class="mt-2 mb-4 text-center text-gray-600 drop-shadow-md z-100 font-Bowlby-one dark:text-gray-300"
+      class="mt-2 mb-4 text-md text-left text-gray-600 z-100 dark:text-gray-300"
     >
-      Aquí tienes una selección de mis proyectos más destacados.
+      Proyectos que he realizado en mi tiempo libre y en el trabajo.
     </p>
   </header>
 
-  <ul class="carousel h-[75vh] mx-auto w-full md:w-[90%] lg:w-[75%]">
+  <ul
+    class="carousel h-[75vh] mx-auto w-full md:w-[90%] lg:w-[70%] max-w-7xl max-h-[800px] p-10"
+  >
     {
       projects.map((project) => {
         return (
-          <li class="min-w-full inline-block h-full p-5">
-            <div class="flex flex-col xl:flex-row p-10 lg:w-full xl:h-full">
-              <figure class="w-1/2 xl:min-w-xl mx-auto">
+          <li class="min-w-[100%] inline-block h-full shadow-lg ml-15">
+            <div class="flex flex-col xl:flex-row xl:justify-between xl:items-center p-10 lg:w-full xl:h-full">
+              <figure class="w-1/2 flex items-start h-full relative">
                 <img
                   src={`/images/projects/${project.slug}.webp`}
                   alt={project.title}
-                  class="object-cover max-w-full rounded-lg shadow-lg"
+                  class="object-cover rounded-lg shadow-lg absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 border"
                 />
               </figure>
-              <div class="w-full px-10 mt-5 lg:text-left md:w-auto">
+              <div class="w-full px-10 mt-5 lg:text-left lg:w-1/2">
                 <h3 class="text-2xl font-bold">{project.title}</h3>
                 <p class="text-pretty">{project.description}</p>
               </div>
@@ -94,33 +96,114 @@ import { projects } from "@/mocks/topProjects";
 
   .carousel li {
     scroll-snap-align: center;
-    animation: img-reveal linear both;
-    animation-timeline: --carousel-timeline;
+    /* animation: img-reveal linear both; */
+    /* animation-timeline: --carousel-timeline; */
   }
 
-  .carousel li:first-child {
+  /* .carousel li:first-child {
     animation-range:
       entry 0% cover 0%,
       entry 10% cover 20%;
+  } */
+
+  /* .carousel li:nth-child(2) {
+    animation-range: entry 25% cover 50%;
+  } */
+
+  /* .carousel li:last-child() {
+    animation-range: entry 75% cover 100%;
+  } */
+
+  .carousel li:first-child img {
+    translate: -50% -90%;
+  }
+
+  /* shadow animation */
+  .carousel li:nth-child(2),
+  .carousel li:nth-child(3) {
+    animation: smooth-shadow-border linear both;
+    animation-timeline: --carousel-timeline;
   }
 
   .carousel li:nth-child(2) {
-    animation-range: entry 25% cover 50%;
+    animation-range: entry 40% cover 50%;
   }
 
-  .carousel li:last-child() {
-    animation-range: entry 75% cover 100%;
+  .carousel li:nth-child(3) {
+    animation-range: entry 90% cover 100%;
+  }
+
+  /************************/
+
+  .carousel li:nth-child(2) img {
+    animation: img-reveal linear both 0.5s;
+    animation-timeline: --carousel-timeline;
+    animation-range: entry 5% cover 40%;
+  }
+
+  .carousel li:nth-child(2) h3 {
+    animation: show-text linear both 0.5s;
+    animation-timeline: --carousel-timeline;
+    animation-range: entry 25% cover 40%;
+  }
+
+  .carousel li:nth-child(2) p {
+    animation: show-text linear both 0.5s;
+    animation-timeline: --carousel-timeline;
+    animation-range: entry 25% cover 45%;
+  }
+
+  .carousel li:nth-child(3) img {
+    animation: img-reveal linear both 0.5s;
+    animation-timeline: --carousel-timeline;
+    animation-range: entry 55% cover 90%;
+  }
+
+  .carousel li:nth-child(3) h3 {
+    animation: show-text linear both 0.5s;
+    animation-timeline: --carousel-timeline;
+    animation-range: entry 75% cover 90%;
+  }
+
+  .carousel li:nth-child(3) p {
+    animation: show-text linear both 0.5s;
+    animation-timeline: --carousel-timeline;
+    animation-range: entry 75% cover 95%;
   }
 
   @keyframes img-reveal {
     from {
-      scale: 0.5;
-      opacity: 0;
-      translate: 0 100px;
+      box-shadow: 2px 0px 30px 0 rgb(189, 187, 187);
+      scale: 0.7;
+      opacity: 1;
+      translate: -90% 0;
     }
 
     to {
       scale: 1;
+      opacity: 1;
+      translate: -50% -90%;
+    }
+  }
+
+  @keyframes smooth-shadow-border {
+    from {
+      box-shadow: none;
+    }
+
+    to {
+      box-shadow:
+        0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+  }
+
+  @keyframes show-text {
+    from {
+      opacity: 0;
+      translate: 0 100px;
+    }
+    to {
       opacity: 1;
       translate: 0 0;
     }
