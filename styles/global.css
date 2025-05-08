@@ -12,6 +12,10 @@
   background: transparent;
 }
 
+body {
+  background-image: url("/bg.svg");
+}
+
 @theme {
   --font-numans: Numans, sans-serif;
   --font-modak: Modak, system-ui;
@@ -111,14 +115,14 @@
 @layer base {
   :root {
     --color-scheme: light dark;
-    --background: 0 0% 100%;
+    /* --background: 0 0% 100%; */
     /* Bento */
     --bento-card-bg: #fff;
     --bento-card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     --bento-card-title-color: oklch(0.546 0.245 262.881); /* blue-600 */
     --bento-card-description-color: oklch(0.446 0.03 256.802); /* blue-300 */
     /* ***** */
-    --foreground: 0 0% 3.9%;
+    /* --foreground: 0 0% 3.9%; */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -145,7 +149,7 @@
   }
   .dark {
     --tw-bg-opacity: 1;
-    --background: 0 0% 3.9%;
+    /* --background: #13111c; */
     /* Bento */
     --bento-card-bg: oklch(0.208 0.042 265.755);
     --bento-card-title-color: oklch(0.707 0.165 254.624); /* blue-400 */
