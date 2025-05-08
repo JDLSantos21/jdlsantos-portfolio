@@ -1,34 +1,39 @@
 ---
-import { BriefcaseBusiness, ChevronsDown, Workflow } from "lucide-react";
+import { BriefcaseBusiness, ChevronsDown } from "lucide-react";
 ---
 
 <section
+  id="welcome-section"
   class="section w-full h-[calc(100vh-50px)] flex flex-col justify-center items-center relative"
 >
   <div class="relative flex items-center justify-center w-96">
     <img
+      id="profile-image"
       src="/assets/profile.webp"
       alt="profile photo"
-      class="relative mb-5 border-2 border-green-400 rounded-full w-36 h-36"
+      class="relative mb-5 border-2 border-green-400 rounded-full w-36 h-36 opacity-0"
     />
 
     <!-- Aviso de disponibilidad justo debajo de la imagen -->
     <div
-      class="absolute z-50 bottom-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-4 py-1.5 rounded-full shadow-lg"
+      id="availability-badge"
+      class="absolute z-50 bottom-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-4 py-1.5 rounded-full shadow-lg opacity-0"
     >
       Disponible para trabajar ✅
     </div>
   </div>
   <div class="flex flex-col items-center justify-center px-8 welcome-text">
     <h1
-      class="mb-5 text-2xl text-center text-transparent uppercase lg:text-6xl text-balance font-Bowlby-one bg-clip-text bg-linear-to-b from-black dark:from-white via-gray-400 dark:via-gray-400 to-black dark:to-white drop-shadow-md"
+      id="welcome-title"
+      class="mb-5 text-2xl text-center text-transparent uppercase lg:text-6xl text-balance font-Bowlby-one bg-clip-text bg-linear-to-b from-black dark:from-white via-gray-400 dark:via-gray-400 to-black dark:to-white drop-shadow-md opacity-0"
     >
       Bienvenido A
       <br /> mi rinconcito digital
     </h1>
     <div class="w-4/5">
       <p
-        class="mb-10 text-center text-black/50 dark:text-white/80 text-md lg:text-xl text-pretty"
+        id="welcome-description"
+        class="mb-10 text-center text-black/50 dark:text-white/80 text-md lg:text-xl text-pretty opacity-0"
       >
         Soy un desarrollador de aplicaciones web. Aquí encontrarás información
         sobre mi, mis trabajos y como contactarme.
@@ -36,7 +41,10 @@ import { BriefcaseBusiness, ChevronsDown, Workflow } from "lucide-react";
     </div>
   </div>
 
-  <div class="flex items-center justify-center gap-10 lg:w-1/2">
+  <div
+    id="action-buttons"
+    class="flex items-center justify-center gap-10 lg:w-1/2 opacity-0"
+  >
     <a
       href="/projects"
       class="inline-flex items-center px-6 py-3 text-white transition-all duration-300 bg-blue-500 rounded-full shadow-md btn lg:text-md lg:px-7 hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white dark:shadow-blue-300/30 hover:shadow-lg hover:text-white"
@@ -50,6 +58,70 @@ import { BriefcaseBusiness, ChevronsDown, Workflow } from "lucide-react";
   </div>
 
   <ChevronsDown
-    className="w-10 h-10 text-blue-500 dark:text-white/80 absolute bottom-10 animate-bounce"
+    id="scroll-indicator"
+    className="w-10 h-10 text-blue-500 dark:text-white/80 absolute bottom-10 opacity-0"
   />
 </section>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Función simple para ejecutar las animaciones
+  function animateWelcome() {
+    const profileImage = document.getElementById("profile-image");
+    const availabilityBadge = document.getElementById("availability-badge");
+    const welcomeTitle = document.getElementById("welcome-title");
+    const welcomeDescription = document.getElementById("welcome-description");
+    const actionButtons = document.getElementById("action-buttons");
+    const scrollIndicator = document.getElementById("scroll-indicator");
+
+    // Configuración inicial
+    gsap.set(
+      [
+        profileImage,
+        availabilityBadge,
+        welcomeTitle,
+        welcomeDescription,
+        actionButtons,
+        scrollIndicator,
+      ],
+      {
+        opacity: 0,
+        y: 50,
+      }
+    );
+
+    // Timeline de animación
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    tl.to(profileImage, { duration: 1, opacity: 1, y: 0 })
+      .to(availabilityBadge, { duration: 0.6, opacity: 1, y: 0 }, "-=0.5")
+      .to(welcomeTitle, { duration: 0.8, opacity: 1, y: 0 }, "-=0.3")
+      .to(welcomeDescription, { duration: 0.8, opacity: 1, y: 0 }, "-=0.5")
+      .to(actionButtons, { duration: 0.6, opacity: 1, y: 0 }, "-=0.5")
+      .to(
+        scrollIndicator,
+        {
+          duration: 0.6,
+          opacity: 1,
+          y: 0,
+          onComplete: () => {
+            gsap.to(scrollIndicator, {
+              y: 10,
+              duration: 1,
+              repeat: -1,
+              yoyo: true,
+              ease: "power1.inOut",
+            });
+          },
+        },
+        "-=0.3"
+      );
+  }
+
+  // Ejecutar las animaciones cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", animateWelcome);
+
+  // Ejecutar cuando Astro complete una transición de página
+  document.addEventListener("astro:page-load", animateWelcome);
+</script>

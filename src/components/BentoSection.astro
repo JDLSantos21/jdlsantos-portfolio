@@ -11,91 +11,138 @@ import {
   University,
   Calendar,
   GalleryHorizontalEnd,
+  Star,
 } from "lucide-react";
 import { SkillsCarousel } from "./SkillsCarousel";
 import { projects } from "@/mocks/projects";
+import "../../styles/bentoStyles.css";
 ---
 
 <div
-  class="bento-section grid max-w-6xl grid-cols-1 gap-4 p-10 mx-auto section md:grid-cols-3"
+  id="bento-container"
+  class="bento-section grid max-w-6xl grid-cols-1 gap-6 p-6 mx-auto md:grid-cols-4"
 >
   <!-- Sobre Mí -->
-  <a href="/about" class="block col-span-2 max-lg:col-span-3">
+  <a
+    href="/about"
+    class="block col-span-2 max-lg:col-span-4"
+    data-card-color="blue"
+  >
     <div
       transition:name="about-me-container"
-      class="section bg-white dark:bg-(--bento-card-bg) h-full p-8 rounded-2xl transition-shadow duration-200 shadow-xs dark:shadow-blue-700 shadow-blue-100 hover:shadow-blue-400 hover:shadow-2xl relative overflow-hidden group"
+      class="about-card bento-card section h-full p-6 lg:p-8 rounded-3xl shadow-xl relative overflow-hidden bg-gradient-to-br from-blue-50/90 to-white dark:from-blue-950/80 dark:to-gray-900/90 backdrop-blur"
     >
+      <!-- Gradient blob en el fondo -->
       <div
-        class="absolute top-0 right-0 w-1/2 h-1/2 bg-linear-to-bl from-blue-100 dark:from-blue-800 to-transparent rounded-bl-[100px] group-hover:scale-110"
+        class="blob-blue absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-300/30 dark:bg-blue-700/20 blur-3xl"
       >
       </div>
+      <div
+        class="blob-blue-alt absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-indigo-300/20 dark:bg-indigo-700/10 blur-3xl"
+      >
+      </div>
+
       <div class="relative z-10 flex items-start justify-between mb-6">
         <h2
-          class="flex items-center text-xl font-bold text-gray-700 lg:text-3xl about-me-title dark:text-blue-400"
+          class="card-title flex items-center text-xl font-bold text-gray-800 lg:text-3xl dark:text-blue-300"
         >
-          <div class="p-2 mr-3 bg-blue-600 rounded-sm">
-            <User className="w-8 h-8 text-white" />
+          <div
+            class="p-2 lg:p-3 mr-3 bg-blue-600 rounded-2xl shadow-lg text-card-icon"
+          >
+            <User className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
           </div>
           Sobre Mí
         </h2>
-        <img
-          src="/assets/profile.webp"
-          alt="Foto de perfil"
-          class="w-20 h-20 transition-transform duration-300 border-4 border-white rounded-full shadow-xs profile-photo dark:border-gray-300 group-hover:scale-105"
-        />
+        <div
+          class="profile-img-container overflow-hidden rounded-full border-4 border-white dark:border-blue-900/40 shadow-2xl"
+        >
+          <img
+            src="/assets/profile.webp"
+            alt="Foto de perfil"
+            class="w-16 h-16 lg:w-20 lg:h-20 profile-photo"
+          />
+        </div>
       </div>
       <p
-        class="text-sm md:text-lg leading-relaxed text-(--bento-card-description-color) mb-6 relative z-10"
+        class="card-content text-sm md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6 relative z-10 font-light"
       >
         Soy un desarrollador web apasionado por crear experiencias digitales
         únicas y funcionales. Con experiencia en React, Node.js y diseño UX/UI,
         me esfuerzo por combinar creatividad y tecnología en cada proyecto.
       </p>
-      <div class="relative z-10 flex justify-end">
-        <span class="text-sm font-medium text-primary group-hover:underline">
+      <div class="card-action relative z-10 flex justify-end">
+        <span
+          class="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 shadow-sm"
+        >
           Conoce más sobre mí
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="arrow-icon w-5 h-5 ml-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
         </span>
       </div>
     </div>
   </a>
 
-  <!-- Proyectos -->
+  <!-- Proyectos - altura reducida -->
   <div
     transition:name="projects-container"
-    class="section bg-(--bento-card-bg) flex flex-col justify-between p-8 rounded-2xl max-lg:col-span-3 transition-shadow duration-200 shadow-xs dark:shadow-blue-700 shadow-blue-100 hover:shadow-blue-400 hover:shadow-2xl md:row-span-2 relative overflow-hidden group"
+    class="projects-card section max-lg:h-[42rem] flex flex-col p-6 lg:p-7 rounded-3xl shadow-xl max-lg:col-span-4 md:col-span-2 md:row-span-3 relative overflow-hidden bg-gradient-to-br from-indigo-50/90 to-white dark:from-indigo-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    data-card-color="indigo"
+    data-card-delay="0.2"
   >
+    <!-- Gradient blob en el fondo -->
     <div
-      class="absolute top-0 left-0 w-1/2 h-1/2 bg-linear-to-br from-blue-100 dark:from-blue-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
+      class="blob-indigo absolute -top-20 -left-20 w-64 h-64 rounded-full bg-indigo-300/30 dark:bg-indigo-700/20 blur-3xl"
     >
     </div>
+
     <h2
-      class="relative z-10 flex items-center mb-6 text-xl font-bold text-gray-700 lg:text-3xl dark:text-blue-400"
+      class="card-title relative z-10 flex items-center mb-4 text-xl font-bold text-gray-800 lg:text-2xl dark:text-indigo-300"
     >
-      <div class="p-2 mr-3 bg-blue-600 rounded-sm">
-        <Briefcase className="w-8 h-8 text-white" />
+      <div class="p-2 mr-3 bg-indigo-600 rounded-xl shadow-lg text-card-icon">
+        <Briefcase className="w-6 h-6 text-white" />
       </div>
       <span>Proyectos</span>
     </h2>
-    <div class="relative z-10 grid h-auto grid-cols-1 gap-6">
+    <div class="relative z-10 grid h-auto grid-cols-1 gap-3">
       {
-        projects.slice(0, 3).map((project) => (
+        projects.slice(0, 3).map((project, index) => (
           <a
             href={`/projects/${project.slug}`}
-            class="flex items-center text-sm text-gray-600 transition-transform duration-300 md:text-lg dark:text-gray-300 hover:scale-105"
+            class="project-item flex items-center text-sm text-gray-700 md:text-base dark:text-gray-300 p-3 rounded-xl bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm hover:bg-white/70 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md transition-all duration-300"
             transition:name={`${project.slug}-card`}
             transition:animate="slide"
+            data-item-delay={0.3 + index * 0.15}
           >
             <div>
-              <span class="font-bold">{project.title}</span>
-              <p class="text-(--bento-card-description-color) mb-2">
+              <span class="font-bold text-indigo-800 dark:text-indigo-400">
+                {project.title}
+              </span>
+              <p class="text-gray-600 dark:text-gray-400 text-sm font-light line-clamp-1">
                 {project.shortDescription}
               </p>
-              <div class="flex flex-wrap gap-1">
-                {project.skills.map((tag) => (
-                  <div class="grid px-3 py-1 text-xs rounded-full bg-slate-200 dark:bg-slate-800 place-content-center">
+              <div class="flex flex-wrap gap-2 mt-1">
+                {project.skills.slice(0, 2).map((tag) => (
+                  <div class="px-2 py-1 text-xs rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 shadow-sm flex items-center">
+                    <Star className="w-3 h-3 mr-1 text-indigo-500 dark:text-indigo-400" />
                     {tag}
                   </div>
                 ))}
+                {project.skills.length > 2 && (
+                  <div class="px-2 py-1 text-xs rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 shadow-sm">
+                    +{project.skills.length - 2}
+                  </div>
+                )}
               </div>
             </div>
           </a>
@@ -104,131 +151,151 @@ import { projects } from "@/mocks/projects";
     </div>
     <a
       href="/projects"
-      class="flex items-center justify-center mt-10 text-sm font-medium text-center text-primary group-hover:underline"
+      class="card-action flex items-center justify-center mt-3 text-sm font-medium text-center text-indigo-600 dark:text-indigo-400 transition-all duration-300 bg-white/70 dark:bg-indigo-900/20 px-5 py-2 rounded-full shadow-sm hover:shadow-md"
     >
-      <GalleryHorizontalEnd className="w-6 h-6 inline-block mr-1" />
-      Todos los proyectos</a
-    >
+      <GalleryHorizontalEnd className="w-4 h-4 mr-2" />
+      Todos los proyectos
+    </a>
+
+    <img
+      class="project-avatar absolute bottom-0 left-0 w-52 h-52 lg:w-64 lg:h-64 opacity-90"
+      src="/assets/avatar/whi.webp"
+      id="project-item"
+    />
   </div>
 
-  {/* Skills */}
+  <!-- Skills - ahora en la misma fila que Education -->
   <div
-    class="section bg-(--bento-card-bg) shadow-xs transition-shadow duration-200 dark:shadow-purple-700 shadow-purple-100 hover:shadow-purple-400 hover:shadow-2xl p-8 flex flex-col items-center rounded-2xl max-md:col-span-3 max-lg:col-span-2 relative overflow-hidden group"
+    class="skills-card section p-5 flex flex-col rounded-3xl shadow-xl max-md:col-span-2 md:col-span-2 relative overflow-hidden bg-gradient-to-br from-purple-50/90 to-white dark:from-purple-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    data-card-color="purple"
+    data-card-delay="0.4"
   >
+    <!-- Gradient blob en el fondo -->
     <div
-      class="absolute bottom-0 right-0 w-2/3 h-1/4 bg-linear-to-tl from-purple-100 to-transparent rounded-tl-[100px] group-hover:scale-110"
+      class="blob-purple absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-purple-300/30 dark:bg-purple-700/20 blur-3xl"
     >
     </div>
 
-    {/* Título con self-start para alinearlo al inicio */}
+    <!-- Título con self-start para alinearlo al inicio -->
     <h2
-      class="relative z-10 flex items-center self-start mb-4 text-xl font-bold text-gray-700 lg:text-3xl dark:text-purple-400"
+      class="card-title relative z-10 flex items-center self-start mb-3 text-lg font-bold text-gray-800 lg:text-xl dark:text-purple-300"
     >
-      <div class="p-2 mr-3 bg-purple-600 rounded-sm">
-        <Code className="w-8 h-8 text-white" />
+      <div class="p-2 mr-2 bg-purple-600 rounded-lg shadow-lg text-card-icon">
+        <Code className="w-5 h-5 text-white" />
       </div>
       Skills
     </h2>
 
-    {/* Carrusel centrado */}
-    <SkillsCarousel client:load />
+    <!-- Carrusel centrado -->
+    <div class="w-full">
+      <SkillsCarousel client:load />
+    </div>
   </div>
 
-  {/* Educación */}
+  <!-- Educación - ahora en la misma fila que Skills -->
   <div
-    class="section bg-(--bento-card-bg) shadow-xs transition-shadow duration-200 dark:shadow-yellow-700 shadow-yellow-100 hover:shadow-yellow-400 hover:shadow-2xl p-8 rounded-2xl max-md:col-span-3 relative overflow-hidden group"
+    class="education-card section p-5 rounded-3xl shadow-xl max-md:col-span-2 md:col-span-2 relative overflow-hidden bg-gradient-to-br from-amber-50/90 to-white dark:from-amber-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    data-card-color="amber"
+    data-card-delay="0.6"
   >
+    <!-- Gradient blob en el fondo -->
     <div
-      class="absolute top-0 right-0 w-1/2 h-1/2 bg-linear-to-bl from-yellow-100 dark:from-yellow-800 to-transparent rounded-bl-[100px] group-hover:scale-110"
+      class="blob-amber absolute -top-20 -right-20 w-64 h-64 rounded-full bg-amber-300/30 dark:bg-amber-700/20 blur-3xl"
     >
     </div>
+
     <h2
-      class="relative z-10 flex items-center mb-4 text-xl font-bold text-gray-700 lg:text-3xl dark:text-yellow-400"
+      class="card-title relative z-10 flex items-center mb-3 text-lg font-bold text-gray-800 lg:text-xl dark:text-amber-300"
     >
-      <div class="p-2 mr-3 bg-yellow-600 rounded-sm">
-        <GraduationCap className="w-8 h-8 text-white" />
+      <div class="p-2 mr-2 bg-amber-600 rounded-lg shadow-lg text-card-icon">
+        <GraduationCap className="w-5 h-5 text-white" />
       </div>
       Educación
     </h2>
-    <p
-      class="text-sm md:text-lg leading-relaxed text-(--bento-card-description-color) relative z-10"
+    <div
+      class="card-content relative z-10 bg-white/70 dark:bg-gray-800/30 rounded-xl p-3 shadow-sm"
     >
-      <span class="font-semibold">Ingenieria de Software</span>
-      <div class="flex gap-2 text-xs">
-        <University className="w-5 h-5" />
-        <span>Universidad APEC</span>
+      <span class="font-bold text-base text-amber-800 dark:text-amber-400"
+        >Ingenieria de Software</span
+      >
+      <div
+        class="flex gap-2 items-center mt-2 text-gray-700 dark:text-gray-300"
+      >
+        <div class="p-1 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+          <University className="w-4 h-4 text-amber-700 dark:text-amber-400" />
+        </div>
+        <span class="text-xs">Universidad APEC</span>
       </div>
-      <div class="flex gap-2 text-xs">
-        <Calendar className="w-5 h-5" />
-        <span>Ene. 2020</span> -
-        <span>Dic. 2024</span>
+      <div
+        class="flex gap-2 items-center mt-2 text-gray-700 dark:text-gray-300"
+      >
+        <div class="p-1 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+          <Calendar className="w-4 h-4 text-amber-700 dark:text-amber-400" />
+        </div>
+        <span class="text-xs">Ene. 2020 - Dic. 2024</span>
       </div>
-    </p>
+    </div>
   </div>
 
-  {/* Contacto */}
+  <!-- Contacto -->
   <div
-    class="section bg-(--bento-card-bg) shadow-xs transition-shadow duration-200 dark:shadow-red-700 shadow-red-100 hover:shadow-red-400 hover:shadow-2xl p-8 rounded-2xl col-span-3 relative overflow-hidden group"
+    class="contact-card section p-6 lg:p-7 rounded-3xl shadow-xl col-span-4 relative overflow-hidden bg-gradient-to-br from-red-50/90 to-white dark:from-red-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    data-card-color="red"
+    data-card-delay="0.8"
   >
+    <!-- Gradient blob en el fondo -->
     <div
-      class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-linear-to-tr from-red-100 dark:from-red-800 to-transparent rounded-tr-[100px] group-hover:scale-110"
+      class="blob-red absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-red-300/30 dark:bg-red-700/20 blur-3xl"
     >
     </div>
+
     <h2
-      class="relative z-10 flex items-center mb-6 text-xl font-bold text-gray-700 lg:text-3xl dark:text-red-400"
+      class="card-title relative z-10 flex items-center mb-4 text-xl font-bold text-gray-800 lg:text-2xl dark:text-red-300"
     >
-      <div class="p-2 mr-3 bg-red-600 rounded-sm">
-        <Phone className="w-8 h-8 text-white" />
+      <div class="p-2 mr-3 bg-red-600 rounded-xl shadow-lg text-card-icon">
+        <Phone className="w-6 h-6 text-white" />
       </div>
       Contacto
     </h2>
     <div
-      class="text-(--bento-card-description-color) flex flex-wrap gap-6 relative z-10"
+      class="text-gray-700 dark:text-gray-300 flex flex-wrap gap-4 relative z-10"
     >
       <a
         href="mailto:JDLSantos21@hotmail.com"
-        class="flex items-center text-sm transition-colors md:text-lg hover:text-red-600"
+        class="contact-item flex items-center text-sm md:text-base bg-white/70 dark:bg-gray-800/30 p-3 rounded-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md"
+        data-item-delay="0.9"
       >
-        <Mail className="w-6 h-6 mr-2" /> JDLSantos21@hotmail.com
+        <div class="p-2 mr-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
+          <Mail className="w-5 h-5 text-red-700 dark:text-red-400" />
+        </div>
+        JDLSantos21@hotmail.com
       </a>
       <a
         href="https://github.com/jdlsantos21"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center text-sm transition-colors md:text-lg hover:text-red-600"
+        class="contact-item flex items-center text-sm md:text-base bg-white/70 dark:bg-gray-800/30 p-3 rounded-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md"
+        data-item-delay="1.0"
       >
-        <Github className="w-6 h-6 mr-2" /> GitHub
+        <div class="p-2 mr-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
+          <Github className="w-5 h-5 text-red-700 dark:text-red-400" />
+        </div>
+        GitHub
       </a>
       <a
         href="https://www.linkedin.com/in/jose-armando-de-los-santos-amadis-689b091b7/"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center text-sm transition-colors md:text-lg hover:text-red-600"
+        class="contact-item flex items-center text-sm md:text-base bg-white/70 dark:bg-gray-800/30 p-3 rounded-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md"
+        data-item-delay="1.1"
       >
-        <Linkedin className="w-6 h-6 mr-2" /> LinkedIn
+        <div class="p-2 mr-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
+          <Linkedin className="w-5 h-5 text-red-700 dark:text-red-400" />
+        </div>
+        LinkedIn
       </a>
     </div>
   </div>
 </div>
 
-<style>
-  .section {
-    animation-name: container-reveal;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
-    animation-timeline: view();
-    animation-range: entry 20% cover 30%;
-  }
-
-  @keyframes container-reveal {
-    from {
-      opacity: 0;
-      translate: 0 100px;
-    }
-
-    to {
-      opacity: 1;
-      translate: 0 0;
-    }
-  }
-</style>
+<script src="../utils/animations/bentoAnimations.ts"></script>

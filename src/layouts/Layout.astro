@@ -38,9 +38,9 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Modak&family=Numans&display=swap"
       rel="stylesheet"
     />
-  </head>;
+    <title>{title}</title></head
+  >
 
-  <title>{title}</title>
   <ClientRouter />
 
   <body class="lg:pt-20 bg-[url(/bg.svg)] dark:bg-[rgb(2,6,23,1)] relative">
@@ -74,6 +74,4 @@ const { title } = Astro.props;
         monospace;
     }
   </style>
-
-
 </html>

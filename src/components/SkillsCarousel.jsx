@@ -26,12 +26,12 @@ export function SkillsCarousel() {
         align: "start",
       }}
       autoplay={2000}
-      className="w-full max-w-sm mt-3 md:mt-5 self-center flex items-center justify-center"
+      className="w-full mt-3 md:mt-5 self-center flex items-center justify-center"
     >
       <CarouselContent className=" lg:w-full lg:h-full">
         {images.map((image, index) => (
           <CarouselItem key={index} className="basis-1/2 md:basis-1/3 p-4">
-            <div className="p-1 bg-white rounded-lg shadow-lg">
+            <div className="p-1">
               <div>
                 <div className="flex aspect-square items-center justify-center">
                   <img

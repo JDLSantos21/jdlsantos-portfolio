@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Menu, XIcon, Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, XIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -35,24 +35,20 @@ const Header = () => {
   return (
     <header
       className={`${
-        scroll ? "lg:fixed relative lg:p-2" : "lg:absolute max-lg:relative"
+        scroll ? "lg:fixed relative" : "lg:absolute max-lg:relative"
       } top-0 left-0 right-0 w-full lg:z-2000 max-lg:overflow-hidden
       `}
     >
       {/* Desktop Navigation */}
       <nav
-        className={`hidden lg:flex mx-auto transition-all duration-300  ${
+        className={`hidden lg:flex mx-auto transition-all duration-300 w-3/4 h-16 lg:justify-between lg:items-center rounded-none ${
           scroll
-            ? "w-[500px] p-4 mt-2 bg-white/90 dark:bg-gray-800/90 hover:shadow-2xl dark:shadow-white/20 backdrop-blur-xs rounded-full shadow-sm"
-            : "w-3/4 justify-between rounded-none p-6"
+            ? "bg-white/90 dark:bg-gray-800/90 hover:shadow-2xl dark:shadow-white/20 backdrop-blur-xs  shadow-sm p-5 rounded-b-lg"
+            : ""
         }`}
       >
         <a href="/">
-          <div
-            className={`flex items-center space-x-4 ${
-              scroll ? "hidden" : "block"
-            }`}
-          >
+          <div className={`flex items-center space-x-4 `}>
             <img
               className="h-8 w-auto rounded-full"
               src="/assets/profile.webp"
@@ -65,11 +61,7 @@ const Header = () => {
           </div>
         </a>
 
-        <ul
-          className={`flex justify-evenly items-center ${
-            scroll ? "w-full" : "w-1/2"
-          }`}
-        >
+        <ul className={`flex justify-evenly items-center w-1/2`}>
           {navLinks.map((link) => (
             <li key={link.text}>
               <a
