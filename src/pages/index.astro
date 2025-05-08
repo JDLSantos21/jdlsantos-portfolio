@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Welcome from "@/components/Welcome.astro";
 import BentoSection from "@components/BentoSection.astro";
+import FeaturedProjects from "@components/FeaturedProjects";
 import MainProjectsSection from "@/components/MainProjectsSection.astro";
 ---
 
@@ -9,6 +10,7 @@ import MainProjectsSection from "@/components/MainProjectsSection.astro";
   <main class="main">
     <Welcome />
     <BentoSection />
-    <MainProjectsSection />
+    <!-- <FeaturedProjectsSlider /> -->
+    <FeaturedProjects client:load />
   </main>
 </Layout>

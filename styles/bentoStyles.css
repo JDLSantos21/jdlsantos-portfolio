@@ -149,7 +149,7 @@ a:hover .arrow-icon {
   }
 }
 
-/* Mejora para dispositivos de baja potencia */
+/* Mejora para dispositivos de baja potencia 
 @media (prefers-reduced-motion: reduce) {
   .bento-card,
   .project-item,
@@ -160,3 +160,4 @@ a:hover .arrow-icon {
     animation: none !important;
   }
 }
+*/
