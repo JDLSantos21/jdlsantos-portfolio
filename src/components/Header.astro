@@ -1,6 +1,5 @@
 ---
 // src/components/Header.astro
-import ThemeToggle from "@/components/ThemeToggle.astro";
 
 const navLinks = [
   { href: "/", text: "Inicio" },
@@ -66,7 +65,6 @@ const currentPath = Astro.url.pathname;
         })
       }
     </ul>
-    <ThemeToggle />
   </nav>
 
   <!-- Mobile Menu Button -->
@@ -117,7 +115,6 @@ const currentPath = Astro.url.pathname;
           >
         </div>
       </a>
-      <ThemeToggle />
       <button
         id="close-menu-button"
         aria-label="Cerrar menú"
