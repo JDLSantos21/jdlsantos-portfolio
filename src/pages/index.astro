@@ -3,14 +3,12 @@ import Layout from "@layouts/Layout.astro";
 import Welcome from "@/components/Welcome.astro";
 import BentoSection from "@components/BentoSection.astro";
 import FeaturedProjects from "@components/FeaturedProjects";
-import MainProjectsSection from "@/components/MainProjectsSection.astro";
 ---
 
 <Layout title="Bienvenido - JDLSantos">
-  <main class="main">
+  <main class="main dark:bg-gradient-to-r dark:from-gray-950 dark:to-gray-900">
     <Welcome />
     <BentoSection />
-    <!-- <FeaturedProjectsSlider /> -->
     <FeaturedProjects client:load />
   </main>
 </Layout>

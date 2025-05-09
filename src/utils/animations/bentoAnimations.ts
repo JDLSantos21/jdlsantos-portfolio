@@ -275,89 +275,6 @@ function animateSpecificElements() {
 }
 
 /**
- * Configura los efectos de hover con GSAP
- */
-function setupHoverEffects() {
-  // Tarjetas
-  const bentoCards = document.querySelectorAll(".bento-card");
-  bentoCards.forEach((card) => {
-    const cardElement = card;
-
-    // Animación al entrar con cursor
-    cardElement.addEventListener("mouseenter", () => {
-      gsap.to(cardElement, {
-        y: -8,
-        scale: 1.02,
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
-        duration: 0.25,
-        ease: "power2.out",
-      });
-    });
-
-    // Animación al salir con cursor
-    cardElement.addEventListener("mouseleave", () => {
-      gsap.to(cardElement, {
-        y: 0,
-        scale: 1,
-        boxShadow: "0 10px 15px rgba(0, 0, 0, 0.05)",
-        duration: 0.25,
-        ease: "power2.inOut",
-      });
-    });
-  });
-
-  // Proyectos
-  const projectItems = document.querySelectorAll(".project-item");
-  projectItems.forEach((item) => {
-    const itemElement = item;
-
-    itemElement.addEventListener("mouseenter", () => {
-      gsap.to(itemElement, {
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
-        scale: 1.03,
-        x: 5,
-        duration: 0.25,
-        ease: "power2.out",
-      });
-    });
-
-    itemElement.addEventListener("mouseleave", () => {
-      gsap.to(itemElement, {
-        backgroundColor: "rgba(255, 255, 255, 0.5)",
-        scale: 1,
-        x: 0,
-        duration: 0.25,
-        ease: "power2.inOut",
-      });
-    });
-  });
-
-  // Contactos
-  const contactItems = document.querySelectorAll(".contact-item");
-  contactItems.forEach((item) => {
-    const itemElement = item;
-
-    itemElement.addEventListener("mouseenter", () => {
-      gsap.to(itemElement, {
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
-        scale: 1.05,
-        duration: 0.25,
-        ease: "power2.out",
-      });
-    });
-
-    itemElement.addEventListener("mouseleave", () => {
-      gsap.to(itemElement, {
-        backgroundColor: "rgba(255, 255, 255, 0.7)",
-        scale: 1,
-        duration: 0.25,
-        ease: "power2.inOut",
-      });
-    });
-  });
-}
-
-/**
  * Función principal que inicia todas las animaciones
  */
 function animateBentoSection() {
@@ -381,7 +298,6 @@ function animateBentoSection() {
   setupInitialStates();
   animateCards();
   animateSpecificElements();
-  setupHoverEffects();
 }
 
 // Iniciar animaciones en la carga inicial

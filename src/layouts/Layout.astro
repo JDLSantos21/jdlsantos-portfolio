@@ -38,37 +38,39 @@ const { title } = Astro.props;
     />
     <title>{title}</title>
   </head>
-</html>
 
-<ClientRouter />
+  <ClientRouter />
 
-<body class="lg:pt-20 bg-slate-200 relative">
-  <DevFloatingAlert />
-  <Header />
-  <slot />
-</body>
+  <body class="lg:pt-20">
+    <DevFloatingAlert />
+    <Header />
+    <slot />
+  </body>
 
-<script>
-  document.addEventListener("astro:after-swap", () => {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+  <script>
+    document.addEventListener("astro:after-swap", () => {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    });
+  </script>
+
+  <style is:global>
+    code {
+      font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
     }
-  });
-</script>
+  </style>
 
-<style is:global>
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
+
+</html>

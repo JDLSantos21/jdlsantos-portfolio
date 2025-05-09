@@ -6,7 +6,9 @@ const projects = await getCollection("projects");
 ---
 
 <Layout title="Proyectos - JDLSantos">
-  <main class="relative lg:h-[calc(100vh-80px)]">
+  <main
+    class="relative lg:h-screen dark:bg-gradient-to-r dark:from-gray-950 dark:to-gray-900"
+  >
     <div class="image-bg-container">
       <img
         src="/assets/avatar/jump.webp"
@@ -22,7 +24,9 @@ const projects = await getCollection("projects");
         Proyectos
       </h1>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-md:place-items-center"
+      >
         {
           projects.map((project) => {
             const { slug, data } = project;
@@ -31,7 +35,7 @@ const projects = await getCollection("projects");
             return (
               <a
                 href={`/projects/${slug}`}
-                class="relative block h-full group "
+                class="relative block h-full max-md:max-w-3/4 group "
                 aria-label={`Visita ${title}`}
               >
                 <div id={`${slug}-skeleton`}>

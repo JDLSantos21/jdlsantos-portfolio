@@ -7,7 +7,6 @@ import {
   Phone,
   Mail,
   Linkedin,
-  Github,
   University,
   Calendar,
   GalleryHorizontalEnd,
@@ -15,7 +14,8 @@ import {
 } from "lucide-react";
 import { SkillsCarousel } from "./SkillsCarousel";
 import { projects } from "@/mocks/projects";
-import "../../styles/bentoStyles.css";
+import { Icon } from "astro-icon/components";
+// import "../../styles/bentoStyles.css";s
 ---
 
 <div
@@ -30,24 +30,24 @@ import "../../styles/bentoStyles.css";
   >
     <div
       transition:name="about-me-container"
-      class="about-card bento-card section h-full p-6 lg:p-8 rounded-3xl shadow-xl relative overflow-hidden bg-gradient-to-br from-blue-50/90 to-white dark:from-blue-950/80 dark:to-gray-900/90 backdrop-blur"
+      class="about-card bento-card section h-full p-6 lg:p-8 rounded-3xl shadow-xl relative overflow-hidden bg-gradient-to-br from-blue-50 via-blue-100/40 to-indigo-100/50 dark:from-slate-900/95 dark:via-blue-950/30 dark:to-indigo-950/20 backdrop-blur hover:shadow-blue-200/40 dark:hover:shadow-blue-900/30 hover:scale-[1.02] transition-all duration-300"
     >
       <!-- Gradient blob en el fondo -->
       <div
-        class="blob-blue absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-300/30 dark:bg-blue-700/20 blur-3xl"
+        class="blob-blue absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-300/20 dark:bg-blue-500/10 blur-3xl"
       >
       </div>
       <div
-        class="blob-blue-alt absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-indigo-300/20 dark:bg-indigo-700/10 blur-3xl"
+        class="blob-blue-alt absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-indigo-300/15 dark:bg-indigo-500/10 blur-3xl"
       >
       </div>
 
       <div class="relative z-10 flex items-start justify-between mb-6">
         <h2
-          class="card-title flex items-center text-xl font-bold text-gray-800 lg:text-3xl dark:text-blue-300"
+          class="card-title flex items-center text-xl font-bold text-gray-800 lg:text-2xl dark:text-blue-200"
         >
           <div
-            class="p-2 lg:p-3 mr-3 bg-blue-600 rounded-2xl shadow-lg text-card-icon"
+            class="p-2 lg:p-3 mr-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg text-card-icon"
           >
             <User className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
           </div>
@@ -72,7 +72,7 @@ import "../../styles/bentoStyles.css";
       </p>
       <div class="card-action relative z-10 flex justify-end">
         <span
-          class="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 shadow-sm"
+          class="text-sm font-medium text-blue-600 dark:text-blue-300 flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-blue-100/70 dark:from-blue-900/20 dark:to-blue-800/10 shadow-sm"
         >
           Conoce más sobre mí
           <svg
@@ -96,20 +96,22 @@ import "../../styles/bentoStyles.css";
   <!-- Proyectos - altura reducida -->
   <div
     transition:name="projects-container"
-    class="projects-card section max-lg:h-[42rem] flex flex-col p-6 lg:p-7 rounded-3xl shadow-xl max-lg:col-span-4 md:col-span-2 md:row-span-3 relative overflow-hidden bg-gradient-to-br from-indigo-50/90 to-white dark:from-indigo-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    class="projects-card section max-lg:h-[42rem] flex flex-col p-6 lg:p-7 rounded-3xl shadow-xl max-lg:col-span-4 md:col-span-2 md:row-span-3 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50/30 to-indigo-100/20 dark:from-gray-900 dark:via-slate-900/90 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-indigo-200/40 dark:hover:shadow-indigo-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="indigo"
     data-card-delay="0.2"
   >
     <!-- Gradient blob en el fondo -->
     <div
-      class="blob-indigo absolute -top-20 -left-20 w-64 h-64 rounded-full bg-indigo-300/30 dark:bg-indigo-700/20 blur-3xl"
+      class="blob-indigo absolute -top-20 -left-20 w-64 h-64 rounded-full bg-indigo-300/20 dark:bg-indigo-600/10 blur-3xl"
     >
     </div>
 
     <h2
-      class="card-title relative z-10 flex items-center mb-4 text-xl font-bold text-gray-800 lg:text-2xl dark:text-indigo-300"
+      class="card-title relative z-10 flex items-center mb-4 text-xl font-bold text-gray-800 lg:text-2xl dark:text-blue-200"
     >
-      <div class="p-2 mr-3 bg-indigo-600 rounded-xl shadow-lg text-card-icon">
+      <div
+        class="p-2 mr-3 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl shadow-lg text-card-icon"
+      >
         <Briefcase className="w-6 h-6 text-white" />
       </div>
       <span>Proyectos</span>
@@ -119,7 +121,7 @@ import "../../styles/bentoStyles.css";
         projects.slice(0, 3).map((project, index) => (
           <a
             href={`/projects/${project.slug}`}
-            class="project-item flex items-center text-sm text-gray-700 md:text-base dark:text-gray-300 p-3 rounded-xl bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm hover:bg-white/70 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md transition-all duration-300"
+            class="project-item flex items-center text-sm text-gray-700 md:text-base dark:text-gray-300 p-3 rounded-xl bg-gradient-to-r from-white/80 to-white/60 dark:from-gray-800/40 dark:to-gray-800/20 backdrop-blur-sm hover:from-white/90 hover:to-indigo-50/70 dark:hover:from-gray-800/60 dark:hover:to-indigo-900/20 shadow-sm hover:shadow-md transition-all duration-300"
             transition:name={`${project.slug}-card`}
             transition:animate="slide"
             data-item-delay={0.3 + index * 0.15}
@@ -151,7 +153,7 @@ import "../../styles/bentoStyles.css";
     </div>
     <a
       href="/projects"
-      class="card-action flex items-center justify-center mt-3 text-sm font-medium text-center text-indigo-600 dark:text-indigo-400 transition-all duration-300 bg-white/70 dark:bg-indigo-900/20 px-5 py-2 rounded-full shadow-sm hover:shadow-md"
+      class="card-action flex items-center justify-center mt-3 text-sm font-medium text-center text-indigo-600 dark:text-indigo-300 transition-all duration-300 bg-gradient-to-r from-white/80 to-indigo-50/50 dark:from-indigo-900/20 dark:to-indigo-950/10 px-5 py-2 rounded-full shadow-sm hover:shadow-md"
     >
       <GalleryHorizontalEnd className="w-4 h-4 mr-2" />
       Todos los proyectos
@@ -166,21 +168,23 @@ import "../../styles/bentoStyles.css";
 
   <!-- Skills - ahora en la misma fila que Education -->
   <div
-    class="skills-card section p-5 flex flex-col rounded-3xl shadow-xl max-md:col-span-2 md:col-span-2 relative overflow-hidden bg-gradient-to-br from-purple-50/90 to-white dark:from-purple-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    class="skills-card section p-5 flex flex-col rounded-3xl shadow-xl max-md:col-span-2 md:col-span-2 relative overflow-hidden bg-gradient-to-br from-blue-50 via-blue-50/70 to-white dark:from-gray-900 dark:via-blue-950/30 dark:to-gray-900 backdrop-blur bento-card hover:shadow-blue-200/40 dark:hover:shadow-blue-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="purple"
     data-card-delay="0.4"
   >
     <!-- Gradient blob en el fondo -->
     <div
-      class="blob-purple absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-purple-300/30 dark:bg-purple-700/20 blur-3xl"
+      class="blob-purple absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-blue-300/20 dark:bg-blue-600/10 blur-3xl"
     >
     </div>
 
     <!-- Título con self-start para alinearlo al inicio -->
     <h2
-      class="card-title relative z-10 flex items-center self-start mb-3 text-lg font-bold text-gray-800 lg:text-xl dark:text-purple-300"
+      class="card-title relative z-10 flex items-center self-start mb-3 text-xl font-bold text-gray-800 lg:text-2xl dark:text-blue-200"
     >
-      <div class="p-2 mr-2 bg-purple-600 rounded-lg shadow-lg text-card-icon">
+      <div
+        class="p-2 mr-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg text-card-icon"
+      >
         <Code className="w-5 h-5 text-white" />
       </div>
       Skills
@@ -194,43 +198,49 @@ import "../../styles/bentoStyles.css";
 
   <!-- Educación - ahora en la misma fila que Skills -->
   <div
-    class="education-card section p-5 rounded-3xl shadow-xl max-md:col-span-2 md:col-span-2 relative overflow-hidden bg-gradient-to-br from-amber-50/90 to-white dark:from-amber-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    class="education-card section p-5 rounded-3xl shadow-xl max-md:col-span-2 md:col-span-2 relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50/70 to-white dark:from-gray-900 dark:via-blue-950/20 dark:to-gray-900 backdrop-blur bento-card hover:shadow-blue-200/40 dark:hover:shadow-blue-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="amber"
     data-card-delay="0.6"
   >
     <!-- Gradient blob en el fondo -->
     <div
-      class="blob-amber absolute -top-20 -right-20 w-64 h-64 rounded-full bg-amber-300/30 dark:bg-amber-700/20 blur-3xl"
+      class="blob-amber absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-300/20 dark:bg-blue-600/10 blur-3xl"
     >
     </div>
 
     <h2
-      class="card-title relative z-10 flex items-center mb-3 text-lg font-bold text-gray-800 lg:text-xl dark:text-amber-300"
+      class="card-title relative z-10 flex items-center mb-3 text-xl font-bold text-gray-800 lg:text-2xl dark:text-blue-200"
     >
-      <div class="p-2 mr-2 bg-amber-600 rounded-lg shadow-lg text-card-icon">
+      <div
+        class="p-2 mr-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg text-card-icon"
+      >
         <GraduationCap className="w-5 h-5 text-white" />
       </div>
       Educación
     </h2>
     <div
-      class="card-content relative z-10 bg-white/70 dark:bg-gray-800/30 rounded-xl p-3 shadow-sm"
+      class="card-content relative z-10 bg-gradient-to-r from-white/80 to-white/60 dark:from-gray-800/40 dark:to-gray-800/20 rounded-xl p-3 shadow-sm"
     >
-      <span class="font-bold text-base text-amber-800 dark:text-amber-400"
+      <span class="font-bold text-base text-blue-700 dark:text-blue-300"
         >Ingenieria de Software</span
       >
       <div
         class="flex gap-2 items-center mt-2 text-gray-700 dark:text-gray-300"
       >
-        <div class="p-1 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
-          <University className="w-4 h-4 text-amber-700 dark:text-amber-400" />
+        <div
+          class="p-1 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/20 rounded-lg"
+        >
+          <University className="w-4 h-4 text-blue-600 dark:text-blue-400" />
         </div>
         <span class="text-xs">Universidad APEC</span>
       </div>
       <div
         class="flex gap-2 items-center mt-2 text-gray-700 dark:text-gray-300"
       >
-        <div class="p-1 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
-          <Calendar className="w-4 h-4 text-amber-700 dark:text-amber-400" />
+        <div
+          class="p-1 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/20 rounded-lg"
+        >
+          <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
         </div>
         <span class="text-xs">Ene. 2020 - Dic. 2024</span>
       </div>
@@ -239,21 +249,23 @@ import "../../styles/bentoStyles.css";
 
   <!-- Contacto -->
   <div
-    class="contact-card section p-6 lg:p-7 rounded-3xl shadow-xl col-span-4 relative overflow-hidden bg-gradient-to-br from-red-50/90 to-white dark:from-red-950/80 dark:to-gray-900/90 backdrop-blur bento-card"
+    class="contact-card section p-6 lg:p-7 rounded-3xl shadow-xl col-span-4 md:col-start-3 md:col-end-5 lg:col-span-5 relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50/30 to-slate-100 dark:from-gray-900 dark:via-slate-900 dark:to-sky-950/10 backdrop-blur bento-card hover:shadow-blue-200/40 dark:hover:shadow-blue-900/30 hover:scale-[1.01] transition-all duration-300"
     data-card-color="red"
     data-card-delay="0.8"
   >
     <!-- Gradient blob en el fondo -->
     <div
-      class="blob-red absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-red-300/30 dark:bg-red-700/20 blur-3xl"
+      class="blob-red absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-sky-300/20 dark:bg-sky-600/10 blur-3xl"
     >
     </div>
 
     <h2
-      class="card-title relative z-10 flex items-center mb-4 text-xl font-bold text-gray-800 lg:text-2xl dark:text-red-300"
+      class="card-title relative z-10 flex items-center mb-4 text-xl font-bold text-gray-800 lg:text-2xl dark:text-blue-200"
     >
-      <div class="p-2 mr-3 bg-red-600 rounded-xl shadow-lg text-card-icon">
-        <Phone className="w-6 h-6 text-white" />
+      <div
+        class="p-2 mr-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg text-card-icon"
+      >
+        <Phone className="w-5 h-5 text-white" />
       </div>
       Contacto
     </h2>
@@ -262,11 +274,13 @@ import "../../styles/bentoStyles.css";
     >
       <a
         href="mailto:JDLSantos21@hotmail.com"
-        class="contact-item flex items-center text-sm md:text-base bg-white/70 dark:bg-gray-800/30 p-3 rounded-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md"
+        class="contact-item flex items-center text-sm md:text-base bg-gradient-to-r from-white/80 to-white/60 dark:from-gray-800/40 dark:to-gray-800/20 p-3 rounded-xl transition-all duration-300 hover:from-white/90 hover:to-blue-50/70 dark:hover:from-gray-800/60 dark:hover:to-blue-900/20 shadow-sm hover:shadow-md hover:scale-[1.03]"
         data-item-delay="0.9"
       >
-        <div class="p-2 mr-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
-          <Mail className="w-5 h-5 text-red-700 dark:text-red-400" />
+        <div
+          class="p-1 mr-1 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/20 rounded-lg"
+        >
+          <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400" />
         </div>
         JDLSantos21@hotmail.com
       </a>
@@ -274,11 +288,13 @@ import "../../styles/bentoStyles.css";
         href="https://github.com/jdlsantos21"
         target="_blank"
         rel="noopener noreferrer"
-        class="contact-item flex items-center text-sm md:text-base bg-white/70 dark:bg-gray-800/30 p-3 rounded-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md"
+        class="contact-item flex items-center text-sm md:text-base bg-gradient-to-r from-white/80 to-white/60 dark:from-gray-800/40 dark:to-gray-800/20 p-3 rounded-xl transition-all duration-300 hover:from-white/90 hover:to-blue-50/70 dark:hover:from-gray-800/60 dark:hover:to-blue-900/20 shadow-sm hover:shadow-md hover:scale-[1.03]"
         data-item-delay="1.0"
       >
-        <div class="p-2 mr-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
-          <Github className="w-5 h-5 text-red-700 dark:text-red-400" />
+        <div
+          class="p-1 mr-1 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/20 rounded-lg"
+        >
+          <Icon name="social/github" class="w-4 h-4 dark:text-blue-400" />
         </div>
         GitHub
       </a>
@@ -286,11 +302,13 @@ import "../../styles/bentoStyles.css";
         href="https://www.linkedin.com/in/jose-armando-de-los-santos-amadis-689b091b7/"
         target="_blank"
         rel="noopener noreferrer"
-        class="contact-item flex items-center text-sm md:text-base bg-white/70 dark:bg-gray-800/30 p-3 rounded-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-800/50 shadow-sm hover:shadow-md"
+        class="contact-item flex items-center text-sm md:text-base bg-gradient-to-r from-white/80 to-white/60 dark:from-gray-800/40 dark:to-gray-800/20 p-3 rounded-xl transition-all duration-300 hover:from-white/90 hover:to-blue-50/70 dark:hover:from-gray-800/60 dark:hover:to-blue-900/20 shadow-sm hover:shadow-md hover:scale-[1.03]"
         data-item-delay="1.1"
       >
-        <div class="p-2 mr-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
-          <Linkedin className="w-5 h-5 text-red-700 dark:text-red-400" />
+        <div
+          class="p-1 mr-1 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/20 rounded-lg"
+        >
+          <Linkedin className="w-4 h-4 text-sky-600 dark:text-sky-400" />
         </div>
         LinkedIn
       </a>
