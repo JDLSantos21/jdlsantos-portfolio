@@ -8,6 +8,7 @@ export function setupHeader(): () => void {
   const mobileMenu = document.getElementById("mobile-menu");
   const menuIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
+  const closeMenuButton = document.getElementById("close-menu-button");
 
   // Estado del menú
   let menuOpen = false;
@@ -18,7 +19,7 @@ export function setupHeader(): () => void {
     !mobileMenuButton ||
     !mobileMenu ||
     !menuIcon ||
-    !closeIcon
+    !closeMenuButton
   ) {
     console.warn("Algunos elementos del header no fueron encontrados");
     return () => {};
@@ -31,11 +32,9 @@ export function setupHeader(): () => void {
     // Actualizar botón
     mobileMenuButton?.setAttribute("aria-expanded", menuOpen.toString());
     mobileMenuButton?.classList.toggle("rotate-90", menuOpen);
-    mobileMenuButton?.classList.toggle("mt-3", menuOpen);
 
     // Cambiar iconos
     menuIcon?.classList.toggle("hidden", menuOpen);
-    closeIcon?.classList.toggle("hidden", !menuOpen);
 
     // Mostrar/ocultar menú
     mobileMenu?.classList.toggle("opacity-0", !menuOpen);
@@ -72,6 +71,7 @@ export function setupHeader(): () => void {
 
   // Event Listeners
   mobileMenuButton.addEventListener("click", toggleMenu);
+  closeMenuButton.addEventListener("click", toggleMenu);
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("resize", handleResize);
 

@@ -74,7 +74,7 @@ const currentPath = Astro.url.pathname;
     id="mobile-menu-button"
     aria-label="Abrir menú"
     aria-expanded="false"
-    class="mobile-menu-button lg:hidden fixed top-5 right-5 z-[999] text-gray-800 p-2 rounded-full transition-transform rotate-0 hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-95"
+    class="mobile-menu-button lg:hidden fixed top-6 right-5 z-[999] text-gray-800 p-2 rounded-full transition-transform rotate-0 hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-95"
   >
     <svg
       id="menu-icon"
@@ -93,23 +93,6 @@ const currentPath = Astro.url.pathname;
       <line x1="4" x2="20" y1="6" y2="6"></line>
       <line x1="4" x2="20" y1="18" y2="18"></line>
     </svg>
-
-    <svg
-      id="close-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      class="text-red-500 w-6 h-6 hidden"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M18 6 6 18"></path>
-      <path d="m6 6 12 12"></path>
-    </svg>
   </button>
 
   <!-- Mobile Navigation -->
@@ -121,9 +104,7 @@ const currentPath = Astro.url.pathname;
       class="flex justify-between items-center p-6 border-b-2 border-gray-100 dark:border-gray-700"
     >
       <a href="/" class="transition-transform hover:scale-105">
-        <div
-          class="p-1 rounded-full bg-transparent dark:bg-gray-700 flex items-center space-x-3"
-        >
+        <div class="rounded-full flex items-center space-x-3">
           <img
             class="h-8 w-auto rounded-full"
             src="/assets/profile.webp"
@@ -137,6 +118,29 @@ const currentPath = Astro.url.pathname;
         </div>
       </a>
       <ThemeToggle />
+      <button
+        id="close-menu-button"
+        aria-label="Cerrar menú"
+        aria-expanded="false"
+        class="lg:hidden p-2 rounded-full transition-transform rotate-0 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-95 z-[1500]"
+      >
+        <svg
+          id="close-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="text-red-500 w-6 h-6"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
     </div>
 
     <nav class="p-6">
@@ -173,18 +177,12 @@ const currentPath = Astro.url.pathname;
 <script>
   import { setupHeader, updateHeaderScrollState } from "@/utils/header";
 
-  // Inicialización
   let cleanup = setupHeader();
 
-  // Cuando cambiamos de ruta con Astro, necesitamos reinicializar
   document.addEventListener("astro:after-swap", () => {
-    // Limpiamos los event listeners antiguos
     if (cleanup) cleanup();
-
-    // Reinicializamos
     cleanup = setupHeader();
   });
 
-  // Para View Transitions también debemos manejar el estado después de terminar
   document.addEventListener("astro:page-load", updateHeaderScrollState);
 </script>
