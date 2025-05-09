@@ -12,10 +12,6 @@
   background: transparent;
 }
 
-/* body {
-  background-image: url("/bg.svg");
-} */
-
 @theme {
   --font-numans: Numans, sans-serif;
   --font-modak: Modak, system-ui;
@@ -103,6 +99,16 @@
 }
 
 @layer base {
+  html.dark {
+    @apply bg-gradient-to-r from-gray-950 to-gray-900;
+  }
+
+  html.dark body {
+    @apply bg-transparent;
+  }
+}
+
+@layer base {
   *,
   ::after,
   ::before,
@@ -115,7 +121,7 @@
 @layer base {
   :root {
     --color-scheme: light dark;
-    /* --background: linear-gradient(180deg, #1e4f7f 0%, #09b70c 100%); */
+
     /* Bento */
 
     --bento-card-bg: #fff;

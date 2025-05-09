@@ -1,64 +1,65 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import ContactForm from "@/components/contact/ContactForm";
+import ContactSocialLinks from "@/components/contact/ContactSocialLinks";
+import ContactInfo from "@/components/contact/ContactInfo";
 ---
 
 <Layout title="Contacto - JDLSantos">
-  <section class="max-w-lg px-6 py-12 mx-auto space-y-6">
-    <h1
-      class="text-4xl font-semibold text-center text-gray-900 dark:text-white"
-    >
-      Contáctame
-    </h1>
-    <p class="text-center text-gray-600 dark:text-gray-400">
-      Estoy disponible para proyectos y colaboraciones. ¡Déjame tu mensaje!
-    </p>
-
-    <form class="space-y-5">
-      <!-- Nombre -->
-      <div>
-        <label for="name" class="sr-only">Nombre</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          placeholder="Tu nombre"
-          class="w-full p-3 text-gray-900 transition-all duration-300 bg-gray-100 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        />
-      </div>
-
-      <!-- Correo -->
-      <div>
-        <label for="email" class="sr-only">Correo</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="Tu correo"
-          class="w-full p-3 text-gray-900 transition-all duration-300 bg-gray-100 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        />
-      </div>
-
-      <!-- Mensaje -->
-      <div>
-        <label for="message" class="sr-only">Mensaje</label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          placeholder="Escribe tu mensaje..."
-          class="w-full p-3 text-gray-900 transition-all duration-300 bg-gray-100 border border-gray-300 rounded-md resize-none h-28 dark:bg-gray-800 dark:text-white dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        ></textarea>
-      </div>
-
-      <!-- Botón Enviar -->
-      <button
-        type="submit"
-        class="w-full py-3 text-lg font-medium text-white transition-all duration-300 bg-blue-600 rounded-md dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-600 focus:ring-2 focus:ring-blue-500"
+  <main class="container mx-auto px-4 sm:px-6 py-12 mt-14 lg:mt-20 max-w-4xl">
+    <!-- Sección de cabecera -->
+    <div id="contact-header" class="mb-12 md:mb-16 text-center opacity-0">
+      <h1
+        class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3"
       >
-        Enviar
-      </button>
-    </form>
-  </section>
+        Hablemos
+      </h1>
+      <p
+        class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto"
+      >
+        Estoy disponible para proyectos desafiantes y colaboraciones
+        interesantes.
+      </p>
+    </div>
+
+    <!-- Grid de contenido: Formulario y tarjetas de info -->
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+      <!-- Columna 1: Formulario de contacto -->
+      <div
+        id="contact-form-container"
+        class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm order-2 md:order-1 opacity-0"
+      >
+        <ContactForm client:load />
+      </div>
+
+      <!-- Columna 2: Información de contacto y redes sociales -->
+      <div class="space-y-6">
+        <!-- Tarjeta de información personal -->
+        <div
+          id="contact-info-card"
+          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
+        >
+          <ContactInfo client:load />
+        </div>
+
+        <!-- Tarjeta de redes sociales -->
+        <div
+          id="contact-social-card"
+          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
+        >
+          <ContactSocialLinks client:load />
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<script>
+  import { setupContactAnimations } from "@/utils/animations/contactAnimations.ts";
+
+  // Inicializar animaciones cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", setupContactAnimations);
+
+  // Volver a inicializar después de transiciones de página de Astro
+  document.addEventListener("astro:page-load", setupContactAnimations);
+</script>

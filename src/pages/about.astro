@@ -6,7 +6,7 @@ const randomDuration = () => `${Math.random() * 5 + 3}s`;
 ---
 
 <Layout title="Sobre mí - JDLSantos">
-  <div class="absolute h-[70vh] w-full overflow-hidden">
+  <div class="w-full">
     {
       icons.map((emoji) => {
         // Genera posiciones y duración aleatoria
@@ -26,7 +26,7 @@ const randomDuration = () => `${Math.random() * 5 + 3}s`;
       })
     }
   </div>
-  <div class="flex items-center justify-center p-4">
+  <div class="flex items-center justify-center p-4 mt-14 lg:mt-20">
     <div class="fixed inset-0 overflow-hidden pointer-events-none"></div>
     <div
       transition:name="about-me-container"

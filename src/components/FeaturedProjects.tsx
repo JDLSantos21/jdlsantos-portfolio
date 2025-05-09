@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -6,122 +6,197 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ChevronRight, Code } from "lucide-react";
 import { projects } from "@/mocks/topProjects";
+import { gsap } from "gsap";
 
-const FeaturedProjects = () => {
+const FeaturedProjects: React.FC = () => {
+  // Referencias para animaciones
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Configurar animaciones cuando el componente se monte
+  useEffect(() => {
+    const section = sectionRef.current;
+    const title = titleRef.current;
+    const description = descriptionRef.current;
+    const carousel = carouselRef.current;
+
+    if (!section || !title || !description || !carousel) return;
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    tl.fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 })
+      .fromTo(
+        description,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(
+        carousel,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1 },
+        "-=0.3"
+      );
+
+    // Limpiar animación al desmontar
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  // Estado para el slide activo
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
   return (
-    <section className="py-16 px-4 md:py-20">
-      {/* Encabezado de sección */}
-      <div className="text-center mb-12">
-        <h2 className="text-2xl font-bold text-transparent uppercase md:text-5xl font-Bowlby-one bg-clip-text bg-linear-to-b from-gray-800 dark:from-white via-gray-400 dark:via-gray-400 to-slate-900 dark:to-white">
-          Proyectos{" "}
-          <span className="text-blue-600 dark:text-blue-400">Destacados</span>
+    <section
+      ref={sectionRef}
+      className="min-h-screen flex flex-col justify-center py-16 md:px-4 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950"
+    >
+      {/* Encabezado de sección con diseño minimalista */}
+      <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2
+          ref={titleRef}
+          className="text-3xl p-4 md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600"
+        >
+          Proyectos Destacados
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Una selección de mis mejores trabajos y creaciones en el mundo del
-          desarrollo.
+        <p
+          ref={descriptionRef}
+          className="text-base md:text-lg text-gray-600 dark:text-gray-300"
+        >
+          Una selección cuidadosa de mis mejores trabajos que demuestran mi
+          experiencia y pasión por el desarrollo.
         </p>
       </div>
 
-      {/* Carrusel usando el componente pre-existente */}
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        className="max-w-6xl mx-auto"
-      >
-        <CarouselContent>
-          {projects.map((project, index) => (
-            <CarouselItem key={index} className="md:basis-full p-2">
-              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl shadow-xl overflow-hidden h-full flex flex-col md:flex-row">
-                {/* Imagen del proyecto */}
-                <div className="md:w-1/2 overflow-hidden">
-                  <img
-                    src={`/images/projects/${project.slug}.webp`}
-                    alt={project.title}
-                    className="w-full h-[250px] md:h-[350px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+      {/* Carrusel rediseñado con enfoque minimalista */}
+      <div ref={carouselRef} className="w-full md:max-w-4/5 mx-auto">
+        <Carousel
+          opts={{
+            align: "center",
+            loop: true,
+          }}
+          className="w-full bg-slate-200"
+          onSelect={(index) => {
+            if (typeof index === "number") {
+              setActiveIndex(index);
+            }
+          }}
+        >
+          <CarouselContent>
+            {projects.map((project, index) => (
+              <CarouselItem key={index} className="md:basis-full p-5 max-w-5xl">
+                <div className="h-full ml-4 rounded-xl overflow-hidden bg-white dark:bg-gray-800/50 shadow-lg backdrop-blur-sm border border-gray-100 dark:border-gray-700/50 flex flex-col lg:flex-row">
+                  {/* Imagen del proyecto con overlay y efecto al hacer hover */}
+                  <div className="lg:w-2/5 relative group overflow-hidden">
+                    <div className="absolute inset-0 bg-blue-600/10 dark:bg-blue-900/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <img
+                      src={`/images/projects/${project.slug}.webp`}
+                      alt={project.title}
+                      className="w-full h-[280px] lg:h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  </div>
 
-                {/* Contenido/detalles del proyecto */}
-                <div className="md:w-1/2 p-6 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-blue-300 mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-6">
-                      {project.description}
-                    </p>
+                  {/* Contenido del proyecto con diseño espaciado y min5imalista */}
+                  <div className="lg:w-3/5 p-6 lg:p-10 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <Code className="text-blue-500 w-5 h-5 mr-2" />
+                        <h3 className="text-xl lg:text-3xl font-bold text-gray-800 dark:text-blue-300">
+                          {project.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300 mb-8 lg:text-lg">
+                        {project.description}
+                      </p>
 
-                    {/* Tecnologías */}
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">
-                        Tecnologías
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.skills.slice(0, 6).map((skill, idx) => (
-                          <span
-                            key={idx}
-                            className="bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-xs px-3 py-1 rounded-full"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                        {project.skills.length > 6 && (
-                          <span className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-3 py-1 rounded-full">
-                            +{project.skills.length - 6} más
-                          </span>
-                        )}
+                      {/* Tecnologías con diseño minimalista */}
+                      <div className="mb-8">
+                        <h4 className="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 font-medium">
+                          Tecnologías
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.skills.map((skill, idx) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1 text-xs rounded-full border border-blue-200 dark:border-blue-900/50 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/20"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Botones de acción */}
-                  <div className="flex flex-wrap gap-3 mt-auto">
-                    {project.url && (
+                    {/* Botones de acción rediseñados */}
+                    <div className="flex flex-wrap gap-4">
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                        >
+                          <div className="mr-2 p-2 rounded-full bg-blue-50 dark:bg-blue-900/30">
+                            <ExternalLink className="w-4 h-4" />
+                          </div>
+                          <span>Visitar sitio</span>
+                          <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                        </a>
+                      )}
                       <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white rounded-md transition-colors shadow-sm"
+                        href={`/projects/${project.slug}`}
+                        className="group flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Visitar sitio
+                        <div className="mr-2 p-2 rounded-full bg-gray-50 dark:bg-gray-800">
+                          <ChevronRight className="w-4 h-4" />
+                        </div>
+                        <span>Ver detalles</span>
+                        <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                       </a>
-                    )}
-                    <a
-                      href={`/projects/${project.slug}`}
-                      className="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-md transition-colors shadow-sm"
-                    >
-                      Ver detalles
-                    </a>
-                    <a
-                      href="#"
-                      className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md transition-colors"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Código
-                    </a>
+                      <a
+                        href="#"
+                        className="group flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      >
+                        <div className="mr-2 p-2 rounded-full bg-gray-50 dark:bg-gray-800">
+                          <Github className="w-4 h-4" />
+                        </div>
+                        <span>Ver código</span>
+                        <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden md:flex" />
-      </Carousel>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
 
-      {/* Indicador de posición */}
-      <div className="flex justify-center mt-6 gap-1">
-        {projects.map((_, index) => (
-          <div
-            key={index}
-            className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"
-          />
-        ))}
+          {/* Controles del carrusel rediseñados */}
+          <div className="hidden md:block">
+            <CarouselPrevious className="left-6 lg:left-10 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 border-none shadow-md h-10 w-10" />
+            <CarouselNext className="right-6 lg:right-10 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 border-none shadow-md h-10 w-10" />
+          </div>
+        </Carousel>
+
+        {/* Indicadores de posición más elegantes */}
+        <div className="flex justify-center mt-8 gap-2">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                activeIndex === index
+                  ? "bg-blue-500 w-6"
+                  : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+              }`}
+              aria-label={`Ver proyecto ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
