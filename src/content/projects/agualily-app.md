@@ -31,24 +31,24 @@ La app esta desarrollada con Tauri, TypeScript, Tailwind, entre otras biblioteca
 
 ### Login
 
-![Banner del proyecto](/public/images/projects/agualily-app/screenshots/login.webp)
+![Banner del proyecto](/images/projects/agualily-app/screenshots/login.webp)
 
 ### Inventario
 
 Control de inventario de materias primas utilizadas en la producción de la empresa.
 
-![Banner del proyecto](/public/images/projects/agualily-app/screenshots/inventory.webp)
+![Banner del proyecto](/images/projects/agualily-app/screenshots/inventory.webp)
 
 - Nuevo Material <br>
-  <img alt='nuevo material' src='/public/images/projects/agualily-app/screenshots/new-material.webp'>
+  <img alt='nuevo material' src='/images/projects/agualily-app/screenshots/new-material.webp'>
 
 - Salida <br>
-  <img alt='salida de inventario' src='/public/images/projects/agualily-app/screenshots/inventory-out.webp'>
+  <img alt='salida de inventario' src='/images/projects/agualily-app/screenshots/inventory-out.webp'>
 
 - Ajuste <br>
-  <img alt='ajuste de inventario' src='/public/images/projects/agualily-app/screenshots/adjust.webp'>
+  <img alt='ajuste de inventario' src='/images/projects/agualily-app/screenshots/adjust.webp'>
 
 -Reportes <br>
 
-<div class='grid md:grid-cols-2 grid-rows-2 md:gap-2'><img alt='generar reporte de inventario' src='/public/images/projects/agualily-app/screenshots/generate-report.webp'> <img class='md:row-span-2' alt='reporte de inventario' src='/public/images/projects/agualily-app/screenshots/generated-report.webp'> <img class="row-span-1 relative -top-15" alt='generando reporte de inventario de inventario' src='/public/images/projects/agualily-app/screenshots/generating-report.webp'>
+<div class='grid md:grid-cols-2 grid-rows-2 md:gap-2'><img alt='generar reporte de inventario' src='/images/projects/agualily-app/screenshots/generate-report.webp'> <img class='md:row-span-2' alt='reporte de inventario' src='/images/projects/agualily-app/screenshots/generated-report.webp'> <img class="row-span-1 relative -top-15" alt='generando reporte de inventario de inventario' src='/images/projects/agualily-app/screenshots/generating-report.webp'>
 </div>
