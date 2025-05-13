@@ -40,10 +40,6 @@ export function setupContactAnimations(): void {
         opacity: 1,
         y: 0,
         duration: 0.7,
-        onComplete: () => {
-          // Animar elementos dentro del formulario
-          animateFormElements();
-        },
       },
       "-=0.3"
     );

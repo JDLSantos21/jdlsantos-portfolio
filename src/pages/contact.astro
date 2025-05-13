@@ -6,7 +6,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
 ---
 
 <Layout title="Contacto - JDLSantos">
-  <main class="container mx-auto px-4 sm:px-6 py-12 mt-14 lg:mt-20 max-w-4xl">
+  <main class="container mx-auto px-4 sm:px-6 py-12 mt-14 lg:mt-20 max-w-5xl">
     <!-- Sección de cabecera -->
     <div id="contact-header" class="mb-12 md:mb-16 text-center opacity-0">
       <h1
@@ -23,31 +23,31 @@ import ContactInfo from "@/components/contact/ContactInfo";
     </div>
 
     <!-- Grid de contenido: Formulario y tarjetas de info -->
-    <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+    <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
       <!-- Columna 1: Formulario de contacto -->
       <div
         id="contact-form-container"
-        class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm order-2 md:order-1 opacity-0"
+        class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm order-2 md:order-1 md:col-span-2 h-full opacity-0"
       >
         <ContactForm client:load />
       </div>
 
       <!-- Columna 2: Información de contacto y redes sociales -->
       <div class="space-y-6">
-        <!-- Tarjeta de información personal -->
-        <div
-          id="contact-info-card"
-          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
-        >
-          <ContactInfo client:load />
-        </div>
-
         <!-- Tarjeta de redes sociales -->
         <div
           id="contact-social-card"
           class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
         >
           <ContactSocialLinks client:load />
+        </div>
+
+        <!-- Tarjeta de información personal -->
+        <div
+          id="contact-info-card"
+          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
+        >
+          <ContactInfo client:load />
         </div>
       </div>
     </div>

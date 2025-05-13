@@ -1,9 +1,9 @@
 // src/components/contact/ContactForm.tsx
 import React, { useState, type FormEvent } from "react";
-import { MessageSquare, Send, User, Mail } from "lucide-react";
+import { MessageSquare, Send, User, Mail, Loader2 } from "lucide-react";
 
 interface FormStatus {
-  type: "success" | "error" | null;
+  type: "success" | "error" | "loading" | null;
   message: string;
 }
 
@@ -13,37 +13,28 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setFormStatus(null);
+    setFormStatus({ type: "loading", message: "Enviando..." });
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const message = formData.get("message") as string;
-
-    // Validación básica
-    if (!name || !email || !message) {
-      setFormStatus({
-        type: "error",
-        message: "Por favor completa todos los campos.",
-      });
-      setIsSubmitting(false);
-      return;
-    }
+    formData.append("access_key", "d1c02a12-3556-41ed-8cd4-82ebdd2944e1");
 
     try {
-      // Simulación de envío (reemplazar con API real)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Éxito simulado
-      setFormStatus({
-        type: "success",
-        message: "¡Mensaje enviado con éxito! Te contactaré pronto.",
+      setIsSubmitting(true);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
 
-      // Limpiar formulario
-      e.currentTarget.reset();
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus({
+          type: "success",
+          message: "¡Mensaje enviado con éxito! Te contactaré pronto.",
+        });
+      }
     } catch (error) {
+      console.log("Error", error);
       setFormStatus({
         type: "error",
         message:
@@ -51,11 +42,6 @@ const ContactForm: React.FC = () => {
       });
     } finally {
       setIsSubmitting(false);
-
-      // Ocultar mensaje después de 5 segundos
-      setTimeout(() => {
-        setFormStatus(null);
-      }, 5000);
     }
   };
 
@@ -134,26 +120,7 @@ const ContactForm: React.FC = () => {
           className="w-full py-2.5 sm:py-3 px-4 sm:px-6 flex items-center justify-center text-sm sm:text-base font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 group disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
-            <svg
-              className="animate-spin h-5 w-5 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
+            <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
           ) : (
             <>
               <span>Enviar mensaje</span>
