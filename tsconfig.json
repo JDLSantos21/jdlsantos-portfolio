@@ -2,6 +2,9 @@
   "include": [".astro/types.d.ts", "**/*", "prettier.config.ts"],
   "exclude": ["dist"],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
