@@ -94,7 +94,6 @@ import { Icon } from "astro-icon/components";
 
   <!-- Proyectos - altura reducida -->
   <div
-    transition:name="projects-container"
     class="projects-card section max-lg:h-[42rem] flex flex-col p-6 lg:p-7 rounded-3xl shadow-xl max-lg:col-span-4 md:col-span-2 md:row-span-3 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50/30 to-indigo-100/20 dark:from-gray-900 dark:via-slate-900/90 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-indigo-200/40 dark:hover:shadow-indigo-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="indigo"
     data-card-delay="0.2"
@@ -121,15 +120,13 @@ import { Icon } from "astro-icon/components";
           <a
             href={`/projects/${project.slug}`}
             class="project-item flex items-center text-sm text-gray-700 md:text-base dark:text-gray-300 p-3 rounded-xl bg-gradient-to-r from-white/80 to-white/60 dark:from-gray-800/40 dark:to-gray-800/20 backdrop-blur-sm hover:from-white/90 hover:to-indigo-50/70 dark:hover:from-gray-800/60 dark:hover:to-indigo-900/20 shadow-sm hover:shadow-md transition-all duration-300"
-            transition:name={`${project.slug}-card`}
-            transition:animate="slide"
             data-item-delay={0.3 + index * 0.15}
           >
             <div>
-              <span class="font-bold text-indigo-800 dark:text-indigo-400">
+              <span class="font-bold text-gray-600 dark:text-gray-100">
                 {project.title}
               </span>
-              <p class="text-gray-600 dark:text-gray-400 text-sm font-light line-clamp-1">
+              <p class="text-gray-600 dark:text-gray-300 text-sm font-light line-clamp-1">
                 {project.shortDescription}
               </p>
               <div class="flex flex-wrap gap-2 mt-1">

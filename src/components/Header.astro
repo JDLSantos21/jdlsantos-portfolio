@@ -1,6 +1,8 @@
 ---
 // src/components/Header.astro
 import ThemeToggle from "@/components/ThemeToggle.astro";
+import Button from "./buttons/Button.astro";
+import { Icon } from "astro-icon/components";
 
 const navLinks = [
   { href: "/", text: "Inicio" },
@@ -66,7 +68,16 @@ const currentPath = Astro.url.pathname;
         })
       }
     </ul>
-    <ThemeToggle />
+    <div class="flex items-center gap-2">
+      <a
+        href="https://github.com/JDLSantos21"
+        target="_blank"
+        class="hover:scale-110 transition-transform duration-300 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+      >
+        <Icon name="mdi:github" class="w-7 h-7" />
+      </a>
+      <ThemeToggle />
+    </div>
   </nav>
 
   <!-- Mobile Menu Button -->

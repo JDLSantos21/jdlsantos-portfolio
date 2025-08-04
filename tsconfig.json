@@ -1,5 +1,4 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*", "prettier.config.ts"],
   "exclude": ["dist"],
   "compilerOptions": {

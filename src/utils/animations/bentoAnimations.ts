@@ -77,7 +77,7 @@ function animateCards() {
 
   bentoCards.forEach((card, index) => {
     const cardElement = card;
-    const delay = index * 0.15;
+    const delay = index * 0.125;
 
     // Timeline para esta tarjeta
     const cardTL = gsap.timeline({
@@ -94,7 +94,7 @@ function animateCards() {
       opacity: 1,
       y: 0,
       scale: 1,
-      duration: 0.8,
+      duration: 0.3,
       ease: "power3.out",
       delay: delay,
     });
@@ -249,14 +249,14 @@ function animateSpecificElements() {
       {
         scrollTrigger: {
           trigger: item,
-          start: "top 90%",
+          start: "top 100%",
           toggleActions: "play none none none",
         },
         opacity: 1,
         x: 0,
         y: 0,
         scale: 1,
-        duration: 0.7,
+        duration: 0.6,
         ease: "back.out(1.7)",
         delay: index * 0.15 + 0.5,
       }

@@ -57,10 +57,10 @@ const FeaturedProjects: React.FC = () => {
       className="min-h-screen flex flex-col justify-center py-16 md:px-4 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950"
     >
       {/* Encabezado de sección con diseño minimalista */}
-      <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+      <div className="mb-12 md:mb-16 max-w-3xl mx-auto">
         <h2
           ref={titleRef}
-          className="text-3xl p-4 md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600"
+          className="p-4 mb-6 text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600"
         >
           Proyectos Destacados
         </h2>

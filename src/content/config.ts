@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 const projects = defineCollection({
-  // type: "content", 'content' es para archivos Markdown/MDX
+  type: "content", // 'content' es para archivos Markdown/MDX
   schema: z.object({
     id: z.number(),
     title: z.string(),

@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { href, imgSrc, title, slug } = Astro.props;
+---
+
+<a href={href} class="block">
+  <div
+    class="project-card rounded-md group bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/10 dark:from-slate-900/95 dark:via-blue-950/30 dark:to-indigo-950/20 backdrop-blur shadow-md"
+    transition:name={`${slug}-card`}
+    transition:animate="slide"
+  >
+    <div
+      class="absolute -translate-x-5 group-hover:translate-x-0 rounded-full p-3 bg-white dark:bg-gray-800 right-3 top-3 opacity-0 transition-all duration-300 group-hover:opacity-100 z-10"
+    >
+      <Icon name="mdi:arrow-right" class="text-lg" />
+    </div>
+    <div
+      class="overlay bg-black/10 absolute inset-0 rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+    >
+    </div>
+
+    <div
+      class="padding-x-2 padding-t-2 flex flex-col items-center justify-center overflow-y-hidden"
+    >
+      <h3
+        class="project-card_title text-2xl font-semibold my-2 group-hover:translate-y-14 transition-transform duration-300 text-center text-gray-800 dark:text-gray-200"
+      >
+        {title}
+      </h3>
+      <picture>
+        <source srcset={`${imgSrc}.webp`} type="image/webp" />
+        <img
+          class="project-card_img shadow-md shadow-gray-500 object-cover translate-y-2 group-hover:translate-y-0 ease-in-out duration-300 mx-auto"
+          src={`${imgSrc}.png`}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </div>
+  </div>
+</a>
+
+<style>
+  .project-card_img {
+    width: clamp(60%, 70%, 300px);
+    height: auto;
+  }
+</style>
+
+<script src="/src/utils/animations/projectCardsAnimation.ts"></script>

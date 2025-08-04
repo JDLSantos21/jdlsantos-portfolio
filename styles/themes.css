@@ -1,0 +1,19 @@
+/* Temas - Solo configuración básica de fondos */
+
+/* Tema claro */
+html {
+  background: white;
+  color: hsl(var(--foreground));
+}
+
+/* Tema oscuro */
+html.dark {
+  background: linear-gradient(to right, rgb(3, 7, 18), rgb(17, 24, 39));
+  color: hsl(var(--foreground));
+}
+
+/* Configuración básica del body */
+body {
+  background: transparent;
+  font-family: "Lato", sans-serif;
+}

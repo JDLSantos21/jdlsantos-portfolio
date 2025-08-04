@@ -87,7 +87,7 @@ const AboutMe: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className="bg-transparent shadow-none">
+        <Card className="bg-transparent shadow-none border-gray-200 dark:border-gray-700">
           <CardContent className="p-6">
             <div className="flex flex-col space-y-6">
               <motion.h2 className="text-2xl about-me-title font-bold text-blue-600 flex items-center justify-center sm:justify-start">

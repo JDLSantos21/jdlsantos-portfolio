@@ -9,5 +9,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [react(), icon()],
+  integrations: [
+    react(),
+    icon({
+      include: {
+        mdi: ["*"],
+      },
+    }),
+  ],
 });

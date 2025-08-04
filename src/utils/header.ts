@@ -54,7 +54,7 @@ export function setupHeader(): () => void {
     // Clases para la navegación de escritorio en scroll
     desktopNav.classList.toggle("bg-white/90", scrolled);
     desktopNav.classList.toggle("dark:bg-gray-800/90", scrolled);
-    desktopNav.classList.toggle("hover:shadow-2xl", scrolled);
+    desktopNav.classList.toggle("hover:shadow-lg", scrolled);
     desktopNav.classList.toggle("dark:shadow-white/20", scrolled);
     desktopNav.classList.toggle("backdrop-blur-xs", scrolled);
     desktopNav.classList.toggle("shadow-sm", scrolled);

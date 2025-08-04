@@ -2,13 +2,61 @@
 import Layout from "@layouts/Layout.astro";
 import Welcome from "@/components/Welcome.astro";
 import BentoSection from "@components/BentoSection.astro";
-import FeaturedProjects from "@components/FeaturedProjects";
+import ProjectCard from "@/components/cards/ProjectCard.astro";
+import Container from "@components/core/Container.astro";
+import Button from "@/components/buttons/Button.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Bienvenido - JDLSantos">
   <main class="main">
     <Welcome />
     <BentoSection />
-    <FeaturedProjects client:load />
+    <Container>
+      <section
+        transition:name="projects-container"
+        class="featured-projects-section"
+      >
+        <h2
+          class="section-title font-semibold flex items-center gap-1 justify-center mt-36"
+        >
+          <Icon class="text-blue-600" name="mdi:view-grid-outline" />
+          <span class="text-gray-600 dark:text-gray-200">Proyectos</span>
+        </h2>
+        <p class="section-description text-4xl text-center mb-10 font-bold">
+          Explora algunos de mis proyectos más recientes.
+        </p>
+        <div
+          class="featured-card_grid grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <ProjectCard
+            title="Agua Lily Web"
+            imgSrc="/assets/projects/agualily-web"
+            slug="agualily-web"
+            href="/projects/agualily-web"
+          />
+          <ProjectCard
+            title="Agua Lily App"
+            imgSrc="/assets/projects/agualily-app"
+            slug="agualily-app"
+            href="/projects/agualily-web"
+          />
+        </div>
+        <!-- centrar button -->
+        <div class="flex justify-center mt-10 flex-col items-center gap-4">
+          <p class="text-gray-600 dark:text-gray-200 text-xl">
+            ¿Quieres ver más proyectos?
+          </p>
+          <Button variant="outline" href="/projects"> Ir a Proyectos </Button>
+        </div>
+      </section>
+    </Container>
+    <!-- <FeaturedProjects client:load /> -->
   </main>
 </Layout>
+
+<style>
+  .featured-projects-section {
+    margin: var(--section-margin) auto;
+  }
+</style>

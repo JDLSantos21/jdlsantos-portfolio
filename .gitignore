@@ -9,6 +9,8 @@ node_modules/
 
 public/assets/icons
 
+styles/*.md
+
 testHeader.jsx
 
 # logs

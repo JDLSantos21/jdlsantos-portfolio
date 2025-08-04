@@ -15,16 +15,16 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.2.7",
+    "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
-    "@radix-ui/react-avatar": "^1.1.9",
-    "@radix-ui/react-dialog": "^1.1.13",
-    "@radix-ui/react-slot": "^1.2.2",
-    "@radix-ui/react-toast": "^1.2.13",
-    "@tailwindcss/vite": "^4.1.5",
-    "@types/react": "^18.3.21",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-toast": "^1.2.14",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
-    "astro": "^5.7.12",
+    "astro": "^5.12.8",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -38,12 +38,13 @@
     "react-simple-typewriter": "^5.0.1",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^4.1.5",
+    "tailwindcss": "^4.1.11",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "vite": "^6.3.5"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/typography": "^0.5.16"
   }
 }
