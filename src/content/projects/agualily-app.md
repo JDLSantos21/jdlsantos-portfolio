@@ -2,7 +2,7 @@
 id: 2
 title: "Agua Lily App - Escritorio"
 shortDescription: "Aplicación de escritorio para gestión operativa empresarial"
-image: "/assets/projects/agualily-app.webp"
+image: "/assets/projects/agualily-app"
 description: "Aplicación de escritorio creada con tauri y react."
 skills: ["React", "Express", "Tauri", "MySQL", "Tailwind"]
 ---

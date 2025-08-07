@@ -6,6 +6,9 @@ import ProjectCard from "@/components/cards/ProjectCard.astro";
 import Container from "@components/core/Container.astro";
 import Button from "@/components/buttons/Button.astro";
 import { Icon } from "astro-icon/components";
+import SkillGrid from "@/components/SkillGrid.astro";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
 ---
 
 <Layout title="Bienvenido - JDLSantos">
@@ -18,29 +21,38 @@ import { Icon } from "astro-icon/components";
         class="featured-projects-section"
       >
         <h2
-          class="section-title font-semibold flex items-center gap-1 justify-center mt-36"
+          class="section-title font-semibold flex items-center gap-1 justify-center mt-20"
         >
           <Icon class="text-blue-600" name="mdi:view-grid-outline" />
-          <span class="text-gray-600 dark:text-gray-200">Proyectos</span>
+          <span class="text-gray-600 text-sm md:text-base dark:text-gray-200"
+            >Proyectos</span
+          >
         </h2>
-        <p class="section-description text-4xl text-center mb-10 font-bold">
+        <p
+          class="section-description text-xl lg:text-4xl text-center mb-10 font-bold"
+        >
           Explora algunos de mis proyectos más recientes.
         </p>
         <div
-          class="featured-card_grid grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          class="featured-card_grid w-full grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
         >
-          <ProjectCard
-            title="Agua Lily Web"
-            imgSrc="/assets/projects/agualily-web"
-            slug="agualily-web"
-            href="/projects/agualily-web"
-          />
-          <ProjectCard
-            title="Agua Lily App"
-            imgSrc="/assets/projects/agualily-app"
-            slug="agualily-app"
-            href="/projects/agualily-web"
-          />
+          {
+            projects.slice(0, 6).map((project) => {
+              const { slug, data } = project;
+              const { title, shortDescription, image } = data;
+
+              return (
+                <ProjectCard
+                  title={title}
+                  imgSrc={image}
+                  slug={slug}
+                  href={`/projects/${slug}`}
+                  description={shortDescription}
+                  skills={data.skills || []}
+                />
+              );
+            })
+          }
         </div>
         <!-- centrar button -->
         <div class="flex justify-center mt-10 flex-col items-center gap-4">
@@ -51,12 +63,19 @@ import { Icon } from "astro-icon/components";
         </div>
       </section>
     </Container>
-    <!-- <FeaturedProjects client:load /> -->
+    <Container>
+      <SkillGrid />
+    </Container>
   </main>
 </Layout>
 
 <style>
   .featured-projects-section {
     margin: var(--section-margin) auto;
+  }
+
+  .featured-card_grid {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 </style>

@@ -1,9 +1,9 @@
 ---
 id: 1
-title: "Agua & Hielo Lily"
-shortDescription: "Plataforma de distribución de agua y hielo purificados"
-image: "/assets/projects/agualily-web.webp"
-description: "Landing Page de la empresa con React e implementacion de rastreos"
-skills: ["HTML", "CSS", "JavaScript"]
+title: "Página Web - Agua Lily"
+shortDescription: "Web oficial de la empresa con tracking de pedidos y solicitud de servicios.asdasdasd ad asdasdads as dasdasdasdasdasdasdasdasdaasdasdasdasdasasdasdasadasdasdasdasdasdasdasd"
+image: "/assets/projects/agualily-web"
+description: "Web oficial de la empresa Agua & Hielo Lily, empresa lider en purificación y distribución de agua potable en Santo Domingo Norte, Rep. Dom. La web incluye un apartado de rastreo de pedidos para sus clientes."
+skills: ["React", "TypeScript", "Tailwind", "Framer Motion", "Vite", "Swiper"]
 url: "https://www.agualily.com"
 ---

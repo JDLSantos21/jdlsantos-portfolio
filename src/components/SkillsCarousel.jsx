@@ -32,7 +32,7 @@ export function SkillsCarousel() {
         {images.map((image, index) => (
           <CarouselItem
             key={index}
-            className="basis-1/3 md:basis-1/4 max-md:pt-4 md:p-4"
+            className="basis-1/3 md:basis-1/2 max-md:pt-4 md:p-4"
           >
             <div className="md:p-1">
               <div>

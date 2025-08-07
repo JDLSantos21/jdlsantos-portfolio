@@ -8,12 +8,12 @@ export function getSystemTheme(): Theme {
     : "light";
 }
 
-// Obtiene el tema actual (de localStorage o del sistema)
+// Obtiene el tema actual (de localStorage o light por defecto)
 export function getTheme(): Theme {
   if (typeof window === "undefined") return "light"; // SSR fallback
 
   const savedTheme = localStorage.getItem("theme") as Theme;
-  return savedTheme || getSystemTheme();
+  return savedTheme || "light"; // Siempre light por defecto
 }
 
 // Establece el tema en localStorage y en el DOM

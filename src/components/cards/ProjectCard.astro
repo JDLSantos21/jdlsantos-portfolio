@@ -1,12 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { href, imgSrc, title, slug } = Astro.props;
+const { href, imgSrc, title, slug, description, skills } = Astro.props;
+
+const skillsList = skills.slice(0, 3) || [];
+const isLongSkillsList = skills.length > 3;
 ---
 
-<a href={href} class="block">
+<a href={href} class="block w-full">
   <div
-    class="project-card rounded-md group bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/10 dark:from-slate-900/95 dark:via-blue-950/30 dark:to-indigo-950/20 backdrop-blur shadow-md"
+    class="project-card rounded-md group bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/10 dark:from-slate-900/95 dark:via-blue-950/30 dark:to-indigo-950/20 backdrop-blur shadow-md relative overflow-hidden w-full h-full"
     transition:name={`${slug}-card`}
     transition:animate="slide"
   >
@@ -21,17 +24,40 @@ const { href, imgSrc, title, slug } = Astro.props;
     </div>
 
     <div
-      class="padding-x-2 padding-t-2 flex flex-col items-center justify-center overflow-y-hidden"
+      class="px-2 pt-2 flex flex-col items-center justify-center overflow-hidden"
     >
       <h3
-        class="project-card_title text-2xl font-semibold my-2 group-hover:translate-y-14 transition-transform duration-300 text-center text-gray-800 dark:text-gray-200"
+        class="project-card_title text-lg lg:text-xl font-semibold mt-2 group-hover:translate-y-10 transition-transform duration-300 text-gray-800 dark:text-gray-200"
       >
         {title}
       </h3>
+      <p
+        class="project-card_description h-[45px] text-sm lg:text-base group-hover:translate-y-24 group-hover:opacity-0 max-w-[65%] duration-200 text-gray-600 dark:text-gray-400 multiline-ellipsis text-center"
+      >
+        {description}
+      </p>
+      <div
+        class="project-card_skills flex flex-wrap gap-2 mt-2 items-center group-hover:opacity-0 duration-300 text-gray-500 dark:text-gray-300"
+      >
+        {
+          skillsList.map((skill: string) => (
+            <span class="project-card_skill p-1 px-2 text-xs bg-slate-200 rounded-full">
+              {skill}
+            </span>
+          ))
+        }
+        {
+          isLongSkillsList && (
+            <span class="project-card_skill text-xs">
+              +{skills.length - 3} más
+            </span>
+          )
+        }
+      </div>
       <picture>
         <source srcset={`${imgSrc}.webp`} type="image/webp" />
         <img
-          class="project-card_img shadow-md shadow-gray-500 object-cover translate-y-2 group-hover:translate-y-0 ease-in-out duration-300 mx-auto"
+          class="project-card_img shadow-md shadow-gray-500 object-cover translate-y-2 group-hover:translate-y-0 group-hover:scale-130 ease-in-out duration-300 mx-auto"
           src={`${imgSrc}.png`}
           alt={title}
           loading="lazy"
@@ -46,6 +72,13 @@ const { href, imgSrc, title, slug } = Astro.props;
   .project-card_img {
     width: clamp(60%, 70%, 300px);
     height: auto;
+  }
+
+  .multiline-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>
 

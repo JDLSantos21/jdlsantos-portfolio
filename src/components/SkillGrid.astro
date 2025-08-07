@@ -1,0 +1,136 @@
+---
+import { Icon } from "astro-icon/components";
+
+const skills = {
+  Frontend: [
+    { name: "TypeScript", icon: "logos:typescript-icon" },
+    { name: "JavaScript", icon: "logos:javascript" },
+    { name: "React", icon: "logos:react" },
+    { name: "Next.js", icon: "logos:nextjs-icon" },
+    { name: "Astro", icon: "logos:astro-icon" },
+    { name: "Vite", icon: "logos:vitejs" },
+    { name: "Zustand", icon: "logos/zustand" },
+    { name: "Expo", icon: "logos:expo-icon" },
+    { name: "TailwindCSS", icon: "logos:tailwindcss-icon" },
+    { name: "Framer Motion", icon: "logos:framer" },
+    { name: "TanStack (RQ)", icon: "logos:react-query-icon" },
+    { name: "Zod", icon: "simple-icons:zod" },
+    // { name: "Date-fns", icon: "simple-icons:datefns" },
+    { name: "Dayjs", icon: "logos/dayjs" },
+    { name: "MomentJS", icon: "logos:momentjs" },
+    { name: "HTML", icon: "logos:html-5" },
+    { name: "CSS", icon: "logos:css-3" },
+  ],
+  Backend: [
+    { name: "Node.js", icon: "logos:nodejs-icon" },
+    { name: "Express.js", icon: "simple-icons:express" },
+    { name: ".NET", icon: "logos:dotnet" },
+    { name: "MySQL", icon: "logos:mysql-icon" },
+    { name: "PostgreSQL", icon: "logos:postgresql" },
+    { name: "WebSockets", icon: "mdi:web" },
+    { name: "API RESTful", icon: "mdi:api" },
+    { name: "JsonWebTokens", icon: "logos:jwt" },
+  ],
+  Fullstack: [
+    { name: "Tauri", icon: "logos:tauri" },
+    { name: "Postman", icon: "logos:postman-icon" },
+    { name: "Axios", icon: "logos:axios" },
+    { name: "Git", icon: "logos:git-icon" },
+    { name: "Vitest", icon: "logos:vitest" },
+    { name: "Playwright", icon: "logos:playwright" },
+    { name: "npm", icon: "logos:npm-icon" },
+    { name: "pnpm", icon: "logos:pnpm" },
+    { name: "Warp", icon: "simple-icons:warp" },
+    { name: "Markdown", icon: "mdi:markdown" },
+  ],
+};
+---
+
+<!-- src/components/SkillGrid.astro -->
+<section class="skills-section">
+  <h2
+    class="skills-section__title font-semibold flex items-center gap-1 justify-center mt-36"
+  >
+    <Icon class="text-blue-600" name="mdi:code-tags" />
+    <span class="text-gray-600 dark:text-gray-200">Habilidades</span>
+  </h2>
+  <p
+    class="skills-section__description text-2xl lg:text-4xl text-center mb-10 font-bold"
+  >
+    Aquí están algunas de las tecnologías con las que trabajo.
+  </p>
+  <div>
+    {
+      Object.entries(skills).map(([section, technologies]) => (
+        <div class="skills-section__category mb-12">
+          <h3 class="skills-section__category-title text-2xl font-semibold mb-4 text-center">
+            {section}
+          </h3>
+          <div class="skills-section__grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 justify-items-center">
+            {technologies.map(({ name, icon }) => (
+              <div class="skills-section__item flex flex-col items-center bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition-transform text-center w-full h-full">
+                <Icon
+                  name={icon}
+                  class="skills-section__item-icon text-4xl mb-2 max-w-full"
+                />
+                <span class="skills-section__item-name text-sm font-medium text-gray-700 dark:text-gray-200">
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const skillsCategories = document.querySelectorAll(
+    ".skills-section__category"
+  );
+
+  skillsCategories.forEach((category) => {
+    const skillsItems = category.querySelectorAll(".skills-section__item");
+
+    gsap.set(skillsItems, { opacity: 0, y: 30, scale: 0.95 });
+
+    ScrollTrigger.create({
+      trigger: category,
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(skillsItems, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: {
+            amount: 0.6,
+            from: "start",
+            ease: "power2.out",
+          },
+          ease: "power3.out",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(skillsItems, {
+          opacity: 0,
+          y: 30,
+          scale: 0.95,
+          duration: 0.4,
+          stagger: {
+            amount: 0.3,
+            from: "end",
+            ease: "power2.in",
+          },
+          ease: "power2.in",
+        });
+      },
+    });
+  });
+</script>

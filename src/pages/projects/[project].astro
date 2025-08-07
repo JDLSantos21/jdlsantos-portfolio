@@ -19,7 +19,7 @@ const { Content } = await project.render();
 const imagePath = `/assets/projects/${project.slug}.webp`;
 ---
 
-<Layout title={project.data.title || "proyecto"}>
+<Layout title={project.data.title || "Proyecto"}>
   <div
     class="container mx-auto py-12 px-4 md:px-6 xl:px-24 mt-14 lg:mt-20"
     transition:name={`${project.slug}-card`}
@@ -69,6 +69,7 @@ const imagePath = `/assets/projects/${project.slug}.webp`;
           <div
             class="prose prose-sm dark:prose-invert text-gray-600 dark:text-gray-300 max-w-none"
           >
+            {project.data.description || "No hay descripción disponible."}
           </div>
         </div>
         <div class="mb-4">

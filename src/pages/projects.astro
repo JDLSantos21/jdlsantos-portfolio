@@ -2,95 +2,98 @@
 import { getCollection } from "astro:content";
 import SkeletonCard from "@/components/SkeletonCard.astro";
 import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/core/Container.astro";
 const projects = await getCollection("projects");
 ---
 
 <Layout title="Proyectos - JDLSantos">
   <main class="relative min-h-[calc(100vh-4rem)] mt-14 lg:mt-20">
-    <div class="image-bg-container">
-      <img
-        src="/assets/avatar/jump.webp"
-        alt="Projects background"
-        class="absolute top-0 right-0 w-64 h-64 max-2xl:-translate-y-15 md:-translate-x-75 2xl:translate-x-0 animate-zoom-in"
-      />
-    </div>
-    <div
-      class="px-4 py-12 mx-auto max-w-7xl"
-      transition:name="projects-container"
-    >
-      <h1 class="mb-8 ml-4 text-3xl font-bold text-blue-600 md:ml-0">
-        Proyectos
-      </h1>
-
+    <Container>
+      <div class="image-bg-container">
+        <img
+          src="/assets/avatar/jump.webp"
+          alt="Projects background"
+          class="absolute top-0 right-0 w-64 h-64 max-2xl:-translate-y-15 md:-translate-x-75 2xl:translate-x-0 animate-zoom-in"
+        />
+      </div>
       <div
-        class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-md:place-items-center"
+        class="px-4 py-12 mx-auto max-w-7xl"
+        transition:name="projects-container"
       >
-        {
-          projects.map((project) => {
-            const { slug, data } = project;
-            const { title, description, skills, image } = data;
+        <h1 class="mb-8 ml-4 text-3xl font-bold text-blue-600 md:ml-0">
+          Proyectos
+        </h1>
 
-            return (
-              <a
-                href={`/projects/${slug}`}
-                class="relative block h-full max-md:max-w-3/4 group "
-                aria-label={`Visita ${title}`}
-              >
-                <div id={`${slug}-skeleton`}>
-                  <SkeletonCard />
-                </div>
+        <div
+          class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-md:place-items-center"
+        >
+          {
+            projects.map((project) => {
+              const { slug, data } = project;
+              const { title, shortDescription, skills, image } = data;
 
-                <div
-                  class="h-full flex flex-col transition-all duration-300 overflow-hidden shadow-[0_4px_20px_rgba(0,118,255,0.1)] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 rounded-lg hover:shadow-[0_8px_30px_rgba(0,118,255,0.2)]"
-                  transition:name={`${slug}-card`}
-                  transition:animate="fade"
+              return (
+                <a
+                  href={`/projects/${slug}`}
+                  class="relative block h-full group"
+                  aria-label={`Visita ${title}`}
                 >
-                  {/* Contenedor de imagen con relación de aspecto 16:9 */}
-                  <div class="relative flex items-center w-full p-2 aspect-video">
-                    {/* <div class="absolute inset-0 skeleton" /> */}
-                    <img
-                      transition:name={`${slug}-image`}
-                      src={image}
-                      alt={title}
-                      class="object-contain w-full h-full mx-auto transition-transform duration-300 rounded-lg group-hover:scale-103"
-                      width="800"
-                      height="450"
-                      loading="lazy"
-                      decoding="async"
-                      onload={`document.getElementById("${slug}-skeleton").classList.add('hidden')`}
-                    />
+                  <div id={`${slug}-skeleton`}>
+                    <SkeletonCard />
                   </div>
-                  {/* Contenido de la tarjeta */}
-                  <div class="flex flex-col flex-1 p-5 dark:bg-linear-to-b dark:from-gray-800 dark:to-gray-900">
-                    <h3 class="mb-2 text-xl font-bold text-gray-800 transition-colors duration-200 line-clamp-2 dark:text-blue-300 group-hover:text-blue-600">
-                      {title}
-                    </h3>
-                    <p class="flex-1 mb-4 text-gray-600 dark:text-blue-100 line-clamp-3">
-                      {description}
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                      {skills.slice(0, 4).map((tag: string) => (
-                        <span
-                          class="text-sm px-2.5 py-1 dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-500 dark:text-gray-100 rounded-full text-gray-600 dark:bg-teal-300 hover:bg-gray-200 transition-colors duration-200"
-                          aria-label={`Skill: ${tag}`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      {skills.length > 4 && (
-                        <span class="text-sm px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-200 rounded-full">
-                          +{skills.length - 4} más
-                        </span>
-                      )}
+
+                  <div
+                    class="h-full flex flex-col transition-all duration-300 overflow-hidden shadow-[0_4px_20px_rgba(0,118,255,0.1)] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 rounded-lg hover:shadow-[0_8px_30px_rgba(0,118,255,0.2)]"
+                    transition:name={`${slug}-card`}
+                    transition:animate="fade"
+                  >
+                    {/* Contenedor de imagen con relación de aspecto 16:9 */}
+                    <div class="relative flex items-center w-full p-2 aspect-video">
+                      {/* <div class="absolute inset-0 skeleton" /> */}
+                      <img
+                        transition:name={`${slug}-image`}
+                        src={`${image}.webp`}
+                        alt={title}
+                        class="object-contain w-full h-full mx-auto transition-transform duration-300 rounded-lg group-hover:scale-103"
+                        width="800"
+                        height="450"
+                        loading="lazy"
+                        decoding="async"
+                        onload={`document.getElementById("${slug}-skeleton").classList.add('hidden')`}
+                      />
+                    </div>
+                    {/* Contenido de la tarjeta */}
+                    <div class="flex flex-col flex-1 p-5 dark:bg-linear-to-b dark:from-gray-800 dark:to-gray-900">
+                      <h3 class="mb-2 text-xl font-bold text-gray-800 transition-colors duration-200 line-clamp-2 dark:text-blue-300 group-hover:text-blue-600">
+                        {title}
+                      </h3>
+                      <p class="flex-1 mb-4 text-gray-600 dark:text-blue-100 line-clamp-3">
+                        {shortDescription}
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        {skills.slice(0, 4).map((tag: string) => (
+                          <span
+                            class="text-sm px-2.5 py-1 dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-500 dark:text-gray-100 rounded-full text-gray-600 dark:bg-teal-300 hover:bg-gray-200 transition-colors duration-200"
+                            aria-label={`Skill: ${tag}`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {skills.length > 4 && (
+                          <span class="text-sm px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-200 rounded-full">
+                            +{skills.length - 4} más
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            );
-          })
-        }
+                </a>
+              );
+            })
+          }
+        </div>
       </div>
-    </div>
+    </Container>
   </main>
 </Layout>
 

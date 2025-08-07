@@ -21,6 +21,7 @@ function setupInitialStates() {
   const projectAvatar = document.querySelector(".project-avatar");
   const contactItems = document.querySelectorAll(".contact-item");
   const cardIcons = document.querySelectorAll(".text-card-icon");
+  const availabilityAvatar = document.querySelector(".availability-avatar");
 
   // Configurar estados iniciales
   gsap.set(bentoCards, {
@@ -66,6 +67,13 @@ function setupInitialStates() {
     scale: 0,
     opacity: 0,
     transformOrigin: "center center",
+  });
+
+  gsap.set(availabilityAvatar, {
+    opacity: 0,
+    scale: 0.8,
+    x: -20,
+    y: 20,
   });
 }
 
@@ -225,6 +233,25 @@ function animateSpecificElements() {
       duration: 0.6,
       ease: "expo.out",
       delay: 0.8,
+    });
+  }
+
+  //Availibily Avatar
+  const availabilityAvatar = document.querySelector(".availability-avatar");
+  if (availabilityAvatar) {
+    gsap.to(availabilityAvatar, {
+      scrollTrigger: {
+        trigger: availabilityAvatar,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: 0,
+      duration: 0.6,
+      ease: "expo.out",
+      delay: 0.4,
     });
   }
 
