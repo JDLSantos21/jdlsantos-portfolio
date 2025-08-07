@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  icon?: string;
+  iconBg?: string;
+}
+
+const {
+  title,
+  subtitle,
+  icon = "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
+  iconBg = "from-blue-500 to-blue-600",
+} = Astro.props;
+---
+
+<div class="flex items-center gap-4 mb-8">
+  <div class={`p-2.5 bg-gradient-to-br ${iconBg} rounded-xl shadow-lg`}>
+    <svg
+      class="w-5 h-5 text-white"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d={icon}></path>
+    </svg>
+  </div>
+  <div>
+    <h1 class="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white">
+      {title}
+    </h1>
+    {
+      subtitle && (
+        <p class="text-base text-gray-600 dark:text-gray-400 mt-1">
+          {subtitle}
+        </p>
+      )
+    }
+  </div>
+</div>

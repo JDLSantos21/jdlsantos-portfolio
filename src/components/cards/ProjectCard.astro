@@ -41,14 +41,14 @@ const isLongSkillsList = skills.length > 3;
       >
         {
           skillsList.map((skill: string) => (
-            <span class="project-card_skill p-1 px-2 text-xs bg-slate-200 rounded-full">
+            <span class="project-card_skill p-1 px-2 text-xs bg-slate-200/80 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 rounded-full backdrop-blur-sm">
               {skill}
             </span>
           ))
         }
         {
           isLongSkillsList && (
-            <span class="project-card_skill text-xs">
+            <span class="project-card_skill text-xs text-slate-600 dark:text-slate-400 font-medium">
               +{skills.length - 3} más
             </span>
           )

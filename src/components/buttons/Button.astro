@@ -15,6 +15,7 @@ export interface Props {
   class?: string;
   id?: string;
   ariaLabel?: string;
+  download?: boolean;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   disabled = false,
   href,
   target,
+  download = false,
   class: className = "",
   id,
   ariaLabel,
@@ -73,6 +75,7 @@ const Component = isLink ? "a" : "button";
       class={buttonClasses}
       id={id}
       aria-label={ariaLabel}
+      download={download}
       {...rest}
     >
       <slot />
