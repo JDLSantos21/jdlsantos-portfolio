@@ -10,6 +10,12 @@ const projects = defineCollection({
     description: z.string(),
     skills: z.array(z.string()),
     url: z.string().optional(),
+    demo: z.string().optional(),
+    repository: z.string().optional(),
+    type: z.enum(["web", "app", "api", "library", "other"]).default("web"),
+    status: z
+      .enum(["completed", "in-progress", "maintained", "archived"])
+      .default("completed"),
     featured: z.boolean().optional().default(false),
   }),
 });

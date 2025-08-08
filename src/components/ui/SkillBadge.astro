@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+import { skillsData, type SkillName } from "@/data/skills";
+
+interface Props {
+  skill: SkillName;
+  size?: "sm" | "md" | "lg";
+  showIcon?: boolean;
+  className?: string;
+}
+
+const { skill, size = "md", showIcon = true, className = "" } = Astro.props;
+
+// Get skill data
+const skillInfo = skillsData[skill];
+
+if (!skillInfo) {
+  console.warn(`Skill "${skill}" not found in skillsData`);
+}
+
+// Size variants
+const sizeClasses = {
+  sm: "px-2 py-1 text-xs gap-1.5",
+  md: "px-3 py-1.5 text-sm gap-2",
+  lg: "px-4 py-2 text-base gap-2.5",
+};
+
+const iconSizes = {
+  sm: "w-3 h-3",
+  md: "w-4 h-4",
+  lg: "w-5 h-5",
+};
+---
+
+{
+  skillInfo ? (
+    <span
+      class={`inline-flex items-center font-medium rounded-lg border transition-all duration-200 hover:shadow-sm ${skillInfo.color} ${sizeClasses[size]} ${className}`}
+    >
+      {showIcon && (
+        <Icon
+          name={skillInfo.icon}
+          class={`${iconSizes[size]} flex-shrink-0`}
+        />
+      )}
+      <span class="truncate">{skill}</span>
+    </span>
+  ) : (
+    <span
+      class={`inline-flex items-center font-medium rounded-lg border bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 ${sizeClasses[size]} ${className}`}
+    >
+      <span class="truncate">{skill}</span>
+    </span>
+  )
+}

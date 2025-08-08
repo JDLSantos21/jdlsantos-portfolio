@@ -6,6 +6,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import Button from "./buttons/Button.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <section
@@ -84,7 +85,7 @@ import Button from "./buttons/Button.astro";
       href="/contact"
       class="w-full sm:w-auto hover:bg-blue-50 dark:hover:bg-blue-950/20"
     >
-      <MessageCircle className="w-5 h-5" />
+      <Icon name="mdi:message-bubble" class="w-5 h-5" />
       Contacto
     </Button>
   </div>

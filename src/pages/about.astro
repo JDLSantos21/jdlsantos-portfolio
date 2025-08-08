@@ -6,12 +6,12 @@ const randomDuration = () => `${Math.random() * 5 + 3}s`;
 ---
 
 <Layout title="Sobre mí - JDLSantos">
-  <div class="w-full">
+  <div class="w-full overflow-hidden">
     {
       icons.map((emoji) => {
         // Genera posiciones y duración aleatoria
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
+        const top = Math.random() * 50;
+        const left = Math.random() * 50;
         const translateX = (Math.random() - 0.5) * 100; // Random x translation
         const translateY = (Math.random() - 0.5) * 100; // Random y translation
 

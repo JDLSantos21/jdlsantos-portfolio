@@ -16,10 +16,7 @@ const projects = await getCollection("projects");
     <Welcome />
     <BentoSection />
     <Container>
-      <section
-        transition:name="projects-container"
-        class="featured-projects-section"
-      >
+      <section class="featured-projects-section">
         <h2
           class="section-title font-semibold flex items-center gap-1 justify-center mt-20"
         >
@@ -35,6 +32,7 @@ const projects = await getCollection("projects");
         </p>
         <div
           class="featured-card_grid w-full grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
+          transition:name="projects-container"
         >
           {
             projects.slice(0, 6).map((project) => {

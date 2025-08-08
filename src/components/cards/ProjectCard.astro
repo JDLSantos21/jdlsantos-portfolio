@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import SkillBadge from "../ui/SkillBadge.astro";
+import { SkillName } from "@/data/skills";
 
 const { href, imgSrc, title, slug, description, skills } = Astro.props;
 
@@ -11,7 +13,6 @@ const isLongSkillsList = skills.length > 3;
   <div
     class="project-card rounded-md group bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/10 dark:from-slate-900/95 dark:via-blue-950/30 dark:to-indigo-950/20 backdrop-blur shadow-md relative overflow-hidden w-full h-full"
     transition:name={`${slug}-card`}
-    transition:animate="slide"
   >
     <div
       class="absolute -translate-x-5 group-hover:translate-x-0 rounded-full p-3 bg-white dark:bg-gray-800 right-3 top-3 opacity-0 transition-all duration-300 group-hover:opacity-100 z-10"
@@ -37,13 +38,11 @@ const isLongSkillsList = skills.length > 3;
         {description}
       </p>
       <div
-        class="project-card_skills flex flex-wrap gap-2 mt-2 items-center group-hover:opacity-0 duration-300 text-gray-500 dark:text-gray-300"
+        class="project-card_skills flex flex-wrap gap-2 my-2 items-center group-hover:opacity-0 duration-300 text-gray-500 dark:text-gray-300"
       >
         {
-          skillsList.map((skill: string) => (
-            <span class="project-card_skill p-1 px-2 text-xs bg-slate-200/80 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 rounded-full backdrop-blur-sm">
-              {skill}
-            </span>
+          skillsList.map((skill: SkillName) => (
+            <SkillBadge skill={skill} size="sm" />
           ))
         }
         {
@@ -57,11 +56,12 @@ const isLongSkillsList = skills.length > 3;
       <picture>
         <source srcset={`${imgSrc}.webp`} type="image/webp" />
         <img
-          class="project-card_img shadow-md shadow-gray-500 object-cover translate-y-2 group-hover:translate-y-0 group-hover:scale-130 ease-in-out duration-300 mx-auto"
+          class="project-card_img shadow-gray-500 object-cover group-hover:translate-y-0 group-hover:scale-130 ease-in-out duration-300 mx-auto"
           src={`${imgSrc}.png`}
           alt={title}
           loading="lazy"
           decoding="async"
+          transition:name={`${slug}-image`}
         />
       </picture>
     </div>

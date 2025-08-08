@@ -8,13 +8,10 @@ import {
   Linkedin,
   University,
   Calendar,
-  MapPin,
   CheckCircle,
-  Trophy,
-  Clock,
-  Globe,
 } from "lucide-react";
 import { Icon } from "astro-icon/components";
+import { skillsData } from "@/data/skills";
 ---
 
 <div
@@ -94,7 +91,7 @@ import { Icon } from "astro-icon/components";
 
   <!-- Disponibilidad y Estado -->
   <div
-    class="availability-card col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 section max-md:h-[36rem] flex flex-col p-6 lg:p-7 rounded-3xl shadow-xl relative overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50/40 to-teal-50/30 dark:from-gray-900 dark:via-emerald-950/40 dark:to-teal-950/20 backdrop-blur bento-card hover:shadow-emerald-200/40 dark:hover:shadow-emerald-900/30 hover:scale-[1.02] transition-all duration-300"
+    class="availability-card md:row-start-2 md:col-start-1 section flex flex-col p-6 lg:p-7 rounded-3xl shadow-xl relative overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50/40 to-teal-50/30 dark:from-gray-900 dark:via-emerald-950/40 dark:to-teal-950/20 backdrop-blur bento-card hover:shadow-emerald-200/40 dark:hover:shadow-emerald-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="green"
     data-card-delay="0.2"
   >
@@ -120,7 +117,7 @@ import { Icon } from "astro-icon/components";
       <!-- Estado de Disponibilidad principal -->
       <div class="mb-6">
         <div
-          class="flex items-center gap-3 p-4 rounded-xl bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm shadow-sm"
+          class="flex items-center gap-3 p-2 rounded-xl bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm shadow-sm"
         >
           <div
             class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-sm"
@@ -142,28 +139,18 @@ import { Icon } from "astro-icon/components";
       <!-- Estadísticas minimalistas -->
       <div class="space-y-4">
         <div
-          class="flex items-center justify-between p-3 rounded-lg bg-white/30 dark:bg-gray-800/15 backdrop-blur-sm"
+          class="flex items-center justify-between p-1 rounded-lg bg-white/30 dark:bg-gray-800/15 backdrop-blur-sm"
         >
           <span class="text-sm text-gray-600 dark:text-gray-400"
             >Experiencia</span
           >
-          <span class="font-bold text-lg text-gray-800 dark:text-gray-100"
+          <span class="font-bold text-sm text-gray-800 dark:text-gray-100"
             >3+ años</span
           >
         </div>
 
         <div
-          class="flex items-center justify-between p-3 rounded-lg bg-white/30 dark:bg-gray-800/15 backdrop-blur-sm"
-        >
-          <span class="text-sm text-gray-600 dark:text-gray-400">Proyectos</span
-          >
-          <span class="font-bold text-lg text-gray-800 dark:text-gray-100"
-            >15+</span
-          >
-        </div>
-
-        <div
-          class="flex items-center justify-between p-3 rounded-lg bg-white/30 dark:bg-gray-800/15 backdrop-blur-sm"
+          class="flex items-center justify-between p-1 rounded-lg bg-white/30 dark:bg-gray-800/15 backdrop-blur-sm"
         >
           <span class="text-sm text-gray-600 dark:text-gray-400">Ubicación</span
           >
@@ -177,7 +164,7 @@ import { Icon } from "astro-icon/components";
       <div class="mt-6">
         <a
           href="/contact"
-          class="block text-center py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl"
+          class="block text-center py-2 px-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl"
         >
           ¡Trabajemos juntos!
         </a>
@@ -185,16 +172,16 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <!-- Avatar posicionado a la izquierda sin interferir -->
-    <img
+    <!-- <img
       class="availability-avatar absolute bottom-0 left-0 w-32 h-32 lg:w-36 lg:h-36 opacity-70 pointer-events-none"
       src="/assets/avatar/hi.webp"
       alt="Avatar disponible"
-    />
+    /> -->
   </div>
 
   <!-- Skills - rediseñado minimalista -->
   <div
-    class="skills-card section p-6 lg:p-7 flex flex-col rounded-3xl shadow-xl md:col-start-1 md:row-start-2 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50/40 to-indigo-50/30 dark:from-gray-900 dark:via-violet-950/30 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-violet-200/40 dark:hover:shadow-violet-900/30 hover:scale-[1.02] transition-all duration-300"
+    class="skills-card section p-6 lg:p-7 max-md:h-[36rem] flex flex-col rounded-3xl shadow-xl col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50/40 to-indigo-50/30 dark:from-gray-900 dark:via-violet-950/30 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-violet-200/40 dark:hover:shadow-violet-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="purple"
     data-card-delay="0.4"
   >
@@ -204,79 +191,114 @@ import { Icon } from "astro-icon/components";
     >
     </div>
 
-    <!-- Título minimalista -->
-    <h2
-      class="card-title relative z-10 flex items-center mb-6 text-xl font-bold text-gray-800 lg:text-2xl dark:text-violet-200"
-    >
-      <div
-        class="p-2.5 mr-3 bg-gradient-to-br from-violet-500 to-violet-600 dark:from-violet-600 dark:to-violet-700 rounded-xl shadow-lg text-card-icon"
-      >
-        <Code className="w-5 h-5 text-white" />
-      </div>
-      Tecnologías
-    </h2>
-
-    <!-- Grid de tecnologías principales -->
-    <div class="relative z-10 grid grid-cols-2 gap-3 mb-4">
-      <div
-        class="flex items-center gap-3 p-3 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm"
+    <div class="relative z-10 flex flex-col h-full w-full">
+      <!-- Título minimalista -->
+      <h2
+        class="card-title relative z-10 flex items-center mb-6 text-xl font-bold text-gray-800 lg:text-2xl dark:text-violet-200"
       >
         <div
-          class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center"
+          class="p-2.5 mr-3 bg-gradient-to-br from-violet-500 to-violet-600 dark:from-violet-600 dark:to-violet-700 rounded-xl shadow-lg text-card-icon"
         >
-          <span class="text-white text-xs font-bold">React</span>
+          <Code className="w-5 h-5 text-white" />
         </div>
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >React</span
-        >
-      </div>
+        Stack Principal
+      </h2>
 
-      <div
-        class="flex items-center gap-3 p-3 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm"
-      >
-        <div
-          class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center"
-        >
-          <span class="text-white text-xs font-bold">Node</span>
+      <!-- Stack highlights compacto -->
+      <div class="relative z-10 space-y-4">
+        <!-- Frontend Stack -->
+        <div class="space-y-2">
+          <h4
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide"
+          >
+            Frontend
+          </h4>
+          <div class="grid grid-cols-2 gap-2">
+            {
+              ["TypeScript", "React", "NextJS", "Tailwind"].map((skill) => {
+                const skillInfo = skillsData[skill];
+                return skillInfo ? (
+                  <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
+                    <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
+                    <span class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">
+                      {skill}
+                    </span>
+                  </div>
+                ) : null;
+              })
+            }
+          </div>
         </div>
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >Node.js</span
-        >
-      </div>
 
-      <div
-        class="flex items-center gap-3 p-3 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm"
-      >
-        <div
-          class="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center"
-        >
-          <span class="text-white text-xs font-bold">TS</span>
+        <!-- Backend Stack -->
+        <div class="space-y-2">
+          <h4
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide"
+          >
+            Backend
+          </h4>
+          <div class="grid grid-cols-2 gap-2">
+            {
+              ["Node.js", "Express", "MySQL", "PostgreSQL"].map((skill) => {
+                const skillInfo = skillsData[skill];
+                return skillInfo ? (
+                  <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
+                    <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
+                    <span class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">
+                      {skill}
+                    </span>
+                  </div>
+                ) : null;
+              })
+            }
+          </div>
         </div>
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >TypeScript</span
-        >
-      </div>
 
-      <div
-        class="flex items-center gap-3 p-3 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm"
-      >
-        <div
-          class="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center"
-        >
-          <span class="text-white text-xs font-bold">TW</span>
+        <!-- Tools -->
+        <div class="space-y-2">
+          <h4
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide"
+          >
+            Herramientas
+          </h4>
+          <div class="grid grid-cols-2 gap-2">
+            {
+              ["Git", "Postman", "Vitest", "Playwight"].map((skill) => {
+                const skillInfo = skillsData[skill];
+                return skillInfo ? (
+                  <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
+                    <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
+                    <span class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">
+                      {skill}
+                    </span>
+                  </div>
+                ) : null;
+              })
+            }
+          </div>
         </div>
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >Tailwind</span
-        >
+
+        <!-- Stack completo indicator -->
+        <div class="text-center pt-2">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-50 dark:bg-violet-950/30 border border-violet-200/50 dark:border-violet-800/50"
+          >
+            <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+            <span
+              class="text-xs font-medium text-violet-700 dark:text-violet-300"
+            >
+              Stack completo disponible
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Indicador de más tecnologías -->
-    <div class="relative z-10 text-center">
-      <p class="text-xs text-gray-500 dark:text-gray-400">
-        +10 tecnologías más
-      </p>
-    </div>
+    <!-- Avatar posicionado a la izquierda sin interferir -->
+    <img
+      class="availability-avatar absolute bottom-0 left-0 w-32 h-32 lg:w-36 lg:h-36 opacity-70 pointer-events-none"
+      src="/assets/avatar/hi.webp"
+      alt="Avatar disponible"
+    />
   </div>
 
   <!-- Educación - ahora en la misma fila que Skills -->
@@ -476,7 +498,7 @@ import { Icon } from "astro-icon/components";
     <!-- Estadística principal -->
     <div class="relative z-10 text-center">
       <div class="mb-2">
-        <span class="text-4xl font-bold text-indigo-600 dark:text-indigo-400"
+        <span class="text-4xl font-black text-indigo-600 dark:text-indigo-400"
           >15+</span
         >
       </div>
@@ -517,7 +539,7 @@ import { Icon } from "astro-icon/components";
     }
 
     /* En mobile, Skills y Education ocupan filas separadas */
-    .skills-card {
+    .availability-card {
       grid-column: 1;
       grid-row: auto;
     }

@@ -4,6 +4,8 @@ import SkeletonCard from "@/components/SkeletonCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/core/Container.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
+import { SkillName } from "@/data/skills";
+import SkillBadge from "@/components/ui/SkillBadge.astro";
 const projects = await getCollection("projects");
 ---
 
@@ -44,10 +46,7 @@ const projects = await getCollection("projects");
         </div>
 
         <!-- Projects Grid -->
-        <div
-          class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-          transition:name="projects-container"
-        >
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             projects.map((project) => {
               const { slug, data } = project;
@@ -59,14 +58,13 @@ const projects = await getCollection("projects");
                   class="relative block h-full group"
                   aria-label={`Visita ${title}`}
                 >
-                  <div id={`${slug}-skeleton`}>
+                  {/* <div id={`${slug}-skeleton`}>
                     <SkeletonCard />
-                  </div>
+                  </div> */}
 
                   <div
                     class="h-full flex flex-col transition-all duration-300 overflow-hidden bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl dark:shadow-gray-900/20 hover:shadow-blue-200/20 dark:hover:shadow-blue-900/20 border border-gray-100 dark:border-gray-800"
                     transition:name={`${slug}-card`}
-                    transition:animate="fade"
                   >
                     {/* Contenedor de imagen con relación de aspecto 16:9 */}
                     <div class="relative flex items-center w-full p-4 aspect-video bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
@@ -79,9 +77,10 @@ const projects = await getCollection("projects");
                         height="450"
                         loading="lazy"
                         decoding="async"
-                        onload={`document.getElementById("${slug}-skeleton").classList.add('hidden')`}
                       />
                     </div>
+                    {/* onload={`document.getElementById("${slug}-skeleton").classList.add('hidden')`} */}
+
                     {/* Contenido de la tarjeta */}
                     <div class="flex flex-col flex-1 p-6">
                       <h3 class="mb-3 text-xl font-bold text-gray-800 dark:text-white transition-colors duration-200 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
@@ -91,13 +90,8 @@ const projects = await getCollection("projects");
                         {shortDescription}
                       </p>
                       <div class="flex flex-wrap gap-2">
-                        {skills.slice(0, 4).map((tag: string) => (
-                          <span
-                            class="text-xs px-2 py-1 bg-slate-200/80 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 rounded-full backdrop-blur-sm transition-colors duration-200 hover:bg-slate-300/80 dark:hover:bg-slate-600/60"
-                            aria-label={`Skill: ${tag}`}
-                          >
-                            {tag}
-                          </span>
+                        {skills.slice(0, 4).map((skill: SkillName) => (
+                          <SkillBadge skill={skill} size="sm" />
                         ))}
                         {skills.length > 4 && (
                           <span class="text-xs px-2 py-1 text-slate-600 dark:text-slate-400 font-medium">

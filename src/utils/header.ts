@@ -116,7 +116,7 @@ export function updateHeaderScrollState(): void {
     desktopNav.classList.toggle("dark:shadow-white/20", scrolled);
     desktopNav.classList.toggle("backdrop-blur-xs", scrolled);
     desktopNav.classList.toggle("shadow-sm", scrolled);
-    desktopNav.classList.toggle("p-5", scrolled);
+    desktopNav.classList.toggle("px-5", scrolled);
     desktopNav.classList.toggle("rounded-b-lg", scrolled);
   }
 }

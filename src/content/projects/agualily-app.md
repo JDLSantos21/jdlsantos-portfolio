@@ -4,37 +4,37 @@ title: "Agua Lily App - Escritorio"
 shortDescription: "Aplicación de escritorio para gestión operativa empresarial"
 image: "/assets/projects/agualily-app"
 description: "Aplicación de escritorio creada con tauri y react."
-skills: ["React", "Express", "Tauri", "MySQL", "Tailwind"]
+skills:
+  [
+    "TypeScript",
+    "NextJS",
+    "Express",
+    "Tauri",
+    "MySQL",
+    "Tailwind",
+    "JWT",
+    "Zustand",
+    "Socket.io",
+    "Zod",
+  ]
+type: "app"
+repository: "https://github.com/JDLSantos21/agua-lily-app/"
+status: "completed"
 ---
 
-## Descripción
+### Descripción
 
 Esta aplicación de escritorio es un Sistema de Gestión Operativa Empresarial para una empresa de purificación y distribución de agua, el sistema hasta el día de hoy incluye módulos para el control de combustible de los vehiculos, manejo de inventario de las materias primas, gestión de activos de la empresa (como los vehículos) y modulo para area de caja donde se registran los viajes y se generan etiquetas para el area de lavado y llenado de los botellones facturados. Además cuenta con autenticación de usuarios con roles personalizados, con apartado de configuración y actualización del sistema.
 
 La app esta desarrollada con Tauri, TypeScript, Tailwind, entre otras bibliotecas. Se utiliza ExpressJS para el Servidor Web.
 
-## Tecnologías Utilizadas
+### Modulos
 
-- Tauri
-- TypeScript
-- NextJS
-- Tailwind
-- ExpressJS (_JWT, bcrypt, TypeScript_)
-- [**QikPos**](https://www.npmjs.com/package/qikpos?activeTab=readme) (Desarrollo Propio) Libreria para enviar comandos POS y Zebra a traves de HTTP con Javascript o Typescript. Utilizando el Plugin Qikpos - Plugin.
-- Zod
-- Zustand
-- ExcelJS
-- ReactPDF
-- Sokect.io
-- Tempo
-
-## Modulos
-
-### Login
+#### Login
 
 ![Banner del proyecto](/images/projects/agualily-app/screenshots/login.webp)
 
-### Inventario
+#### Inventario
 
 Control de inventario de materias primas utilizadas en la producción de la empresa.
 
