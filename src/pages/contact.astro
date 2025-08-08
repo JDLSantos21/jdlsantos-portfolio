@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import ContactForm from "@/components/contact/ContactForm";
-import ContactSocialLinks from "@/components/contact/ContactSocialLinks";
-import ContactInfo from "@/components/contact/ContactInfo";
+import ContactSocial from "@/components/contact/ContactSocial.astro";
+import ContactInfo from "@/components/contact/ContactInfo.astro";
 ---
 
 <Layout title="Contacto - JDLSantos">
@@ -42,7 +42,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
           id="contact-social-card"
           class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
         >
-          <ContactSocialLinks client:load />
+          <ContactSocial />
         </div>
 
         <!-- Tarjeta de información personal -->
@@ -50,7 +50,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
           id="contact-info-card"
           class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
         >
-          <ContactInfo client:load />
+          <ContactInfo />
         </div>
       </div>
     </div>
