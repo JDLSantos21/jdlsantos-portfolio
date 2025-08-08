@@ -41,7 +41,10 @@ import { skillsData } from "@/data/skills";
           <div
             class="p-2 lg:p-3 mr-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg text-card-icon"
           >
-            <User className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
+            <Icon
+              name="mdi:user-outline"
+              class="w-6 h-6 lg:w-7 lg:h-7 text-white"
+            />
           </div>
           Sobre Mí
         </h2>
@@ -109,7 +112,10 @@ import { skillsData } from "@/data/skills";
         <div
           class="p-2.5 mr-3 bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700 rounded-xl shadow-lg text-card-icon"
         >
-          <CheckCircle className="w-5 h-5 text-white" />
+          <Icon
+            name="mdi:checkbox-marked-circle-outline"
+            class="h-5 w-5 text-white"
+          />
         </div>
         <span>Estado</span>
       </h2>
@@ -161,10 +167,14 @@ import { skillsData } from "@/data/skills";
       </div>
 
       <!-- Call to Action minimalista -->
-      <div class="mt-6">
+      <div
+        class="mt-6"
+        transition:name="page-main-container"
+        transition:animate="none"
+      >
         <a
           href="/contact"
-          class="block text-center py-2 px-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl"
+          class="block text-center py-2 px-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           ¡Trabajemos juntos!
         </a>
@@ -179,7 +189,7 @@ import { skillsData } from "@/data/skills";
     /> -->
   </div>
 
-  <!-- Skills - rediseñado minimalista -->
+  <!-- Stack Section -->
   <div
     class="skills-card section p-6 lg:p-7 max-md:h-[36rem] flex flex-col rounded-3xl shadow-xl col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50/40 to-indigo-50/30 dark:from-gray-900 dark:via-violet-950/30 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-violet-200/40 dark:hover:shadow-violet-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="purple"
@@ -199,7 +209,7 @@ import { skillsData } from "@/data/skills";
         <div
           class="p-2.5 mr-3 bg-gradient-to-br from-violet-500 to-violet-600 dark:from-violet-600 dark:to-violet-700 rounded-xl shadow-lg text-card-icon"
         >
-          <Code className="w-5 h-5 text-white" />
+          <Icon name="mdi:code-tags" class="h-5 w-5 text-white" />
         </div>
         Stack Principal
       </h2>
@@ -287,7 +297,7 @@ import { skillsData } from "@/data/skills";
             <span
               class="text-xs font-medium text-violet-700 dark:text-violet-300"
             >
-              Stack completo disponible
+              Desarrollo Full-Stack moderno
             </span>
           </div>
         </div>
@@ -296,12 +306,12 @@ import { skillsData } from "@/data/skills";
     <!-- Avatar posicionado a la izquierda sin interferir -->
     <img
       class="availability-avatar absolute bottom-0 left-0 w-32 h-32 lg:w-36 lg:h-36 opacity-70 pointer-events-none"
-      src="/assets/avatar/hi.webp"
+      src="/assets/avatar/whi.webp"
       alt="Avatar disponible"
     />
   </div>
 
-  <!-- Educación - ahora en la misma fila que Skills -->
+  <!-- Educación  -->
   <div
     class="education-card section p-6 lg:p-7 rounded-3xl shadow-xl md:col-start-2 md:row-start-2 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50/50 to-blue-50/30 dark:from-gray-900 dark:via-slate-950/80 dark:to-gray-900 backdrop-blur bento-card hover:shadow-slate-200/40 dark:hover:shadow-slate-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="amber"
@@ -319,7 +329,7 @@ import { skillsData } from "@/data/skills";
       <div
         class="p-2.5 mr-3 bg-gradient-to-br from-slate-600 to-slate-700 dark:from-slate-700 dark:to-slate-800 rounded-xl shadow-lg text-card-icon"
       >
-        <GraduationCap className="w-5 h-5 text-white" />
+        <Icon name="mdi:academic-cap-outline" class="h-5 w-5 text-white" />
       </div>
       Educación
     </h2>
@@ -405,7 +415,7 @@ import { skillsData } from "@/data/skills";
       <div
         class="p-2 mr-3 bg-gradient-to-br from-cyan-600 to-cyan-700 dark:from-cyan-700 dark:to-cyan-800 rounded-xl shadow-lg text-card-icon"
       >
-        <Phone className="w-5 h-5 text-white" />
+        <Icon name="mdi:phone-outline" class="h-5 w-5 text-white" />
       </div>
       Contacto
     </h2>
@@ -490,7 +500,7 @@ import { skillsData } from "@/data/skills";
       <div
         class="p-2.5 mr-3 bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-indigo-600 dark:to-indigo-700 rounded-xl shadow-lg"
       >
-        <Code className="w-5 h-5 text-white" />
+        <Icon name="mdi:stack-overflow" class="h-5 w-5 text-white" />
       </div>
       Proyectos
     </h2>

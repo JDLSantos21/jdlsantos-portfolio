@@ -86,23 +86,7 @@ const currentPath = Astro.url.pathname;
     aria-expanded="false"
     class="mobile-menu-button lg:hidden fixed top-6 right-5 z-[999] text-gray-800 p-2 rounded-full transition-transform rotate-0 hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-95"
   >
-    <svg
-      id="menu-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      class="text-blue-500 dark:text-gray-200 w-7 h-7"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12"></line>
-      <line x1="4" x2="20" y1="6" y2="6"></line>
-      <line x1="4" x2="20" y1="18" y2="18"></line>
-    </svg>
+    <Icon name="mdi:menu" class="w-7 h-7" id="menu-icon" />
   </button>
 
   <!-- Mobile Navigation -->
@@ -134,22 +118,11 @@ const currentPath = Astro.url.pathname;
         aria-expanded="false"
         class="lg:hidden p-2 rounded-full transition-transform rotate-0 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-95 z-[1500]"
       >
-        <svg
-          id="close-icon"
-          xmlns="http://www.w3.org/2000/svg"
+        <Icon
+          name="mdi:close"
           class="text-red-500 w-6 h-6"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
+          id="close-menu-button"
+        />
       </button>
     </div>
 

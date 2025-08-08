@@ -11,7 +11,7 @@ import { Icon } from "astro-icon/components";
 
 <section
   id="welcome-section"
-  class="section w-full h-[calc(100vh-50px)] flex flex-col justify-center items-center relative"
+  class="section w-full h-screen lg:h-[calc(100vh-50px)] flex flex-col justify-center items-center relative"
 >
   <div class="relative flex items-center justify-center w-96">
     <img
@@ -32,7 +32,9 @@ import { Icon } from "astro-icon/components";
       </span>
     </div>
   </div>
-  <div class="flex flex-col items-center justify-center px-8 welcome-text">
+  <div
+    class="flex flex-col items-center justify-center px-2 sm:px-8 welcome-text"
+  >
     <h1
       id="welcome-title"
       class="mb-6 text-2xl text-center text-transparent uppercase lg:text-6xl text-balance bg-clip-text bg-linear-to-b from-black dark:from-white via-gray-400 dark:via-gray-400 to-black dark:to-white drop-shadow-md opacity-0"
@@ -41,10 +43,10 @@ import { Icon } from "astro-icon/components";
       Bienvenido A
       <br /> mi rinconcito digital
     </h1>
-    <div class="w-4/5 lg:w-3/5 items-center justify-center mb-8">
+    <div class="w-full sm:w-4/5 lg:w-3/5 items-center justify-center mb-8">
       <p
         id="welcome-description"
-        class="text-black/60 dark:text-white/70 text-md lg:text-xl text-center text-balance leading-relaxed opacity-0"
+        class="text-black/60 dark:text-white/70 text-xs md:text-base lg:text-xl text-center text-balance leading-relaxed opacity-0"
       >
         ¡Hola! 👋🏼 soy Jose Armando de los Santos Amadís, desarrollador de
         aplicaciones y soluciones web. Aquí encontrarás información sobre mí,
@@ -90,9 +92,10 @@ import { Icon } from "astro-icon/components";
     </Button>
   </div>
 
-  <ChevronsDown
+  <Icon
     id="scroll-indicator"
-    className="w-10 h-10 text-blue-500 dark:text-white/80 absolute bottom-10 opacity-0"
+    name="mdi:chevron-down"
+    class="w-10 h-10 text-blue-500 dark:text-white/80 min-sm:bottom-10 min-sm:absolute opacity-0"
   />
 </section>
 

@@ -3,190 +3,186 @@ import { Icon } from "astro-icon/components";
 import Container from "./Container.astro";
 ---
 
-<footer class="footer relative mt-20 px-4 sm:px-6 lg:px-8">
-  <Container>
-    <!-- Main footer card with rounded design -->
+<footer class="footer relative mt-20 lg:px-16">
+  <!-- Main footer card with rounded design -->
+  <div
+    class="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 lg:rounded-t-3xl p-8 lg:p-12 shadow-lg dark:shadow-gray-900/20 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm"
+  >
+    <!-- Decorative elements -->
     <div
-      class="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-t-3xl p-8 lg:p-12 shadow-lg dark:shadow-gray-900/20 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm"
+      class="absolute top-6 right-6 w-20 h-20 bg-blue-500/10 dark:bg-blue-400/10 rounded-full blur-2xl"
     >
-      <!-- Decorative elements -->
-      <div
-        class="absolute top-6 right-6 w-20 h-20 bg-blue-500/10 dark:bg-blue-400/10 rounded-full blur-2xl"
-      >
-      </div>
-      <div
-        class="absolute bottom-6 left-6 w-16 h-16 bg-purple-500/10 dark:bg-purple-400/10 rounded-full blur-2xl"
-      >
-      </div>
+    </div>
+    <div
+      class="absolute bottom-6 left-6 w-16 h-16 bg-purple-500/10 dark:bg-purple-400/10 rounded-full blur-2xl"
+    >
+    </div>
 
-      <!-- Content grid -->
-      <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        <!-- Left side: Brand & Info -->
-        <div class="space-y-6">
-          <!-- Brand -->
-          <div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              JDLSantos
-            </h3>
-            <p
-              class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed max-w-md"
-            >
-              Desarrollador especializado en crear experiencias web modernas y
-              aplicaciones innovadoras.
-            </p>
-          </div>
-
-          <!-- Status & Contact -->
-          <div class="space-y-4">
-            <!-- Availability status -->
-            <div class="flex items-center">
-              <div
-                class="flex items-center bg-green-100 dark:bg-green-900/30 px-3 py-1.5 rounded-full"
-              >
-                <div
-                  class="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"
-                >
-                </div>
-                <span
-                  class="text-xs font-medium text-green-700 dark:text-green-400"
-                >
-                  Disponible para proyectos
-                </span>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div
-              class="flex items-center text-sm text-gray-600 dark:text-gray-400"
-            >
-              <Icon name="mdi:email" class="w-5 h-5 mr-2" />
-              <a
-                href="mailto:JDLSantos21@hotmail.com"
-                class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              >
-                JDLSantos21@hotmail.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right side: Navigation & Social -->
-        <div class="space-y-8">
-          <!-- Quick Navigation -->
-          <div>
-            <h4
-              class="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider"
-            >
-              Navegación
-            </h4>
-            <nav class="grid grid-cols-2 gap-2">
-              <a
-                href="/"
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
-              >
-                Inicio
-              </a>
-              <a
-                href="/about"
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
-              >
-                Sobre mí
-              </a>
-              <a
-                href="/projects"
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
-              >
-                Proyectos
-              </a>
-              <a
-                href="/contact"
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
-              >
-                Contacto
-              </a>
-            </nav>
-          </div>
-
-          <!-- Social Links -->
-          <div>
-            <h4
-              class="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider"
-            >
-              Conectemos
-            </h4>
-            <div class="flex space-x-3">
-              <a
-                href="https://github.com/JDLSantos21"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
-                aria-label="GitHub"
-              >
-                <Icon name="mdi:github" class="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jdlsantos21/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
-                aria-label="LinkedIn"
-              >
-                <Icon name="mdi:linkedin" class="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:JDLSantos21@hotmail.com"
-                class="group p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
-                aria-label="Email"
-              >
-                <Icon name="mdi:email" class="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom section -->
-      <div
-        class="relative mt-8 pt-6 border-t border-gray-200/60 dark:border-gray-700/60"
-      >
-        <div
-          class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0"
-        >
-          <!-- Copyright -->
-          <p class="text-xs text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} JDLSantos. Todos los derechos reservados.
+    <!-- Content grid -->
+    <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <!-- Left side: Brand & Info -->
+      <div class="space-y-6">
+        <!-- Brand -->
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            JDLSantos
+          </h3>
+          <p
+            class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed max-w-md"
+          >
+            Desarrollador especializado en crear experiencias web modernas y
+            aplicaciones innovadoras.
           </p>
+        </div>
 
-          <!-- Tech stack -->
-          <div class="flex items-center space-x-2">
-            <span class="text-xs text-gray-400 dark:text-gray-500"
-              >Creado con</span
-            >
+        <!-- Status & Contact -->
+        <div class="space-y-4">
+          <!-- Availability status -->
+          <div class="flex items-center">
             <div
-              class="flex items-center space-x-1 bg-white dark:bg-gray-800 px-2 py-1 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600"
+              class="flex items-center bg-green-100 dark:bg-green-900/30 px-3 py-1.5 rounded-full"
             >
-              <img
-                src="/assets/icons/astro.svg"
-                alt="Astro"
-                class="w-3.5 h-3.5"
-              />
-              <img
-                src="/assets/icons/typescript.svg"
-                alt="TypeScript"
-                class="w-3.5 h-3.5"
-              />
-              <img
-                src="/assets/icons/tailwind.svg"
-                alt="Tailwind"
-                class="w-3.5 h-3.5"
-              />
+              <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2">
+              </div>
+              <span
+                class="text-xs font-medium text-green-700 dark:text-green-400"
+              >
+                Disponible para proyectos
+              </span>
             </div>
-            <span class="text-xs text-gray-400 dark:text-gray-500">y ❤️</span>
+          </div>
+
+          <!-- Email -->
+          <div
+            class="flex items-center text-sm text-gray-600 dark:text-gray-400"
+          >
+            <Icon name="mdi:email" class="w-5 h-5 mr-2" />
+            <a
+              href="mailto:JDLSantos21@hotmail.com"
+              class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            >
+              JDLSantos21@hotmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Navigation & Social -->
+      <div class="space-y-8">
+        <!-- Quick Navigation -->
+        <div>
+          <h4
+            class="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider"
+          >
+            Navegación
+          </h4>
+          <nav class="grid grid-cols-2 gap-2">
+            <a
+              href="/"
+              class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
+            >
+              Inicio
+            </a>
+            <a
+              href="/about"
+              class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
+            >
+              Sobre mí
+            </a>
+            <a
+              href="/projects"
+              class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
+            >
+              Proyectos
+            </a>
+            <a
+              href="/contact"
+              class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200 py-1"
+            >
+              Contacto
+            </a>
+          </nav>
+        </div>
+
+        <!-- Social Links -->
+        <div>
+          <h4
+            class="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wider"
+          >
+            Conectemos
+          </h4>
+          <div class="flex space-x-3">
+            <a
+              href="https://github.com/JDLSantos21"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
+              aria-label="GitHub"
+            >
+              <Icon name="mdi:github" class="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jdlsantos21/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
+              aria-label="LinkedIn"
+            >
+              <Icon name="mdi:linkedin" class="w-5 h-5" />
+            </a>
+            <a
+              href="mailto:JDLSantos21@hotmail.com"
+              class="group p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
+              aria-label="Email"
+            >
+              <Icon name="mdi:email" class="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </Container>
+
+    <!-- Bottom section -->
+    <div
+      class="relative mt-8 pt-6 border-t border-gray-200/60 dark:border-gray-700/60"
+    >
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0"
+      >
+        <!-- Copyright -->
+        <p class="text-xs text-gray-500 dark:text-gray-400">
+          © {new Date().getFullYear()} JDLSantos. Todos los derechos reservados.
+        </p>
+
+        <!-- Tech stack -->
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-400 dark:text-gray-500"
+            >Creado con</span
+          >
+          <div
+            class="flex items-center space-x-1 bg-white dark:bg-gray-800 px-2 py-1 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600"
+          >
+            <img
+              src="/assets/icons/astro.svg"
+              alt="Astro"
+              class="w-3.5 h-3.5"
+            />
+            <img
+              src="/assets/icons/typescript.svg"
+              alt="TypeScript"
+              class="w-3.5 h-3.5"
+            />
+            <img
+              src="/assets/icons/tailwind.svg"
+              alt="Tailwind"
+              class="w-3.5 h-3.5"
+            />
+          </div>
+          <span class="text-xs text-gray-400 dark:text-gray-500">y ❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
