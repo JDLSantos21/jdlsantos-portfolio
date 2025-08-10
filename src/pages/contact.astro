@@ -3,66 +3,64 @@ import Layout from "@/layouts/Layout.astro";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactSocial from "@/components/contact/ContactSocial.astro";
 import ContactInfo from "@/components/contact/ContactInfo.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import Container from "@/components/core/Container.astro";
 ---
 
 <Layout title="Contacto - JDLSantos">
   <main
-    class="container mx-auto px-4 sm:px-6 py-12 mt-14 lg:mt-20 max-w-5xl"
+    class="container mx-auto px-4 sm:px-6 py-12 mt-5 lg:mt-20 max-w-5xl"
     transition:name="page-main-container"
   >
-    <!-- Sección de cabecera -->
-    <div id="contact-header" class="mb-12 md:mb-16 text-center opacity-0">
-      <h1
-        class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3"
-      >
-        Hablemos
-      </h1>
-      <p
-        class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto"
-      >
-        Estoy disponible para proyectos desafiantes y colaboraciones
-        interesantes.
-      </p>
-    </div>
-
-    <!-- Grid de contenido: Formulario y tarjetas de info -->
-    <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
-      <!-- Columna 1: Formulario de contacto -->
-      <div
-        id="contact-form-container"
-        class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm order-2 md:order-1 md:col-span-2 h-full opacity-0"
-      >
-        <ContactForm client:load />
+    <Container>
+      <!-- Sección de cabecera -->
+      <div id="contact-header" class="mb-12 md:mb-16 opacity-0">
+        <SectionTitle
+          title="Contacto"
+          subtitle="¡Hablemos sobre tu próximo proyecto!"
+          icon="mdi:phone-outline"
+        />
       </div>
 
-      <!-- Columna 2: Información de contacto y redes sociales -->
-      <div class="space-y-6">
-        <!-- Tarjeta de redes sociales -->
+      <!-- Grid de contenido: Formulario y tarjetas de info -->
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+        <!-- Columna 1: Formulario de contacto -->
         <div
-          id="contact-social-card"
-          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
+          id="contact-form-container"
+          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm order-2 md:order-1 md:col-span-2 h-full opacity-0"
         >
-          <ContactSocial />
+          <ContactForm client:load />
         </div>
 
-        <!-- Tarjeta de información personal -->
-        <div
-          id="contact-info-card"
-          class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
-        >
-          <ContactInfo />
+        <!-- Columna 2: Información de contacto y redes sociales -->
+        <div class="space-y-6">
+          <!-- Tarjeta de redes sociales -->
+          <div
+            id="contact-social-card"
+            class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
+          >
+            <ContactSocial />
+          </div>
+
+          <!-- Tarjeta de información personal -->
+          <div
+            id="contact-info-card"
+            class="bg-white dark:bg-gray-800/40 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 backdrop-blur-sm opacity-0"
+          >
+            <ContactInfo />
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   </main>
+
+  <script>
+    import { setupContactAnimations } from "@/utils/animations/contactAnimations.ts";
+
+    // Inicializar animaciones cuando el DOM esté listo
+    document.addEventListener("DOMContentLoaded", setupContactAnimations);
+
+    // Volver a inicializar después de transiciones de página de Astro
+    document.addEventListener("astro:page-load", setupContactAnimations);
+  </script>
 </Layout>
-
-<script>
-  import { setupContactAnimations } from "@/utils/animations/contactAnimations.ts";
-
-  // Inicializar animaciones cuando el DOM esté listo
-  document.addEventListener("DOMContentLoaded", setupContactAnimations);
-
-  // Volver a inicializar después de transiciones de página de Astro
-  document.addEventListener("astro:page-load", setupContactAnimations);
-</script>

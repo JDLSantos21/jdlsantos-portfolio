@@ -34,7 +34,9 @@ const currentPath = Astro.url.pathname;
           width="32"
           height="32"
         />
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-white">
+        <h2
+          class="text-lg xl:text-xl font-semibold text-gray-800 dark:text-white"
+        >
           JDLSantos
         </h2>
       </div>
@@ -52,7 +54,7 @@ const currentPath = Astro.url.pathname;
               <a
                 href={link.href}
                 class:list={[
-                  "relative px-2 py-1 text-gray-700 dark:text-white hover:text-gray-900 transition-colors font-medium",
+                  "relative px-2 py-1 text-gray-700 dark:text-white hover:text-gray-900 transition-colors font-medium text-sm xl:text-base",
                   {
                     "after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue-500 after:bottom-0 after:left-0 text-blue-600 dark:text-blue-400":
                       isActive,
@@ -80,14 +82,25 @@ const currentPath = Astro.url.pathname;
   </nav>
 
   <!-- Mobile Menu Button -->
-  <button
-    id="mobile-menu-button"
-    aria-label="Abrir menú"
-    aria-expanded="false"
-    class="mobile-menu-button lg:hidden fixed top-6 right-5 z-[999] text-gray-800 p-2 rounded-full transition-transform rotate-0 hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-95"
+  <div
+    class="mobile-menu__trigger-container fixed z-[500] top-0 w-full flex justify-between items-center lg:hidden px-4"
   >
-    <Icon name="mdi:menu" class="w-7 h-7" id="menu-icon" />
-  </button>
+    <a
+      href="https://github.com/JDLSantos21"
+      target="_blank"
+      class="hover:scale-110 transition-transform duration-300 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+    >
+      <Icon name="mdi:github" class="w-7 h-7" />
+    </a>
+    <button
+      id="mobile-menu-button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      class="mobile-menu-button text-gray-600 p-2 h-10 w-10 transition-all rotate-0 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-95 cursor-pointer"
+    >
+      <Icon name="mdi:menu" class="w-6 h-6 md:w-7 md:h-7" id="menu-icon" />
+    </button>
+  </div>
 
   <!-- Mobile Navigation -->
   <div
@@ -156,6 +169,30 @@ const currentPath = Astro.url.pathname;
     </nav>
   </div>
 </header>
+
+<style>
+  .mobile-menu__trigger-container {
+    height: 52px;
+    border-bottom: 1px transparent;
+    background: transparent;
+    animation: mobile-header-scroll 0.3s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 250px;
+  }
+
+  @keyframes mobile-header-scroll {
+    0% {
+      backdrop-filter: blur(0);
+      background: transparent;
+    }
+
+    100% {
+      backdrop-filter: blur(10px);
+      background: var(--mobile-header-bg);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>
 
 <script>
   import { setupHeader, updateHeaderScrollState } from "@/utils/header";

@@ -35,6 +35,8 @@
   --section-margin: 3rem;
 
   --font-size-lg: clamp(28.13px, 0.84vw + 24.76px, 35.54px);
+
+  --mobile-header-bg: rgba(255, 255, 255, 0.5);
 }
 
 /* Tema oscuro */
@@ -63,4 +65,6 @@
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;
   --ring: 0 0% 83.1%;
+
+  --mobile-header-bg: rgba(3, 7, 18, 0.5);
 }
