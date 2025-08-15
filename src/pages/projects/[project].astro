@@ -57,7 +57,7 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
           <div class="relative group">
             <!-- Image container with modern styling -->
             <div
-              class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 aspect-video shadow-2xl shadow-gray-200/50 dark:shadow-gray-900/50"
+              class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 aspect-auto shadow-2xl shadow-gray-200/50 dark:shadow-gray-900/50"
             >
               <!-- Loading placeholder -->
               <div
@@ -70,7 +70,7 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
               <img
                 src={imagePath}
                 alt={project.data.title || "Imagen del proyecto"}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                class="w-full h-full transition-transform duration-700 group-hover:scale-105"
                 onload="document.getElementById('loading-placeholder').style.display = 'none'"
                 transition:name={`${project.slug}-image`}
               />
@@ -217,7 +217,7 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
             project.data.description && (
               <div class="space-y-3">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  Resumen
+                  Descripción
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                   {project.data.description}
