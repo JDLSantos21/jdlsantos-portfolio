@@ -126,7 +126,7 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
 
           
             <!-- Action Buttons - Positioned right after title -->
-            {(project.data.url || project.data.demo || project.data.repository) && (
+            {(project.data.url || project.data.demo || project.data.repository || project.data.playstore_url) && (
               <div class="space-y-3">
                 <!-- Primary action buttons -->
                 <div class="flex flex-wrap gap-3">
@@ -141,14 +141,28 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
                         {project.data.type === "web" ? (
                           <>
                             <Icon name="mdi:web" class="w-4 h-4" />
-                            Visitar Sitio
+                            Visitar sitio
                           </>
                         ) : (
                           <>
                             <Icon name="mdi:open-in-new" class="w-4 h-4" />
-                            Ver Proyecto
+                            Ver proyecto
                           </>
                         )}
+                      </a>
+                    )
+                  }
+
+                   {
+                    project.data.playstore_url && (
+                      <a
+                        href={project.data.playstore_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm"
+                      >
+                        <Icon name="logos:google-play-icon" class="w-4 h-4" />
+                        Ver en Play Store
                       </a>
                     )
                   }

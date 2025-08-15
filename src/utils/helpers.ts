@@ -5,6 +5,12 @@ export function getProjectTypeInfo(type: string) {
       return { icon: "mdi:globe", label: "Sitio Web", color: "blue" };
     case "app":
       return { icon: "mdi:laptop", label: "Aplicación", color: "emerald" };
+    case "mobile":
+      return {
+        icon: "mdi:cellphone",
+        label: "Aplicación Móvil",
+        color: "emerald",
+      };
     case "api":
       return { icon: "mdi:code", label: "API", color: "purple" };
     case "library":

@@ -12,7 +12,10 @@ const projects = defineCollection({
     url: z.string().optional(),
     demo: z.string().optional(),
     repository: z.string().optional(),
-    type: z.enum(["web", "app", "api", "library", "other"]).default("web"),
+    playstore_url: z.string().optional(),
+    type: z
+      .enum(["web", "app", "api", "library", "other", "mobile"])
+      .default("web"),
     status: z
       .enum(["completed", "in-progress", "maintained", "archived"])
       .default("completed"),

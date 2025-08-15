@@ -8,7 +8,8 @@ import Button from "@/components/buttons/Button.astro";
 import { Icon } from "astro-icon/components";
 import SkillGrid from "@/components/SkillGrid.astro";
 import { getCollection } from "astro:content";
-const projects = await getCollection("projects");
+const allProjects = await getCollection("projects");
+const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
 ---
 
 <Layout title="Bienvenido - JDLSantos">

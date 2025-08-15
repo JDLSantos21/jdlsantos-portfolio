@@ -6,7 +6,10 @@ import Container from "@/components/core/Container.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import { SkillName } from "@/data/skills";
 import SkillBadge from "@/components/ui/SkillBadge.astro";
-const projects = await getCollection("projects");
+
+const allProjects = await getCollection("projects");
+// Ordenar proyectos por ID de menor a mayor
+const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
 ---
 
 <Layout title="Proyectos - JDLSantos">

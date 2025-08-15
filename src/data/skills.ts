@@ -16,6 +16,11 @@ export const skillsData = {
     color:
       "bg-cyan-50 text-cyan-700 border-cyan-200 dark:bg-cyan-950/20 dark:text-cyan-300 dark:border-cyan-800",
   },
+  "React Native": {
+    icon: "logos:react",
+    color:
+      "bg-cyan-50 text-cyan-700 border-cyan-200 dark:bg-cyan-950/20 dark:text-cyan-300 dark:border-cyan-800",
+  },
   NextJS: {
     icon: "logos:nextjs-icon",
     color:
@@ -39,9 +44,14 @@ export const skillsData = {
   Expo: {
     icon: "logos:expo-icon",
     color:
-      "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/20 dark:text-indigo-300 dark:border-indigo-800",
+      "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-gray-300 dark:text-black dark:border-indigo-800",
   },
   Tailwind: {
+    icon: "logos:tailwindcss-icon",
+    color:
+      "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/20 dark:text-teal-300 dark:border-teal-800",
+  },
+  Nativewind: {
     icon: "logos:tailwindcss-icon",
     color:
       "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/20 dark:text-teal-300 dark:border-teal-800",
