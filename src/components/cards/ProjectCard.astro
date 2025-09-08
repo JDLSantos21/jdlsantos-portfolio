@@ -59,8 +59,8 @@ const isLongSkillsList = skills.length > 3;
           class="project-card_img shadow-gray-500 object-cover group-hover:translate-y-0 group-hover:scale-130 ease-in-out duration-300 mx-auto"
           src={`${imgSrc}.png`}
           alt={title}
-          loading="lazy"
-          decoding="async"
+          loading="eager"
+          decoding="sync"
           transition:name={`${slug}-image`}
         />
       </picture>
