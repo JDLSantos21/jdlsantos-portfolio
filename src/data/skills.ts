@@ -6,6 +6,21 @@ export const skillsData = {
     color:
       "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/20 dark:text-blue-300 dark:border-blue-800",
   },
+  Redis: {
+    icon: "logos:redis",
+    color:
+      "bg-red-50 text-red-700 border-red-200 dark:bg-red-950/20 dark:text-red-300 dark:border-red-800",
+  },
+  Docker: {
+    icon: "logos:docker-icon",
+    color:
+      "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/20 dark:text-blue-300 dark:border-blue-800",
+  },
+  "Prisma ORM": {
+    icon: "logos:prisma",
+    color:
+      "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/20 dark:text-indigo-300 dark:border-indigo-800",
+  },
   JavaScript: {
     icon: "logos:javascript",
     color:
@@ -53,6 +68,11 @@ export const skillsData = {
   },
   Nativewind: {
     icon: "logos:tailwindcss-icon",
+    color:
+      "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/20 dark:text-teal-300 dark:border-teal-800",
+  },
+  Android: {
+    icon: "logos:android-icon",
     color:
       "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/20 dark:text-teal-300 dark:border-teal-800",
   },
