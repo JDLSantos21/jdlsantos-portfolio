@@ -1,6 +1,9 @@
 ---
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  type?: string;
   showHeader?: boolean;
 }
 import "../../styles/global.css";
@@ -8,17 +11,91 @@ import Header from "@/components/Header.astro";
 import { ClientRouter } from "astro:transitions";
 import DevFloatingAlert from "@/components/DevFloatingAlert.astro";
 import Footer from "@/components/core/Footer.astro";
-const { title, showHeader = true } = Astro.props;
+
+const {
+  title,
+  description = "Jose Armando de los Santos - Desarrollador Full-Stack especializado en React, Node.js y TypeScript. Creo aplicaciones web modernas y APIs escalables.",
+  image = "/assets/profile.webp",
+  type = "website",
+  showHeader = true,
+} = Astro.props;
+
+const siteUrl = "https://jdlsantos.com";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const imageUrl = new URL(image, siteUrl).href;
+
+// Schema.org JSON-LD for Person
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Jose Armando de los Santos Amadis",
+  alternateName: "JDLSantos",
+  url: siteUrl,
+  image: imageUrl,
+  jobTitle: "Desarrollador Full-Stack",
+  description:
+    "Desarrollador de software especializado en React, Node.js y TypeScript",
+  sameAs: [
+    "https://github.com/JDLSantos21",
+    "https://linkedin.com/in/jose-armando-de-los-santos-amadis-689b091b7",
+  ],
+  knowsAbout: [
+    "React",
+    "Node.js",
+    "TypeScript",
+    "Express",
+    "PostgreSQL",
+    "Docker",
+    "React Native",
+  ],
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "Universidad APEC",
+  },
+};
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Jose Armando de los Santos Amadis" />
+    <meta
+      name="keywords"
+      content="Jose Armando de los Santos, JDLSantos, Desarrollador Full-Stack, React, Node.js, TypeScript, Express, PostgreSQL, Desarrollador Web, Santo Domingo, República Dominicana"
+    />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content="JDLSantos - Portfolio" />
+    <meta property="og:locale" content="es_DO" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageUrl} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    <!-- Theme script -->
     <script is:inline>
       const theme = (() => {
         if (
@@ -38,6 +115,8 @@ const { title, showHeader = true } = Astro.props;
 
       document.documentElement.style.colorScheme = theme || "light";
     </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -56,7 +135,6 @@ const { title, showHeader = true } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Modak&family=Numans&display=swap"
       rel="stylesheet"
     />
-    <title>{title}</title>
   </head>
 
   <ClientRouter />
@@ -92,6 +170,5 @@ const { title, showHeader = true } = Astro.props;
         monospace;
     }
   </style>
-
 
 </html>

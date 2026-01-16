@@ -57,13 +57,17 @@ import { skillsData } from "@/data/skills";
       <p
         class="card-content text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-6 relative z-10"
       >
-        +3 Años de experiencia.<span class="text-blue-500">
-          Desarrollador de Software con sólida formación en Ingeniería de
-          Software
-        </span> y experiencia liderando proyectos tecnológicos. He diseñado y desarrollado
-        soluciones web, escritorio y móviles para optimizar procesos empresariales.
-        Apasionado por la innovación, con dominio de tecnologías modernas como TypeScript,
-        React, Node.js, PostgreSQL y más.
+        <span class="font-semibold text-gray-900 dark:text-white"
+          >Desarrollador Full-Stack</span
+        > con
+        <strong class="text-gray-900 dark:text-white"
+          >+3 años de experiencia</strong
+        > construyendo aplicaciones web con <span class="font-semibold"
+          >React</span
+        >, APIs empresariales con <span class="font-semibold"
+          >Node.js/Express</span
+        > y apps móviles con React Native. Especializado en TypeScript y arquitecturas
+        escalables. Ingeniero de Software egresado de UNAPEC.
       </p>
       <div class="card-action relative z-10 flex justify-end">
         <span
@@ -187,7 +191,7 @@ import { skillsData } from "@/data/skills";
 
   <!-- Stack Section -->
   <div
-    class="skills-card section p-6 lg:p-7 max-md:h-[36rem] flex flex-col rounded-3xl shadow-xl col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50/40 to-indigo-50/30 dark:from-gray-900 dark:via-violet-950/30 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-violet-200/40 dark:hover:shadow-violet-900/30 hover:scale-[1.02] transition-all duration-300"
+    class="skills-card section p-6 lg:p-7 max-md:min-h-[40rem] flex flex-col rounded-3xl shadow-xl col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50/40 to-indigo-50/30 dark:from-gray-900 dark:via-violet-950/30 dark:to-indigo-950/20 backdrop-blur bento-card hover:shadow-violet-200/40 dark:hover:shadow-violet-900/30 hover:scale-[1.02] transition-all duration-300"
     data-card-color="purple"
     data-card-delay="0.4"
   >
@@ -212,16 +216,42 @@ import { skillsData } from "@/data/skills";
 
       <!-- Stack highlights compacto -->
       <div class="relative z-10 space-y-4">
+        <!-- Mobile Stack -->
+        <div class="space-y-2">
+          <h4
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide flex items-center gap-2"
+          >
+            <span class="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+            Mobile
+          </h4>
+          <div class="grid grid-cols-2 gap-2">
+            {
+              ["React Native", "Expo", "TypeScript", "Zustand"].map((skill) => {
+                const skillInfo = skillsData[skill];
+                return skillInfo ? (
+                  <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
+                    <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
+                    <span class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">
+                      {skill}
+                    </span>
+                  </div>
+                ) : null;
+              })
+            }
+          </div>
+        </div>
+
         <!-- Frontend Stack -->
         <div class="space-y-2">
           <h4
-            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide"
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide flex items-center gap-2"
           >
+            <span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
             Frontend
           </h4>
           <div class="grid grid-cols-2 gap-2">
             {
-              ["TypeScript", "React", "NextJS", "Tailwind"].map((skill) => {
+              ["React", "NextJS", "Tailwind", "Astro"].map((skill) => {
                 const skillInfo = skillsData[skill];
                 return skillInfo ? (
                   <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
@@ -239,37 +269,44 @@ import { skillsData } from "@/data/skills";
         <!-- Backend Stack -->
         <div class="space-y-2">
           <h4
-            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide"
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide flex items-center gap-2"
           >
+            <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
             Backend
           </h4>
           <div class="grid grid-cols-2 gap-2">
             {
-              ["Node.js", "Express", "MySQL", "PostgreSQL"].map((skill) => {
-                const skillInfo = skillsData[skill];
-                return skillInfo ? (
-                  <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
-                    <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
-                    <span class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">
-                      {skill}
-                    </span>
-                  </div>
-                ) : null;
-              })
+              ["Node.js", "Express", "Prisma ORM", "PostgreSQL"].map(
+                (skill) => {
+                  const skillInfo = skillsData[skill];
+                  return skillInfo ? (
+                    <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
+                      <Icon
+                        name={skillInfo.icon}
+                        class="w-4 h-4 flex-shrink-0"
+                      />
+                      <span class="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">
+                        {skill}
+                      </span>
+                    </div>
+                  ) : null;
+                }
+              )
             }
           </div>
         </div>
 
-        <!-- Tools -->
+        <!-- Infrastructure -->
         <div class="space-y-2">
           <h4
-            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide"
+            class="text-xs font-semibold text-violet-700 dark:text-violet-300 uppercase tracking-wide flex items-center gap-2"
           >
-            Herramientas
+            <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+            Infraestructura
           </h4>
           <div class="grid grid-cols-2 gap-2">
             {
-              ["Git", "Postman", "Vitest", "Playwight"].map((skill) => {
+              ["Docker", "Redis", "Git", "Socket.io"].map((skill) => {
                 const skillInfo = skillsData[skill];
                 return skillInfo ? (
                   <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
@@ -287,23 +324,26 @@ import { skillsData } from "@/data/skills";
         <!-- Stack completo indicator -->
         <div class="text-center pt-2">
           <div
-            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-50 dark:bg-violet-950/30 border border-violet-200/50 dark:border-violet-800/50"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30 border border-violet-200/50 dark:border-violet-800/50"
           >
-            <div class="w-2 h-2 bg-violet-500 rounded-full"></div>
+            <div
+              class="w-2 h-2 bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full animate-pulse"
+            >
+            </div>
             <span
               class="text-xs font-medium text-violet-700 dark:text-violet-300"
             >
-              Desarrollo Full-Stack moderno
+              Clean Architecture & DDD
             </span>
           </div>
         </div>
       </div>
     </div>
-    <!-- Avatar posicionado a la izquierda sin interferir -->
+    <!-- Avatar con animación -->
     <img
-      class="availability-avatar absolute bottom-0 left-0 w-32 h-32 lg:w-36 lg:h-36 opacity-70 pointer-events-none"
+      class="availability-avatar absolute bottom-0 left-0 w-32 h-32 lg:w-36 lg:h-36 opacity-60 pointer-events-none z-0"
       src="/assets/avatar/whi.webp"
-      alt="Avatar disponible"
+      alt="Avatar"
     />
   </div>
 
@@ -416,64 +456,73 @@ import { skillsData } from "@/data/skills";
       Contacto
     </h2>
 
-    <!-- Enlaces compactos en horizontal -->
+    <!-- Botones de contacto mejorados -->
     <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-3">
       <a
         href="mailto:JDLSantos21@hotmail.com"
-        class="contact-item flex items-center gap-3 p-3 rounded-lg bg-white/30 dark:bg-gray-800/20 backdrop-blur-sm hover:bg-white/50 dark:hover:bg-gray-800/30 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md group"
+        class="contact-item group relative flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium text-sm shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
       >
-        <div
-          class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-sm"
+        <Mail className="w-4 h-4" />
+        <span>Email</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <Mail className="w-4 h-4 text-white" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <p
-            class="font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-          >
-            Email
-          </p>
-        </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
 
       <a
         href="https://github.com/jdlsantos21"
         target="_blank"
         rel="noopener noreferrer"
-        class="contact-item flex items-center gap-3 p-3 rounded-lg bg-white/30 dark:bg-gray-800/20 backdrop-blur-sm hover:bg-white/50 dark:hover:bg-gray-800/30 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md group"
+        class="contact-item group relative flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white font-medium text-sm shadow-lg shadow-gray-700/20 hover:shadow-xl hover:shadow-gray-700/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
       >
-        <div
-          class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center shadow-sm"
+        <Icon name="social/github" class="w-4 h-4" />
+        <span>GitHub</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <Icon name="social/github" class="w-4 h-4 text-white" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <p
-            class="font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors"
-          >
-            GitHub
-          </p>
-        </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
 
       <a
         href="https://www.linkedin.com/in/jose-armando-de-los-santos-amadis-689b091b7/"
         target="_blank"
         rel="noopener noreferrer"
-        class="contact-item flex items-center gap-3 p-3 rounded-lg bg-white/30 dark:bg-gray-800/20 backdrop-blur-sm hover:bg-white/50 dark:hover:bg-gray-800/30 transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md group"
+        class="contact-item group relative flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium text-sm shadow-lg shadow-blue-600/20 hover:shadow-xl hover:shadow-blue-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
       >
-        <div
-          class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-sm"
+        <Linkedin className="w-4 h-4" />
+        <span>LinkedIn</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <Linkedin className="w-4 h-4 text-white" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <p
-            class="font-medium text-sm text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-          >
-            LinkedIn
-          </p>
-        </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
     </div>
   </div>

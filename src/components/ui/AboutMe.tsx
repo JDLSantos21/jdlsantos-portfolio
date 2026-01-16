@@ -20,10 +20,11 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { toast, Toaster } from "sonner";
 
 const funFacts = [
-  "Escribí mi primera línea de código a los 16 años",
-  "Amo las peliculas tanto como el código",
+  "Escribí mi primera línea de código a los 19 años",
+  "He desarrollado apps con más de 100 usuarios activos",
   "Mi lenguaje favorito es TypeScript",
-  "Mi IDE favorito es VS Code",
+  "Aplico Clean Architecture en mis proyectos",
+  "Amo las películas tanto como el código",
 ];
 
 const FloatingEmojis = () => {
@@ -178,39 +179,34 @@ const AboutMe: React.FC = () => {
                   <span className="font-semibold text-blue-600 dark:text-blue-400">
                     Jose Armando De Los Santos Amadis
                   </span>
-                  , desde que tengo memoria, he estado fascinado con la
-                  técnología pero en 2017 con 16 años fue cuando descubrí mi
-                  verdadera pasión: el{" "}
+                  . A los 19 años descubrí mi verdadera pasión: el{" "}
                   <span className="font-semibold">desarrollo de software</span>.
                   Desde entonces, he estado inmerso en el mundo del código,
-                  aprendiendo y creciendo como desarrollador.
+                  construyendo soluciones que generan impacto real.
                 </p>
                 <p className="mb-4">
-                  En 2020, tomé la decisión de formalizar mis conocimientos y me
-                  inscribí en la carrera de{" "}
-                  <span className="font-semibold ">Ingeniería de Software</span>{" "}
-                  en la <span className="font-semibold">Universidad APEC</span>.
-                  Esta experiencia académica más que aprender programación me ha
-                  proporcionado una base sólida en{" "}
+                  En 2020, decidí formalizar mis conocimientos y me inscribí en
+                  la carrera de{" "}
+                  <span className="font-semibold">Ingeniería de Software</span>{" "}
+                  en la <span className="font-semibold">Universidad APEC</span>,
+                  donde me gradué en 2024. Esta experiencia me proporcionó una
+                  base sólida en{" "}
                   <span className="italic font-medium text-gray-800 dark:text-gray-300">
-                    principios de ingeniería, metodologías de desarrollo y
-                    gestión de proyectos de software
+                    arquitectura de software, patrones de diseño y metodologías
+                    ágiles
                   </span>
                   .
                 </p>
                 <p className="mb-4">
-                  Entre mis principales logros se encuentra el desarrollo de{" "}
-                  <span className="font-semibold">
-                    aplicaciones web y de escritorio
-                  </span>{" "}
-                  que han incrementado significativamente la productividad
-                  empresarial , así como{" "}
-                  <span className="font-semibold">aplicaciones móviles</span>{" "}
-                  que han optimizado la experiencia del usuario final mediante
-                  la automatización de procesos internos . Me enorgullece haber{" "}
-                  <span className="font-semibold ">liderado proyectos</span> que
-                  trascienden los requisitos técnicos para generar un impacto
-                  real en la vida de los usuarios .
+                  Hoy me especializo en{" "}
+                  <span className="font-semibold">React</span> para aplicaciones
+                  web modernas y{" "}
+                  <span className="font-semibold">Node.js con Express</span>{" "}
+                  para APIs empresariales robustas. También desarrollo apps
+                  móviles nativas con React Native. Mi lenguaje principal es{" "}
+                  <span className="font-semibold">TypeScript</span>, y aplico
+                  Clean Architecture y DDD para crear sistemas escalables y
+                  mantenibles.
                 </p>
               </motion.div>
 
@@ -292,7 +288,46 @@ const AboutMe: React.FC = () => {
                     simplemente charlar sobre tecnología?
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button
+                        className="w-full flex items-center justify-center gap-2 h-12 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-md hover:shadow-lg transition-all"
+                        onClick={sendEmail}
+                      >
+                        <Mail className="h-4 w-4" />
+                        <span>Email</span>
+                      </Button>
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button
+                        className="w-full flex items-center justify-center gap-2 h-12 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white shadow-md hover:shadow-lg transition-all"
+                        onClick={openGithub}
+                      >
+                        <Github className="h-4 w-4" />
+                        <span>GitHub</span>
+                      </Button>
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button
+                        className="w-full flex items-center justify-center gap-2 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all"
+                        onClick={openLinkedin}
+                      >
+                        <Linkedin className="h-4 w-4" />
+                        <span>LinkedIn</span>
+                      </Button>
+                    </motion.div>
+
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -302,57 +337,8 @@ const AboutMe: React.FC = () => {
                         className="w-full flex items-center justify-center gap-2 h-12 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
                         onClick={copyEmail}
                       >
-                        <Mail className="h-4 w-4" />
-                        <span className="hidden sm:inline">Copiar email</span>
-                        <span className="sm:hidden">Email</span>
-                        <Copy className="h-3 w-3" />
-                      </Button>
-                    </motion.div>
-
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        variant="outline"
-                        className="w-full flex items-center justify-center gap-2 h-12 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
-                        onClick={sendEmail}
-                      >
-                        <Send className="h-4 w-4" />
-                        <span className="hidden sm:inline">Enviar email</span>
-                        <span className="sm:hidden">Enviar</span>
-                      </Button>
-                    </motion.div>
-
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        variant="outline"
-                        className="w-full flex items-center justify-center gap-2 h-12 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
-                        onClick={openGithub}
-                      >
-                        <Github className="h-4 w-4" />
-                        <span className="hidden sm:inline">GitHub</span>
-                        <span className="sm:hidden">GitHub</span>
-                        <ExternalLink className="h-3 w-3" />
-                      </Button>
-                    </motion.div>
-
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        variant="outline"
-                        className="w-full flex items-center justify-center gap-2 h-12 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
-                        onClick={openLinkedin}
-                      >
-                        <Linkedin className="h-4 w-4" />
-                        <span className="hidden sm:inline">LinkedIn</span>
-                        <span className="sm:hidden">LinkedIn</span>
-                        <ExternalLink className="h-3 w-3" />
+                        <Copy className="h-4 w-4" />
+                        <span>Copiar Email</span>
                       </Button>
                     </motion.div>
                   </div>

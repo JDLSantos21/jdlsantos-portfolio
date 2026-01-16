@@ -20,8 +20,6 @@ playstore_url: "https://play.google.com/store/apps/details?id=com.jdlsantos.camp
 featured: true
 ---
 
-## Introducción
-
 **Campus UNAPEC** es una iniciativa personal para transformar la manera en que los estudiantes de la Universidad APEC interactúan con sus servicios académicos. Desarrollada como una aplicación nativa moderna, ofrece una alternativa rápida, intuitiva y estéticamente agradable a la plataforma web oficial.
 
 Actualmente en fase **Beta Cerrada**, la aplicación ya cuenta con más de **125 usuarios** activos que validan diariamente la utilidad de esta solución.
@@ -30,7 +28,7 @@ Actualmente en fase **Beta Cerrada**, la aplicación ya cuenta con más de **125
 
 ## El Problema
 
-Los estudiantes enfrentan desafíos diarios al usar la plataforma web oficial ("Banner"):
+Los estudiantes enfrentan desafíos diarios al usar la plataforma web oficial Banner:
 
 - **Experiencia móvil deficiente:** Aunque es semi-responsive, la navegación es complicada y difícil de manipular desde un teléfono.
 - **Sesiones expiradas:** Necesidad constante de volver a iniciar sesión.

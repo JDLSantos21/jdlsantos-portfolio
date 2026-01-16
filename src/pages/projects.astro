@@ -11,7 +11,10 @@ const allProjects = await getCollection("projects");
 const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
 ---
 
-<Layout title="Proyectos - JDLSantos">
+<Layout
+  title="Proyectos | Jose Armando de los Santos - Desarrollador Full-Stack"
+  description="Explora los proyectos de Jose Armando de los Santos: aplicaciones web con React, APIs con Node.js/Express, apps móviles con React Native y más."
+>
   <main class="relative min-h-[calc(100vh-4rem)] md:mt-14 lg:mt-20">
     <Container>
       <!-- Hero Section -->
