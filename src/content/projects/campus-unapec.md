@@ -22,7 +22,7 @@ featured: true
 
 **Campus UNAPEC** es una iniciativa personal para transformar la manera en que los estudiantes de la Universidad APEC interactúan con sus servicios académicos. Desarrollada como una aplicación nativa moderna, ofrece una alternativa rápida, intuitiva y estéticamente agradable a la plataforma web oficial.
 
-Actualmente la app se encuentra en producción, la aplicación ya cuenta con más de **400 usuarios** activos que validan diariamente la utilidad de esta solución.
+Actualmente la app se encuentra en producción, la aplicación ya cuenta con más de **500 usuarios** activos que validan diariamente la utilidad de esta solución.
 
 ---
 
