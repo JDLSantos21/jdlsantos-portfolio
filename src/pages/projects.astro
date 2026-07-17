@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/core/Container.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
-import { SkillName } from "@/data/skills";
+import type { SkillName } from "@/data/skills";
 import SkillBadge from "@/components/ui/SkillBadge.astro";
 
 const allProjects = await getCollection("projects");
@@ -55,23 +55,23 @@ const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             projects.map((project) => {
-              const { slug, data } = project;
+              const { id, data } = project;
               const { title, shortDescription, skills, image } = data;
 
               return (
                 <a
-                  href={`/projects/${slug}`}
+                  href={`/projects/${id}`}
                   class="relative block h-full group"
                   aria-label={`Visita ${title}`}
                 >
                   <div
                     class="h-full flex flex-col transition-all duration-300 overflow-hidden bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl dark:shadow-gray-900/20 hover:shadow-blue-200/20 dark:hover:shadow-blue-900/20 border border-gray-100 dark:border-gray-800"
-                    transition:name={`${slug}-card`}
+                    transition:name={`${id}-card`}
                   >
                     {/* Contenedor de imagen con relación de aspecto 16:9 */}
                     <div class="relative flex items-center w-full p-4 aspect-video bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
                       <img
-                        transition:name={`${slug}-image`}
+                        transition:name={`${id}-image`}
                         src={`${image}.webp`}
                         alt={title}
                         class="object-contain w-full h-full mx-auto transition-transform duration-300 rounded-lg group-hover:scale-105"
@@ -91,7 +91,7 @@ const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
                         {shortDescription}
                       </p>
                       <div class="flex flex-wrap gap-2">
-                        {skills.slice(0, 4).map((skill: SkillName) => (
+                        {(skills as SkillName[]).slice(0, 4).map((skill) => (
                           <SkillBadge skill={skill} size="sm" />
                         ))}
                         {skills.length > 4 && (

@@ -227,7 +227,7 @@ import { skillsData } from "@/data/skills";
           <div class="grid grid-cols-2 gap-2">
             {
               ["React Native", "Expo", "TypeScript", "Zustand"].map((skill) => {
-                const skillInfo = skillsData[skill];
+                const skillInfo = skillsData[skill as keyof typeof skillsData];
                 return skillInfo ? (
                   <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
                     <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
@@ -252,7 +252,7 @@ import { skillsData } from "@/data/skills";
           <div class="grid grid-cols-2 gap-2">
             {
               ["React", "NextJS", "Tailwind", "Astro"].map((skill) => {
-                const skillInfo = skillsData[skill];
+                const skillInfo = skillsData[skill as keyof typeof skillsData];
                 return skillInfo ? (
                   <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
                     <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />
@@ -278,7 +278,7 @@ import { skillsData } from "@/data/skills";
             {
               ["Node.js", "Express", "Prisma ORM", "PostgreSQL"].map(
                 (skill) => {
-                  const skillInfo = skillsData[skill];
+                  const skillInfo = skillsData[skill as keyof typeof skillsData];
                   return skillInfo ? (
                     <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
                       <Icon
@@ -307,7 +307,7 @@ import { skillsData } from "@/data/skills";
           <div class="grid grid-cols-2 gap-2">
             {
               ["Docker", "Redis", "Git", "Socket.io"].map((skill) => {
-                const skillInfo = skillsData[skill];
+                const skillInfo = skillsData[skill as keyof typeof skillsData];
                 return skillInfo ? (
                   <div class="flex items-center gap-2 p-2 rounded-lg bg-white/40 dark:bg-gray-800/20 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 hover:bg-white/60 dark:hover:bg-gray-800/40 transition-all duration-200">
                     <Icon name={skillInfo.icon} class="w-4 h-4 flex-shrink-0" />

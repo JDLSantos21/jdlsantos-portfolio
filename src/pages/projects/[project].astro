@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import SkillBadge from "@/components/ui/SkillBadge.astro";
-import { skillsData, type SkillName } from "@/data/skills";
+import type { SkillName } from "@/data/skills";
 import { Icon } from "astro-icon/components";
 import { getProjectTypeInfo, getStatusInfo } from "@/utils/helpers";
 import ThemeToggle from "@/components/ThemeToggle.astro";
@@ -12,15 +12,15 @@ export async function getStaticPaths() {
   const projects = await getCollection("projects");
 
   return projects.map((project) => ({
-    params: { project: project.slug },
+    params: { project: project.id },
     props: { project },
   }));
 }
 
 // Recuperar el proyecto de las props
 const { project } = Astro.props;
-const { Content } = await project.render();
-const imagePath = `/assets/projects/${project.slug}.webp`;
+const { Content } = await render(project);
+const imagePath = `/assets/projects/${project.id}.webp`;
 
 const typeInfo = getProjectTypeInfo(project.data.type || "web");
 const statusInfo = getStatusInfo(project.data.status || "completed");
@@ -72,7 +72,7 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
                 alt={project.data.title || "Imagen del proyecto"}
                 class="w-full h-full transition-transform duration-700 group-hover:scale-105"
                 onload="document.getElementById('loading-placeholder').style.display = 'none'"
-                transition:name={`${project.slug}-image`}
+                transition:name={`${project.id}-image`}
               />
 
               <!-- Overlay gradient -->
@@ -205,7 +205,7 @@ const statusInfo = getStatusInfo(project.data.status || "completed");
             </h3>
             <div class="flex flex-wrap gap-2">
               {
-                project.data.skills.map((skill: SkillName) => (
+                (project.data.skills as SkillName[]).map((skill) => (
                   <SkillBadge skill={skill} size="sm" />
                 ))
               }

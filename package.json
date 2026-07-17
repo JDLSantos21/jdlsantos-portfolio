@@ -14,9 +14,9 @@
     "port:close:4321": "pwsh -File ./scripts/port-management.ps1 -Port 4321"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/react": "^6.0.1",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/tailwind": "^6.0.2",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.14",
@@ -25,7 +25,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
-    "astro": "^5.12.8",
+    "astro": "^7.1.0",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

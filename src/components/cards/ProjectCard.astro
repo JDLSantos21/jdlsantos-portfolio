@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 import SkillBadge from "../ui/SkillBadge.astro";
-import { SkillName } from "@/data/skills";
+import type { SkillName } from "@/data/skills";
 
-const { href, imgSrc, title, slug, description, skills } = Astro.props;
+const { href, imgSrc, title, id, description, skills } = Astro.props;
 
 const skillsList = skills.slice(0, 3) || [];
 const isLongSkillsList = skills.length > 3;
@@ -12,7 +12,7 @@ const isLongSkillsList = skills.length > 3;
 <a href={href} class="block w-full">
   <div
     class="project-card rounded-md group bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/10 dark:from-slate-900/95 dark:via-blue-950/30 dark:to-indigo-950/20 backdrop-blur shadow-md relative overflow-hidden w-full h-full"
-    transition:name={`${slug}-card`}
+    transition:name={`${id}-card`}
   >
     <div
       class="absolute -translate-x-5 group-hover:translate-x-0 rounded-full p-3 bg-white dark:bg-gray-800 right-3 top-3 opacity-0 transition-all duration-300 group-hover:opacity-100 z-10"
@@ -61,7 +61,7 @@ const isLongSkillsList = skills.length > 3;
           alt={title}
           loading="eager"
           decoding="sync"
-          transition:name={`${slug}-image`}
+          transition:name={`${id}-image`}
         />
       </picture>
     </div>

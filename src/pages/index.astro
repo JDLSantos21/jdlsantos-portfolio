@@ -40,15 +40,15 @@ const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
         >
           {
             projects.slice(0, 6).map((project) => {
-              const { slug, data } = project;
+              const { id, data } = project;
               const { title, shortDescription, image } = data;
 
               return (
                 <ProjectCard
                   title={title}
                   imgSrc={image}
-                  slug={slug}
-                  href={`/projects/${slug}`}
+                  id={id}
+                  href={`/projects/${id}`}
                   description={shortDescription}
                   skills={data.skills || []}
                 />
