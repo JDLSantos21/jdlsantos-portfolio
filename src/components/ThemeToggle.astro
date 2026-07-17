@@ -31,26 +31,14 @@ import { Icon } from "astro-icon/components";
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
   }
 
-  function setupThemeToggles() {
-    // Seleccionar TODOS los botones de toggle por clase
-    const themeToggles = document.querySelectorAll(".theme-toggle");
-
-    themeToggles.forEach((toggle) => {
-      // Clonar y reemplazar para eliminar event listeners antiguos
-      const newToggle = toggle.cloneNode(true);
-      if (toggle.parentNode) {
-        toggle.parentNode.replaceChild(newToggle, toggle);
+  // Register theme toggle click listener globally on document once
+  if (!(window as any).__themeToggleRegistered) {
+    (window as any).__themeToggleRegistered = true;
+    document.addEventListener("click", (event) => {
+      const toggleButton = (event.target as HTMLElement).closest(".theme-toggle");
+      if (toggleButton) {
+        toggleTheme();
       }
-
-      // Agregar evento al nuevo botón
-      newToggle.addEventListener("click", toggleTheme);
     });
   }
-
-  // Ejecutar inicialmente
-  document.addEventListener("DOMContentLoaded", setupThemeToggles);
-
-  // Ejecutar después de cada transición de página
-  document.addEventListener("astro:page-load", setupThemeToggles);
-  document.addEventListener("astro:after-swap", setupThemeToggles);
 </script>

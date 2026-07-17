@@ -33,22 +33,31 @@ import Layout from "@/layouts/Layout.astro";
 
 <script>
   import gsap from "gsap";
-  const avatar = document.querySelector(".avatar");
 
-  //animate avatar and animate infinity wiggle
-  gsap.fromTo(
-    avatar,
-    { y: -20, opacity: 0, rotate: -15 },
-    { duration: 1, y: 0, opacity: 1, ease: "bounce" }
-  );
+  function animate404() {
+    const avatar = document.querySelector(".avatar");
+    if (!avatar) return;
 
-  //quiero una animacion que rote de lado a lado de manera suave e infinita.
-  gsap.to(avatar, {
-    rotation: 15,
-    repeat: -1,
-    duration: 2,
-    ease: "none",
-    yoyo: true,
-    transformOrigin: "center",
-  });
+    // Detener cualquier animación previa
+    gsap.killTweensOf(avatar);
+
+    // Animar avatar
+    gsap.fromTo(
+      avatar,
+      { y: -20, opacity: 0, rotate: -15 },
+      { duration: 1, y: 0, opacity: 1, ease: "bounce" }
+    );
+
+    // Animación de balanceo infinito
+    gsap.to(avatar, {
+      rotation: 15,
+      repeat: -1,
+      duration: 2,
+      ease: "none",
+      yoyo: true,
+      transformOrigin: "center",
+    });
+  }
+
+  document.addEventListener("astro:page-load", animate404);
 </script>

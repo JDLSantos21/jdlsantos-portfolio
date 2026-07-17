@@ -177,3 +177,45 @@ const projects = allProjects.toSorted((a, b) => b.data.id - a.data.id);
     overflow: hidden;
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+
+  function animateProjectsPage() {
+    const sectionTitle = document.querySelector(".relative.z-10.mb-12");
+    const cards = document.querySelectorAll(".grid > a");
+
+    // Detener cualquier animación previa para evitar duplicados en View Transitions
+    if (sectionTitle) gsap.killTweensOf(sectionTitle);
+    if (cards.length > 0) gsap.killTweensOf(cards);
+
+    // Estado inicial
+    if (sectionTitle) gsap.set(sectionTitle, { opacity: 0, y: -20 });
+    if (cards.length > 0) gsap.set(cards, { opacity: 0, y: 40, scale: 0.98 });
+
+    // Animación de entrada
+    if (sectionTitle) {
+      gsap.to(sectionTitle, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    }
+
+    if (cards.length > 0) {
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power2.out",
+        delay: 0.1,
+      });
+    }
+  }
+
+  // Inicializar en la carga y navegación de Astro
+  document.addEventListener("astro:page-load", animateProjectsPage);
+</script>

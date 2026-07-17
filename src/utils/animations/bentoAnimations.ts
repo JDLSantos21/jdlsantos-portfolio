@@ -327,11 +327,5 @@ function animateBentoSection() {
   animateSpecificElements();
 }
 
-// Iniciar animaciones en la carga inicial
-document.addEventListener("DOMContentLoaded", animateBentoSection);
-
-// Para View Transitions de Astro
-// document.addEventListener("astro:page-load", animateBentoSection);
-
-// Respaldo adicional para navegación y cambios en DOM
-// document.addEventListener("astro:after-swap", animateBentoSection);
+// Iniciar animaciones en la carga y navegación de Astro
+document.addEventListener("astro:page-load", animateBentoSection);

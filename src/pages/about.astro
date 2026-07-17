@@ -45,7 +45,10 @@ const randomDuration = () => `${Math.random() * 5 + 3}s`;
     position: absolute;
     font-size: 2rem;
     animation: float 10s ease-in-out infinite;
-    opacity: 0.8;
+    opacity: 0.15;
+    z-index: -10;
+    pointer-events: none;
+    user-select: none;
   }
 
   @keyframes float {

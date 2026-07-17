@@ -110,6 +110,16 @@ import { Icon } from "astro-icon/components";
     const actionButtons = document.getElementById("action-buttons");
     const scrollIndicator = document.getElementById("scroll-indicator");
 
+    // Detener animaciones previas para evitar conflictos
+    gsap.killTweensOf([
+      profileImage,
+      availabilityBadge,
+      welcomeTitle,
+      welcomeDescription,
+      actionButtons,
+      scrollIndicator,
+    ]);
+
     // Configuración inicial
     gsap.set(
       [
@@ -154,9 +164,6 @@ import { Icon } from "astro-icon/components";
       );
   }
 
-  // Ejecutar las animaciones cuando el DOM esté listo
-  document.addEventListener("DOMContentLoaded", animateWelcome);
-
-  // Ejecutar cuando Astro complete una transición de página
+  // Ejecutar cuando Astro complete la carga o transición de la página
   document.addEventListener("astro:page-load", animateWelcome);
 </script>

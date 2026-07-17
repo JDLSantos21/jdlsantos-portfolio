@@ -60,10 +60,7 @@ import Container from "@/components/core/Container.astro";
   <script>
     import { setupContactAnimations } from "@/utils/animations/contactAnimations.ts";
 
-    // Inicializar animaciones cuando el DOM esté listo
-    document.addEventListener("DOMContentLoaded", setupContactAnimations);
-
-    // Volver a inicializar después de transiciones de página de Astro
+    // Inicializar y volver a ejecutar después de cada carga/transición de página en Astro
     document.addEventListener("astro:page-load", setupContactAnimations);
   </script>
 </Layout>

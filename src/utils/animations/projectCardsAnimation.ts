@@ -87,9 +87,6 @@ function setupAnimations() {
   });
 }
 
-setupInitialStates();
-setupAnimations();
-
 document.addEventListener("astro:page-load", () => {
   setupInitialStates();
   setupAnimations();
